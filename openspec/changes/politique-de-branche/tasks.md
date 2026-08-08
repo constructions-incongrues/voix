@@ -2,20 +2,20 @@
 
 Quatre champs, une requête. Ces valeurs vivent hors du dépôt et n'y laissent aucune trace : leur motif est écrit dans `adr/0003` D1–D3, et la tâche 4.2 les reprend au README.
 
-- [ ] 1.1 Passer `allow_merge_commit` et `allow_rebase_merge` à `false`, `allow_squash_merge` restant à `true` — une seule méthode offerte, donc une seule employée
-- [ ] 1.2 Passer `delete_branch_on_merge` à `true` — la suppression cesse d'être un geste dont il faut se souvenir
-- [ ] 1.3 Passer `squash_merge_commit_title` à `PR_TITLE` — le sujet atteignant `main` cesse de dépendre du nombre de commits de la branche
-- [ ] 1.4 Vérifier que `squash_merge_commit_message` vaut toujours `COMMIT_MESSAGES` — le corps conserve les messages écrasés, et un pied de page `BREAKING CHANGE:` intermédiaire y survit
-- [ ] 1.5 Contrôler le résultat : `gh api repos/:owner/:repo` rend les cinq valeurs attendues
+- [x] 1.1 Passer `allow_merge_commit` et `allow_rebase_merge` à `false`, `allow_squash_merge` restant à `true` — une seule méthode offerte, donc une seule employée
+- [x] 1.2 Passer `delete_branch_on_merge` à `true` — la suppression cesse d'être un geste dont il faut se souvenir
+- [x] 1.3 Passer `squash_merge_commit_title` à `PR_TITLE` — le sujet atteignant `main` cesse de dépendre du nombre de commits de la branche
+- [x] 1.4 Vérifier que `squash_merge_commit_message` vaut toujours `COMMIT_MESSAGES` — le corps conserve les messages écrasés, et un pied de page `BREAKING CHANGE:` intermédiaire y survit
+- [x] 1.5 Contrôler le résultat : `gh api repos/:owner/:repo` rend les cinq valeurs attendues
 
 ## 2. Nettoyer les branches orphelines
 
 Trois branches portées par des demandes déjà fusionnées subsistent sur le distant, `delete_branch_on_merge` ayant été à `false`. La tâche 1.2 empêche les suivantes ; celle-ci solde les existantes.
 
-- [ ] 2.1 Supprimer `origin/tritri/nanopm-product-934146` (demande #1, fusionnée)
-- [ ] 2.2 Supprimer `origin/tritri/conventional-commits` (demande #2, fusionnée)
-- [ ] 2.3 Supprimer `origin/tritri/release-please` (demande #3, fusionnée)
-- [ ] 2.4 Contrôler qu'aucune orpheline ne subsiste, en croisant les demandes fusionnées et les branches distantes — **et non par `git branch -r --merged`**, qui sous écrasement ne retourne jamais rien puisque la branche fusionnée n'est jamais un ancêtre de `main`
+- [x] 2.1 Supprimer `origin/tritri/nanopm-product-934146` (demande #1, fusionnée)
+- [x] 2.2 Supprimer `origin/tritri/conventional-commits` (demande #2, fusionnée)
+- [x] 2.3 Supprimer `origin/tritri/release-please` (demande #3, fusionnée)
+- [x] 2.4 Contrôler qu'aucune orpheline ne subsiste, en croisant les demandes fusionnées et les branches distantes — **et non par `git branch -r --merged`**, qui sous écrasement ne retourne jamais rien puisque la branche fusionnée n'est jamais un ancêtre de `main`
 
 ## 3. Sentinelle de contributeurs
 
@@ -43,11 +43,11 @@ Rend mécanique le déclencheur d'`adr/0003` D4 : sans elle, « on armera la pro
 
 Les critères de confirmation d'`adr/0003`, rejoués une fois l'ensemble posé.
 
-- [ ] 6.1 Méthode unique — les cinq champs de forge ont les valeurs attendues
-- [ ] 6.2 Linéarité — `git log --merges --oneline` sur `main` ne retourne aucune ligne
-- [ ] 6.3 Aucune branche orpheline — le croisement demandes fusionnées / branches distantes est vide
-- [ ] 6.4 Sentinelle armée — sur un dépôt simulé à deux contributeurs hors robots et sans protection, le workflow échoue
-- [ ] 6.5 Titres conformes — relire les titres des demandes fusionnées depuis l'adoption, et compter les non conformes
+- [x] 6.1 Méthode unique — les cinq champs de forge ont les valeurs attendues
+- [x] 6.2 Linéarité — `git log --merges --oneline` sur `main` ne retourne aucune ligne
+- [x] 6.3 Aucune branche orpheline — le croisement demandes fusionnées / branches distantes est vide
+- [x] 6.4 Sentinelle armée — sur un dépôt simulé à deux contributeurs hors robots et sans protection, le workflow échoue
+- [x] 6.5 Titres conformes — relire les titres des demandes fusionnées depuis l'adoption, et compter les non conformes
 
 ## 7. Ce qui n'est pas fait, et pourquoi
 
