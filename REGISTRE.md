@@ -86,6 +86,23 @@ Ces débats sont instruits. Ils ne se rouvrent que sur un argument neuf portant 
 
 ---
 
+## Outillage — hors registre, et pourquoi
+
+`.agents/skills/` contient de l'outillage, pas des voix. Ces skills ne sont pas inscrites ici et ne le seront pas : aucune ne pose de question disjointe, ne laisse de trace, ni n'a d'apport mesuré contre le défaut. Les quatre conditions d'admission ne s'y appliquent pas — elles sont écrites pour des voix critiques.
+
+Mais l'outillage n'a pas droit à un passe-droit, et c'est la raison d'être de cette section. Ce dépôt existe parce qu'une skill installée apporte un cadre que rien ne conteste. Une skill posée là « parce que c'est de l'outillage » est exactement le geste qu'il reproche aux autres.
+
+**Règle : une skill n'entre dans `.agents/skills/` que par décision, jamais par effet de bord d'une installation.** Ce qu'elle prescrit sur la façon de travailler doit être voulu.
+
+| Skill | Statut | Motif |
+|---|---|---|
+| `architectural-decision-records` | gardée | Fournit des gabarits d'ADR pour l'artefact `adr` du schéma. Elle apporte une capacité et ne prescrit rien sur la manière de travailler. |
+| `openspec-git-discipline` | **retirée** | Prescrit un flux de travail — *« tout changement d'état doit passer par `main` avant que la phase suivante n'en dépende »*. Ce dépôt n'a jamais tranché sa politique de branches ; il a poussé quarante commits en direct sur `main`. Adopter ce flux est une décision à prendre, pas un défaut à hériter en installant un schéma. |
+
+Le second cas est le plus instructif : la skill était déclarée par `skills.txt` du schéma, donc installée par le guide sans que personne ne l'ait choisie. C'est ainsi qu'une pratique arrive sans argument.
+
+---
+
 ## Trace
 
 Toute voix qui intervient laisse dans le fichier de travail :

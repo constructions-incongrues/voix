@@ -1,4 +1,4 @@
-schema: spec-driven
+schema: spec-driven-with-adr
 
 # Project context (optional)
 # This is shown to AI when creating artifacts.
@@ -18,3 +18,10 @@ schema: spec-driven
 #       - Always include a "Non-goals" section
 #     tasks:
 #       - Break tasks into chunks of max 2 hours
+
+rules:
+  proposal: []
+  specs: []
+  design: []
+  adr: []
+  tasks: []
