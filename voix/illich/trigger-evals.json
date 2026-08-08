@@ -1,0 +1,23 @@
+[
+  {"query": "on veut ajouter Kubernetes pour l'orchestration, l'équipe fait 4 personnes — qu'est-ce qu'Illich dirait du seuil de contre-productivité là-dessus", "should_trigger": true},
+  {"query": "this CI pipeline is supposed to save us time but everyone spends their morning babysitting it. run the illich calculation on it", "should_trigger": true},
+  {"query": "calcule le coût réel de notre stack d'observabilité : temps de config, de maintenance, et ce qu'on paie pour", "should_trigger": true},
+  {"query": "the eng review says we should automate the release process. i want the illichian counterpoint before i agree", "should_trigger": true},
+  {"query": "est-ce que ce framework est encore un outil convivial ou est-ce que plus personne dans l'équipe ne peut le réparer", "should_trigger": true},
+  {"query": "bring in illich on whether adding an AI code assistant actually makes this team faster", "should_trigger": true},
+  {"query": "notre process de code review a été créé pour régler un problème de qualité et maintenant c'est lui le goulot — voix d'Illich là-dessus", "should_trigger": true},
+  {"query": "we're standardizing on an internal platform so nobody has to touch infra again. what's the radical monopoly argument against that", "should_trigger": true},
+  {"query": "la revue CEO me dit que ça va scaler. je veux savoir à partir de quel seuil ça s'inverse", "should_trigger": true},
+  {"query": "j'ai passé plus de temps à configurer cet outil de productivité qu'il ne m'a jamais fait gagner — fais le calcul proprement", "should_trigger": true},
+
+  {"query": "peux-tu m'expliquer ce qu'Ivan Illich entend par convivialité ? c'est pour un exposé, il me faut un résumé neutre", "should_trigger": false},
+  {"query": "summarize Deschooling Society in three bullet points for a reading group", "should_trigger": false},
+  {"query": "on signe avec un prestataire qui prend 15% de la marge — est-ce que le deal est honnête ?", "should_trigger": false},
+  {"query": "notre pitch parle d'authenticité et de communauté, est-ce que c'est du vent ?", "should_trigger": false},
+  {"query": "on impose un rate limit à 100 req/min — qui peut contester cette décision et comment ?", "should_trigger": false},
+  {"query": "combien de travail non payé ce plan suppose-t-il de la part des mainteneurs open source ?", "should_trigger": false},
+  {"query": "debug this segfault in the parser, it crashes on empty input", "should_trigger": false},
+  {"query": "renomme cette fonction et mets à jour les appels", "should_trigger": false},
+  {"query": "prépare ma déclaration de TVA du trimestre à partir du FEC", "should_trigger": false},
+  {"query": "quelle est la différence entre iatrogenèse clinique et iatrogenèse sociale chez Illich ? question d'histoire des idées", "should_trigger": false}
+]

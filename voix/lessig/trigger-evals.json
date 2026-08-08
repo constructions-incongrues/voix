@@ -1,0 +1,23 @@
+[
+  {"query": "on va bloquer les comptes qui dépassent 100 requêtes/minute — voix de Lessig sur cette décision", "should_trigger": true},
+  {"query": "we're changing the default so telemetry is opt-out instead of opt-in. what would lessig say about that as a regulation", "should_trigger": true},
+  {"query": "notre système de modération supprime automatiquement, sans notification. est-ce qu'on a créé une sanction sans procès ?", "should_trigger": true},
+  {"query": "run the four modalities analysis on our anti-abuse rate limiter — law, norms, market, architecture", "should_trigger": true},
+  {"query": "le code fait loi ici ? on rend l'export de données impossible dans l'UI mais les CGU disent que c'est permis", "should_trigger": true},
+  {"query": "la revue eng propose de régler le problème de spam en verrouillant la fonctionnalité. je veux la contre-analyse de Lessig avant de valider", "should_trigger": true},
+  {"query": "who can appeal this validation rule? it blocks a legitimate case and there's no override path", "should_trigger": true},
+  {"query": "on ajoute un dark pattern sur le désabonnement — dis-moi ce que ça régule et pour qui", "should_trigger": true},
+  {"query": "bring in lessig: our SDK silently drops requests from unsupported clients, no error, no notice", "should_trigger": true},
+  {"query": "est-ce qu'on légifère quand on choisit ce défaut de configuration pour tous nos utilisateurs ?", "should_trigger": true},
+
+  {"query": "explique-moi la thèse « code is law » de Lessig, c'est pour un cours de droit du numérique, résumé neutre", "should_trigger": false},
+  {"query": "what licence should i pick for my repo, MIT or Apache 2.0?", "should_trigger": false},
+  {"query": "summarize Free Culture and the origins of Creative Commons for a blog post", "should_trigger": false},
+  {"query": "notre outil de CI nous fait-il vraiment gagner du temps une fois la maintenance comptée ?", "should_trigger": false},
+  {"query": "le contrat prévoit 20% de royalties recoupables — est-ce que c'est un bon deal pour l'auteur ?", "should_trigger": false},
+  {"query": "notre pitch vend de l'authenticité, est-ce que ce n'est pas juste du spectacle ?", "should_trigger": false},
+  {"query": "quelles règles de gouvernance pour ce projet open source partagé entre trois entreprises ?", "should_trigger": false},
+  {"query": "corrige ce test qui échoue par intermittence sur la CI", "should_trigger": false},
+  {"query": "ajoute un index sur la colonne created_at, les requêtes sont lentes", "should_trigger": false},
+  {"query": "où en est le financement de la vie politique américaine ? je m'intéresse aux travaux de Lessig sur la corruption", "should_trigger": false}
+]

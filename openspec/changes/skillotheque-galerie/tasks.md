@@ -13,22 +13,22 @@
 
 ## 3. Lot 1 — Illich
 
-- [ ] 3.1 Écrire `voix/illich/SKILL.md` : question (seuil de contre-productivité et convivialité), compétence (le calcul de vitesse généralisée, appliqué à un outil qui promet du gain de temps), trace (un nombre + un oui/non sur la réparabilité par l'usager)
-- [ ] 3.2 Rédiger sa section biographique — dont la récupération de la déscolarisation par la droite libertarienne, nommée et non défendue
-- [ ] 3.3 Écrire ses evals de déclenchement sur le modèle de `guy-debord-workspace/optimizer/`
+- [x] 3.1 Écrire `voix/illich/SKILL.md` : question (seuil de contre-productivité et convivialité), compétence (le calcul de vitesse généralisée, appliqué à un outil qui promet du gain de temps), trace (un nombre + un oui/non sur la réparabilité par l'usager)
+- [x] 3.2 Rédiger sa section biographique — dont la récupération de la déscolarisation par la droite libertarienne, nommée et non défendue
+- [x] 3.3 Écrire ses evals de déclenchement sur le modèle de `guy-debord-workspace/optimizer/`
 
 ## 4. Lot 1 — Lessig
 
-- [ ] 4.1 Écrire `voix/lessig/SKILL.md` sur le seul axe *code is law* : les quatre modalités (loi, norme, prix, architecture) et la question du recours. Couper explicitement *free culture* (doublon Ostrom) et *dependence corruption* (doublon Albini)
-- [ ] 4.2 Déclarer sa position réformiste dans le fichier, avec la mention qu'elle est peut-être ce qui permet au cadre de durer
-- [ ] 4.3 Rédiger sa section biographique : défense publique en 2019 des dons anonymes d'Epstein au MIT Media Lab, plainte en diffamation contre le *New York Times* retirée — nommées, non défendues
-- [ ] 4.4 Appliquer la contrainte « personne vivante » : raisonnement depuis l'œuvre publiée uniquement
-- [ ] 4.5 Écrire ses evals de déclenchement
+- [x] 4.1 Écrire `voix/lessig/SKILL.md` sur le seul axe *code is law* : les quatre modalités (loi, norme, prix, architecture) et la question du recours. Couper explicitement *free culture* (doublon Ostrom) et *dependence corruption* (doublon Albini)
+- [x] 4.2 Déclarer sa position réformiste dans le fichier, avec la mention qu'elle est peut-être ce qui permet au cadre de durer
+- [x] 4.3 Rédiger sa section biographique : défense publique en 2019 des dons anonymes d'Epstein au MIT Media Lab, plainte en diffamation contre le *New York Times* retirée — nommées, non défendues
+- [x] 4.4 Appliquer la contrainte « personne vivante » : raisonnement depuis l'œuvre publiée uniquement
+- [x] 4.5 Écrire ses evals de déclenchement
 
 ## 5. Trace
 
-- [ ] 5.1 Ajouter à chaque voix sa règle de marqueur `skillotheque: <voix> — <coût> — <porteur>`, dans la syntaxe de commentaire de l'hôte
-- [ ] 5.2 Vérifier `grep -rn "skillotheque:"` sur un projet d'essai : l'inventaire sort complet, sans outil
+- [x] 5.1 Ajouter à chaque voix sa règle de marqueur `skillotheque: <voix> — <coût> — <porteur>`, dans la syntaxe de commentaire de l'hôte
+- [x] 5.2 Vérifier `grep -rn "skillotheque:"` sur un projet d'essai : l'inventaire sort complet, sans outil
 
 ## 6. Validation — point d'arrêt du changement
 
