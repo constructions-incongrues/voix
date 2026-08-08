@@ -7,15 +7,21 @@
 
 ## 2. Appliquer
 
-- [ ] 2.1 Commiter les tâches du groupe 1 en respectant la convention — ce commit est le premier conforme et sert de cas d'usage : `docs(specs): la convention de commit entre au dépôt par décision`
-- [ ] 2.2 Vérifier que le commit de 2.1 passe le contrôle de conformité de l'ADR : `git log --format='%s' -1 | grep -E '^(feat|fix|docs|refactor|test|chore)(\([a-z]+\))?!?: '`
+- [x] 2.1 Commiter les tâches du groupe 1 en respectant la convention — ce commit est le premier conforme et sert de cas d'usage : `docs(specs): la convention de commit entre au dépôt par décision`
+- [x] 2.2 Vérifier que le commit de 2.1 passe le contrôle de conformité de l'ADR : `git log --format='%s' -1 | grep -E '^(feat|fix|docs|refactor|test|chore)(\([a-z]+\))?!?: '`
 
 ## 3. Trancher les questions laissées ouvertes par le changement
 
-- [ ] 3.1 Décider si le correctif de la sentinelle déjà parti en PR #1 est renommé avant fusion — il précède l'adoption, donc rien ne l'y oblige ; le laisser tel quel est cohérent avec la tâche 1.4
-- [ ] 3.2 Décider du niveau de version que ce changement lui-même déclenche. Le cas est ambigu selon les règles du dépôt : la convention ne change aucune voix (donc pas majeure) et ne change pas ce que le dépôt *fait* (donc pas clairement mineure), mais elle n'est pas non plus « une formulation corrigée »
+- [x] 3.1 Décider si le correctif de la sentinelle déjà parti en PR #1 est renommé avant fusion — **tranché : non.** Le commit `17b60e4` précède l'adoption, et la tâche 1.4 pose qu'un sujet sans type est *antérieur* et non *invalide*. Le renommer contredirait la règle le jour même où elle entre
+- [x] 3.2 Décider du niveau de version que ce changement lui-même déclenche — **tranché : corrective.** Rien d'expédié ne change : ni voix, ni dispositif, ni déclencheur ; seule change la façon d'écrire les commits.
+
+      La règle « la conformité à une norme externe compte comme **mineure** » a été examinée et écartée. Sa lettre s'applique — Conventional Commits est bien une norme externe, avec le précédent d'agentskills.io — mais **son motif ne suit pas** : il dit *« elle ne change rien à ce que les voix disent, et tout à qui peut les charger »*, or cette convention ne change rien à qui peut charger quoi.
+
+      Ce que la décision laisse ouvert : les trois niveaux du README décrivent tous un changement **du produit**. Une convention de travail n'en est pas un, et le tableau n'a pas de ligne pour « le dépôt change sa façon de travailler sur lui-même » — la politique de branches, non tranchée, tomberait dans la même case manquante. `corrective` est le classement le moins faux, pas le bon. Le vrai correctif serait un quatrième niveau, et c'est un ADR distinct.
 
 ## 4. Bilan, après 20 commits conformes
+
+*Non exécutable aujourd'hui : un seul commit conforme existe (`811221b`). Ce groupe reste ouvert plusieurs semaines par construction — l'archivage ne doit pas l'attendre.*
 
 - [ ] 4.1 Mesurer la conformité : `git log --format='%s' <sha-adoption>..HEAD | grep -cvE '^(feat|fix|docs|refactor|test|chore)(\([a-z]+\))?!?: '` doit rendre 0
 - [ ] 4.2 Relire les 20 sujets et vérifier qu'aucun ne s'est réduit à une étiquette (le contrôle « non-aplatissement » de l'ADR)
