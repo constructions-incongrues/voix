@@ -32,7 +32,7 @@
 
 ## 6. Publication — accord explicite requis
 
-- [ ] 6.1 Demander l'accord de publication, en rappelant qu'une fois en ligne le contenu est indexable même s'il est retiré ensuite, et trancher la visibilité initiale (public d'emblée ou privé le temps d'une relecture)
-- [ ] 6.2 `gh repo create constructions-incongrues/voix` avec la visibilité retenue et une description d'une ligne
-- [ ] 6.3 Ajouter le remote et pousser l'historique complet, sans réécriture
-- [ ] 6.4 Vérifier le rendu public : README lisible, licence détectée par GitHub, `openspec/` et les tests bien présents
+- [x] 6.1 Demander l'accord de publication, en rappelant qu'une fois en ligne le contenu est indexable même s'il est retiré ensuite, et trancher la visibilité initiale (public d'emblée ou privé le temps d'une relecture)
+- [x] 6.2 `gh repo create constructions-incongrues/voix` avec la visibilité retenue et une description d'une ligne
+- [x] 6.3 Ajouter le remote et pousser l'historique complet, sans réécriture
+- [x] 6.4 Vérifier le rendu public : README lisible, licence détectée par GitHub, `openspec/` et les tests bien présents
