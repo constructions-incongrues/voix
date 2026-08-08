@@ -4,7 +4,7 @@
       {
         "matcher": "",
         "hooks": [
-          { "type": "command", "command": "SENTINELLE_JOURNAL=/private/tmp/claude-502/-Users-tristan-skillotheque/c98db4a2-cb72-4072-8cd1-9e5f20153781/scratchpad/sentinelle.log python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/sentinelle.py\"", "timeout": 10 }
+          { "type": "command", "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/sentinelle.py\"", "timeout": 10 }
         ]
       }
     ]

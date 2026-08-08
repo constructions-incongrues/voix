@@ -16,16 +16,27 @@ import subprocess
 import sys
 import datetime
 
-JOURNAL = os.environ.get("SENTINELLE_JOURNAL", "")
+JOURNAL = os.environ.get("SENTINELLE_JOURNAL") or os.path.expanduser("~/.sentinelle/journal.log")
 NOMS = {"Debord": "guy-debord", "Albini": "steve-albini",
         "Illich": "illich", "Lessig": "lessig"}
+REPO = ""
 
 
 def note(msg):
+    """Le journal doit survivre à la session : c'est lui qui porte la mesure.
+
+    La date et le dépôt sont dans la ligne parce qu'un journal durable les
+    exige — sans date on ne sait plus quand, sans dépôt on ne peut plus dire
+    quelle part des convocations tombe sur du travail écrit par l'usager.
+    """
     if not JOURNAL:
         return
-    with open(JOURNAL, "a", encoding="utf-8") as f:
-        f.write(f"{datetime.datetime.now():%H:%M:%S} {msg}\n")
+    try:
+        os.makedirs(os.path.dirname(JOURNAL), exist_ok=True)
+        with open(JOURNAL, "a", encoding="utf-8") as f:
+            f.write(f"{datetime.datetime.now():%Y-%m-%d %H:%M:%S} {REPO} {msg}\n")
+    except OSError:
+        pass  # ponytail: un journal muet vaut mieux qu'un hook qui plante
 
 
 def git(args, cwd):
@@ -128,12 +139,15 @@ def main():
     except Exception:
         sys.exit(0)
 
+    cwd = entree.get("cwd") or os.getcwd()
+    global REPO
+    REPO = os.path.basename(cwd)
+
     # Garde-fou fourni par le harnais : au second passage on laisse terminer.
     if entree.get("stop_hook_active"):
         note("second passage — on laisse terminer")
         sys.exit(0)
 
-    cwd = entree.get("cwd") or os.getcwd()
     diff, fichiers = travail_en_cours(cwd)
     if diff is None:
         note(f"hors dépôt git ({cwd}) — silence")
