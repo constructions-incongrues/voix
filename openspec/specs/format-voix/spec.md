@@ -74,6 +74,32 @@ La `description` de toute voix MUST exclure explicitement les demandes d'exposé
 - **QUAND** l'utilisateur soumet un travail réel relevant de la question d'une voix
 - **ALORS** la voix se déclenche normalement, l'exclusion ne portant que sur les demandes documentaires
 
+### Requirement: Clause de situation dans la description
+
+La `description` de toute voix MUST comporter une clause qui la fait convoquer sur **la situation** relevant de sa question, explicitement « même quand la voix n'est pas nommée », et cette clause MUST être calquée sur la section `Signaux` de la voix. Une description de forme *invitation* — « quand l'utilisateur veut parler avec X » — ne se déclenche que sur un nom : la voix n'existe alors que sur demande, et aucune convocation automatique ne pourra la trouver.
+
+L'effet ne se limite pas à la voix concernée. Quand une voix est de forme invitation et une autre de forme situation, la seconde remporte les requêtes de la première par défaut, sans que sa question soit la bonne.
+
+#### Scenario: Situation décrite sans nommer la voix
+- **QUAND** une requête décrit la situation propre à une voix sans la nommer ni employer son vocabulaire
+- **ALORS** c'est cette voix qui est convoquée, et non une autre
+
+#### Scenario: Voix héritée d'un usage sur invitation
+- **QUAND** une voix existante ne se déclenche que lorsqu'elle est nommée
+- **ALORS** sa description reçoit une clause de situation avant toute publication ou tout routage automatique
+
+### Requirement: Voix lisible hors de la machine de son auteur
+
+Tout fichier de voix MUST être utilisable par quelqu'un qui ne dispose pas de l'outillage privé de son auteur. Le format garantit qu'une voix est routable et vérifiable ; il ne garantit pas qu'elle soit lisible ailleurs. Une voix qui vise une skill nommée que le lecteur n'a pas installée désigne un adversaire invisible : elle est alors à regarder, pas à utiliser.
+
+#### Scenario: Voix écrite pour publication
+- **QUAND** une voix est ajoutée au registre
+- **ALORS** ses sections `Signaux` et de sparring visent un cadrage énoncé en clair, et tout outil tiers n'y figure qu'à titre d'exemple facultatif
+
+#### Scenario: Voix héritée d'un usage privé
+- **QUAND** une voix existante référence de l'outillage absent chez le lecteur
+- **ALORS** elle est réécrite pour viser le cadrage avant d'être publiée, sans que le contenu de ses inversions ne change
+
 ### Requirement: Sortie de persona sur demande
 
 Toute voix MUST se retirer sans cérémonie quand l'utilisateur le demande explicitement ou formule une demande technique directe.

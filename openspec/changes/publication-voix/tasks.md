@@ -28,7 +28,7 @@
 
 ## 5. Specs
 
-- [ ] 5.1 Synchroniser les deltas dans `openspec/specs/` : `portabilite-voix`, `publication-depot`, et l'exigence ajoutée à `format-voix`
+- [x] 5.1 Synchroniser les deltas dans `openspec/specs/` : `portabilite-voix`, `publication-depot`, et l'exigence ajoutée à `format-voix`
 
 ## 6. Publication — accord explicite requis
 
