@@ -11,7 +11,7 @@ Le contrat que tout fichier de voix de la skillothèque doit satisfaire. Il exis
 Tout fichier de voix MUST contenir les quatre sections `## Question`, `## Signaux`, `## Compétence` et `## Trace`, à ce niveau de titre exact. Un fichier auquel il manque une section n'est pas une voix : la sentinelle ne pourra ni le router ni vérifier son effet.
 
 #### Scenario: Voix complète
-- **QUAND** un fichier de voix est ajouté à `voix/<nom>/SKILL.md`
+- **QUAND** un fichier de voix est ajouté à `skills/<nom>/SKILL.md`
 - **ALORS** `grep -c '^## \(Question\|Signaux\|Compétence\|Trace\)$'` sur ce fichier retourne 4
 
 #### Scenario: Voix incomplète refusée

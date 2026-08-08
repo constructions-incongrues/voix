@@ -65,14 +65,51 @@ Le coût, et qui le porte. C'est ce champ qui distingue la critique de la décor
 
 ## Installation
 
+Deux chemins. **Choisissez-en un seul** : ils posent les mêmes voix à deux endroits différents, et les cumuler peut en charger deux exemplaires.
+
+**Comme plugin Claude Code** — le dépôt est sa propre place de marché.
+
+```
+/plugin marketplace add constructions-incongrues/voix
+/plugin install skillotheque
+```
+
+**Par clone et liens symboliques** — pour tout autre agent qui charge des skills, ou si vous préférez voir ce qui est posé chez vous.
+
 ```
 git clone https://github.com/constructions-incongrues/voix
 cd voix && ./install.sh
 ```
 
-Le script lie chaque voix dans `~/.claude/skills/` et refuse d'écraser un dossier existant qui n'est pas un lien. Les voix sont des fichiers markdown : elles fonctionnent avec tout agent qui charge des skills, et n'exigent aucun autre outillage.
+Le script lie chaque voix dans `~/.claude/skills/`, retire ses propres liens devenus morts, et refuse d'écraser un dossier qui n'est pas un lien. Les voix sont des fichiers markdown : elles n'exigent aucun autre outillage.
 
 Pour retrouver les commandes OpenSpec utilisées ici : `openspec init --tools claude`.
+
+### Pourquoi vous ne le trouverez pas dans un index de plugins
+
+Ce dépôt n'est inscrit dans aucun index tiers, et ne le sera pas par commodité.
+
+Être installable n'est pas le problème — le manifeste est ici, vous le désignez, personne ne s'intercale. C'est ce que fait un artisan qui traite en direct. **Un index, lui, agrège, classe et recommande.** Il place la critique dans une liste où elle est comparée, notée, adoptée parce qu'elle était à côté d'autre chose. C'est là qu'opère la récupération, pas dans le fait qu'une commande l'installe.
+
+La position est révisable. Elle devra alors l'être par une décision explicite, comme celle-ci l'a été.
+
+## Versions
+
+La version est dans `.claude-plugin/plugin.json`, et elle compte quelque chose :
+
+| | |
+|---|---|
+| **majeure** | une voix entre au registre, ou en sort |
+| **mineure** | une voix change de question, de compétence ou de trace |
+| **corrective** | un déclencheur est ajusté, un test rejoué, une formulation corrigée |
+
+`0.1.0` : quatre voix sur sept, pas de sentinelle. Le dépôt ne passera pas en `1.0` tant qu'il ne fera pas ce pour quoi il a été commencé.
+
+## Une note sur les archives
+
+`openspec/changes/archive/` contient le raisonnement complet, changement par changement. Ces documents citent des chemins qui ne sont plus ceux du dépôt — `voix/` avant qu'il ne devienne `skills/`, par exemple.
+
+Ils ne sont pas corrigés, et ne le seront pas. Ce sont des comptes rendus d'un état passé ; les réécrire pour qu'ils aient l'air à jour serait falsifier un dossier. Le dépôt publie son historique entier, erreurs comprises, précisément parce qu'il soutient l'inverse.
 
 ## Licence
 
@@ -92,7 +129,7 @@ Les fichiers tiers présents dans l'historique portent leur propre licence et ne
 
 Il faut le dire ici plutôt que de le laisser arriver.
 
-`voix/guy-debord/SKILL.md` définit la récupération comme *la manière dont le spectacle absorbe toute révolte, toute avant-garde, tout geste authentique, et la revend comme style — le destin qui attend tout ce qui réussit*. Un dépôt de critique anticapitaliste publié sur GitHub, clonable, installable, listable à côté d'un auditeur SEO, en est l'illustration littérale. Ce n'est pas un risque à mitiger : c'est ce qui est en train de se passer.
+`skills/guy-debord/SKILL.md` définit la récupération comme *la manière dont le spectacle absorbe toute révolte, toute avant-garde, tout geste authentique, et la revend comme style — le destin qui attend tout ce qui réussit*. Un dépôt de critique anticapitaliste publié sur GitHub, clonable, installable, listable à côté d'un auditeur SEO, en est l'illustration littérale. Ce n'est pas un risque à mitiger : c'est ce qui est en train de se passer.
 
 Deux choses seulement y résistent un peu. La **trace** : une voix qui ne change pas l'artefact échoue à son propre test, et le dépôt entier est bâti pour rendre cet échec visible. Et le fait de le **nommer** : une critique qui n'a pas prévu son absorption l'a déjà subie.
 

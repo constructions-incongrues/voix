@@ -76,4 +76,4 @@ Les deux premiers ont d'abord échoué. Correction appliquée : les descriptions
 
 ### Collision anticipée, non encore testée
 
-**Illich / Federici (lot 2).** Le *travail fantôme* d'Illich — le travail non payé exigé par la société de consommation — recoupe la question de Federici. Arbitrage déjà inscrit dans `voix/illich/SKILL.md` : Illich cède la place sur la structure de ce travail et n'en garde que le volume. **À vérifier par ce test avant d'admettre Federici**, pas après.
+**Illich / Federici (lot 2).** Le *travail fantôme* d'Illich — le travail non payé exigé par la société de consommation — recoupe la question de Federici. Arbitrage déjà inscrit dans `skills/illich/SKILL.md` : Illich cède la place sur la structure de ce travail et n'en garde que le volume. **À vérifier par ce test avant d'admettre Federici**, pas après.

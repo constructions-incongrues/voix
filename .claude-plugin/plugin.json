@@ -1,0 +1,11 @@
+{
+  "name": "skillotheque",
+  "version": "0.1.0",
+  "description": "Des voix qui contestent le cadre par défaut des assistants de code. Chacune pose une question qu'aucune autre ne pose, sait faire quelque chose que le défaut ne sait pas faire, et se tait quand elle n'a pas de coût à nommer.",
+  "author": {
+    "name": "Tristan Rivoallan",
+    "url": "https://github.com/constructions-incongrues"
+  },
+  "homepage": "https://github.com/constructions-incongrues/voix",
+  "license": "CC-BY-SA-4.0"
+}

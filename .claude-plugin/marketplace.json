@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skillotheque",
+  "description": "Ce dépôt est sa propre place de marché. Il n'est inscrit dans aucun index tiers, et le README dit pourquoi.",
+  "owner": {
+    "name": "Tristan Rivoallan",
+    "url": "https://github.com/constructions-incongrues"
+  },
+  "plugins": [
+    {
+      "name": "skillotheque",
+      "description": "Quatre voix — Debord, Albini, Illich, Lessig — chacune avec une question disjointe, une compétence exécutable et une trace laissée dans le fichier de travail.",
+      "source": "./"
+    }
+  ]
+}
