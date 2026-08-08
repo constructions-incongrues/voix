@@ -113,15 +113,47 @@ La position est révisable. Elle devra alors l'être par une décision explicite
 
 La version est dans `.claude-plugin/plugin.json`, et elle compte quelque chose :
 
-| | |
-|---|---|
-| **majeure** | une voix entre au registre, ou en sort |
-| **mineure** | une voix change de question, de compétence ou de trace |
-| **corrective** | un déclencheur est ajusté, un test rejoué, une formulation corrigée |
+| | | Type de commit |
+|---|---|---|
+| **majeure** | une voix entre au registre, ou en sort | `feat!` ou pied de page `BREAKING CHANGE:` |
+| **mineure** | une voix change de question, de compétence ou de trace | `feat` |
+| **corrective** | un déclencheur est ajusté, un test rejoué, une formulation corrigée | `fix` `docs` `test` `refactor` `chore` |
 
 La conformité à une norme externe compte comme **mineure** : elle ne change rien à ce que les voix disent, et tout à qui peut les charger. Un changement dans ce que le dépôt *fait* — la sentinelle — compte de même : aucune voix n'a changé, c'est le dispositif qui a changé.
 
+**Ce tableau fait foi, pas la colonne de droite.** Les types servent à dériver le niveau ; ils ne le décident pas. Si un commit `fix` relève de la règle « mineure », c'est la règle qui l'emporte et la colonne qui est corrigée.
+
 `0.4.0` : la sentinelle existe et convoque sur du travail ordinaire — ce pour quoi le dépôt a été commencé. Pas encore `1.0` pour autant : quatre voix sur sept, et Albini exclu du routage faute d'apport établi. Annoncer une version 1.0 sur un registre à moitié écrit serait exactement le genre d'annonce dont ce dépôt se méfie.
+
+## Convention de commit
+
+Les messages suivent [Conventional Commits 1.0.0](https://www.conventionalcommits.org/fr/v1.0.0/) : `type(scope): description`. Le type et le scope sont en anglais — ce sont des jetons de la spécification, pas de la prose. La description est en français, comme le reste.
+
+C'est une décision, pas un défaut hérité. Le raisonnement complet, les trois options écartées et le coût assumé sont dans [`adr/0001-conventional-commits.md`](adr/0001-conventional-commits.md).
+
+**La description reste une phrase qui porte un constat.** C'est la règle qui compte, parce que c'est ce que la convention menace. Le type contraint le préfixe ; il n'a aucune autorité sur ce que la phrase dit.
+
+```
+fix(sentinelle): le journal survit à la session et ne plante plus le hook    ✔
+fix(sentinelle): correction de bug                                          ✘
+```
+
+La seconde est conforme à la spécification et refusée ici. Un commit qui corrige une croyance antérieure doit énoncer la croyance corrigée — *« le plugin installé était resté en 0.1.0 pendant les mesures »*, pas *« mise à jour des mesures »*.
+
+Les deux jeux sont **fermés**, et tirés des objets réels du dépôt :
+
+| | |
+|---|---|
+| **types** | `feat` `fix` `docs` `refactor` `test` `chore` |
+| **scopes** | `voix` `sentinelle` `registre` `plugin` `specs` `mesure` |
+
+Un septième type ou scope entre par un commit qui modifie la spécification `convention-commits`, jamais par un usage de fait. C'est la mécanique du registre appliquée à la convention elle-même : un jeu ouvert dérive, et la dérive ne se remarque pas.
+
+La correspondance avec les trois niveaux de version est dans le tableau du § Versions, qui fait foi.
+
+**Les commits antérieurs au 2026-08-08 ne sont pas réécrits.** Le motif est celui des archives, plus bas : ce sont des comptes rendus d'un état passé. Un sujet sans type est donc *antérieur*, et non *invalide* — tout outil qui parcourt l'historique doit l'ignorer plutôt que le signaler.
+
+Aucun outil ne vérifie la convention. Elle tient sur la discipline, et le jour où trois commits non conformes passent sur `main`, c'est le signal de construire le hook `commit-msg` qui manque.
 
 ## Une note sur les archives
 
