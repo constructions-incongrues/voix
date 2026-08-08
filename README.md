@@ -67,7 +67,9 @@ Le coût, et qui le porte. C'est ce champ qui distingue la critique de la décor
 
 ## Installation
 
-Deux chemins. **Choisissez-en un seul.** Installés tous les deux, ils ne s'annulent pas : chaque voix existe alors en double, sous deux noms — `lessig` pour le clone, `incongru-voix:lessig` pour le plugin. Les deux sont visibles, les deux peuvent répondre, et rien ne détermine laquelle le fera. Aucune erreur n'est émise.
+Les deux chemins **ne font plus la même chose**. Le plugin porte la sentinelle — le hook qui convoque une voix sur le travail en cours, sans qu'on l'ait demandé. `install.sh` pose des skills, il ne peut pas poser de hook. Qui installe par clone aura les quatre voix, convocables à la main, et rien qui les appelle.
+
+**Choisissez-en un seul.** Installés tous les deux, ils ne s'annulent pas : chaque voix existe alors en double, sous deux noms — `lessig` pour le clone, `incongru-voix:lessig` pour le plugin. Les deux sont visibles, les deux peuvent répondre, et rien ne détermine laquelle le fera. Aucune erreur n'est émise.
 
 Si vous avez déjà installé les deux, retirez-en un : `rm ~/.claude/skills/<voix>` pour le clone, ou désinstallez le plugin.
 
@@ -117,9 +119,9 @@ La version est dans `.claude-plugin/plugin.json`, et elle compte quelque chose :
 | **mineure** | une voix change de question, de compétence ou de trace |
 | **corrective** | un déclencheur est ajusté, un test rejoué, une formulation corrigée |
 
-La conformité à une norme externe compte comme **mineure** : elle ne change rien à ce que les voix disent, et tout à qui peut les charger.
+La conformité à une norme externe compte comme **mineure** : elle ne change rien à ce que les voix disent, et tout à qui peut les charger. Un changement dans ce que le dépôt *fait* — la sentinelle — compte de même : aucune voix n'a changé, c'est le dispositif qui a changé.
 
-`0.3.0` : quatre voix sur sept, pas de sentinelle. Le dépôt ne passera pas en `1.0` tant qu'il ne fera pas ce pour quoi il a été commencé.
+`0.4.0` : la sentinelle existe et convoque sur du travail ordinaire — ce pour quoi le dépôt a été commencé. Pas encore `1.0` pour autant : quatre voix sur sept, et Albini exclu du routage faute d'apport établi. Annoncer une version 1.0 sur un registre à moitié écrit serait exactement le genre d'annonce dont ce dépôt se méfie.
 
 ## Une note sur les archives
 

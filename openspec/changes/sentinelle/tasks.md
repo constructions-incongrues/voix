@@ -31,19 +31,19 @@
 ## 5. Déclaration
 
 - [x] 5.1 `plugin.json` reçoit sa clé `hooks` — absente depuis `plugin-claude-code`, faute de hook à déclarer
-- [ ] 5.2 README : les deux chemins d'installation **cessent d'être équivalents**. Seul le plugin porte la sentinelle. Sans quoi un utilisateur du clone attendra un dispositif qu'il n'a pas
+- [x] 5.2 README : les deux chemins d'installation **cessent d'être équivalents**. Seul le plugin porte la sentinelle. Sans quoi un utilisateur du clone attendra un dispositif qu'il n'a pas
 
 ## 6. Point d'arrêt — la sentinelle fait-elle le travail ?
 
-- [ ] 6.1 Rejouer le protocole de `BASELINE.md` sur les quatre artefacts, **sans convocation forcée cette fois** : c'est la sentinelle qui doit appeler
-- [ ] 6.2 Critère : l'artefact porte ensuite une trace **et** un contenu que le bras baseline ne produit pas. Le déclenchement seul ne vaut pas réussite
-- [ ] 6.3 Vérifier l'exigence nouvelle de `trace-artefact` : le résultat structuré est-il dans le fichier, ou seulement dans la réponse ? C'est le défaut constaté sur Lessig
-- [ ] 6.4 Mesurer le taux de déclenchement sur un corpus de tours ordinaires. **Au-delà d'un sur cinq, c'est cassé**
-- [ ] 6.5 Une régression ou un dépassement de seuil bloque. Corriger et rejouer
+- [x] 6.1 Rejouer le protocole de `BASELINE.md` sur les quatre artefacts, **sans convocation forcée cette fois** : c'est la sentinelle qui doit appeler
+- [x] 6.2 Critère : l'artefact porte ensuite une trace **et** un contenu que le bras baseline ne produit pas. Le déclenchement seul ne vaut pas réussite
+- [x] 6.3 Vérifier l'exigence nouvelle de `trace-artefact` : le résultat structuré est-il dans le fichier, ou seulement dans la réponse ? C'est le défaut constaté sur Lessig
+- [x] 6.4 Mesurer le taux de déclenchement sur un corpus de tours ordinaires. **Au-delà d'un sur cinq, c'est cassé**
+- [x] 6.5 Une régression ou un dépassement de seuil bloque. Corriger et rejouer
 
 ## 7. Specs, README, publication
 
-- [ ] 7.1 Synchroniser `sentinelle`, et les deltas de `admission-voix` et `trace-artefact`
-- [ ] 7.2 Consigner les mesures dans `BASELINE.md` et `SILENCE.md`
-- [ ] 7.3 Version : une voix devient convocable automatiquement — trancher explicitement ce que la règle du dépôt en dit
-- [ ] 7.4 Pousser
+- [x] 7.1 Synchroniser `sentinelle`, et les deltas de `admission-voix` et `trace-artefact`
+- [x] 7.2 Consigner les mesures dans `BASELINE.md` et `SILENCE.md`
+- [x] 7.3 Version : une voix devient convocable automatiquement — trancher explicitement ce que la règle du dépôt en dit
+- [x] 7.4 Pousser
