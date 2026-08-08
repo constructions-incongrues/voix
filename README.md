@@ -74,7 +74,7 @@ Deux chemins. **Choisissez-en un seul**, et la raison n'est pas celle qu'on croi
 /plugin install constructions-incongrues-voix
 ```
 
-Les voix apparaissent alors sous l'espace de noms du plugin : `skillotheque:guy-debord`, `skillotheque:illich`, et ainsi de suite.
+Les voix apparaissent alors sous l'espace de noms du plugin : `constructions-incongrues-voix:guy-debord`, `constructions-incongrues-voix:illich`, et ainsi de suite.
 
 **Par clone et liens symboliques** — pour tout autre agent qui charge des skills, ou si vous préférez voir ce qui est posé chez vous.
 
