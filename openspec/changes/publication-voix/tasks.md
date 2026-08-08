@@ -14,10 +14,10 @@
 
 ## 3. Licence et README
 
-- [ ] 3.1 Ajouter `LICENSE` — CC BY-SA 4.0, texte complet
-- [ ] 3.2 Écrire la note motivant le choix : le critère est l'enclosure et non le commerce, avec MIT, AGPL-3.0 et la Peer Production License écartées et leurs motifs
-- [ ] 3.3 Écrire `README.md` — ce que le dépôt conteste, le tableau des voix et de leurs questions, la règle d'admission, la trace, l'installation en deux lignes
-- [ ] 3.4 Écrire la section « ce que ce dépôt va devenir » : sa propre récupération, nommée, et le désaccord Debord/Lessig sur Creative Commons exposé plutôt que lissé
+- [x] 3.1 Ajouter `LICENSE` — CC BY-SA 4.0, texte complet
+- [x] 3.2 Écrire la note motivant le choix : le critère est l'enclosure et non le commerce, avec MIT, AGPL-3.0 et la Peer Production License écartées et leurs motifs
+- [x] 3.3 Écrire `README.md` — ce que le dépôt conteste, le tableau des voix et de leurs questions, la règle d'admission, la trace, l'installation en deux lignes
+- [x] 3.4 Écrire la section « ce que ce dépôt va devenir » : sa propre récupération, nommée, et le désaccord Debord/Lessig sur Creative Commons exposé plutôt que lissé
 
 ## 4. Non-régression — point d'arrêt
 
