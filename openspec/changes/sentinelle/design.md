@@ -16,7 +16,31 @@ Ce qui existe sur la machine :
 - Un plugin déclare ses hooks par `"hooks": "./hooks/<fichier>.json"` dans `plugin.json`. `install.sh` ne peut pas en poser — c'est la raison d'être du change `plugin-claude-code`.
 - `REGISTRE.md` porte une section `Signaux` par voix, écrite dès le premier jour pour être la source de routage.
 
-**Ce qui n'est pas établi et doit l'être avant de construire :** le contrat d'entrée/sortie exact d'un hook `Stop` — ce qu'il reçoit sur l'entrée standard, ce qu'il doit rendre pour bloquer la fin de tour, et si le blocage réinjecte bien un motif exploitable. La journée d'hier a produit trois conclusions fausses tirées de suppositions plausibles. Celle-ci se vérifie sur un hook jetable avant d'écrire la sentinelle.
+### Contrat du hook `Stop` — observé le 2026-08-08, pas supposé
+
+Établi sur un hook jetable avant toute écriture, conformément à D7. **Mécanisme externe : à revérifier si le comportement change.**
+
+Reçu sur l'entrée standard :
+
+```json
+{ "session_id": "…", "transcript_path": "…/<id>.jsonl", "cwd": "…",
+  "prompt_id": "…", "permission_mode": "default", "hook_event_name": "Stop",
+  "stop_hook_active": false, "last_assistant_message": "…",
+  "background_tasks": [], "session_crons": [] }
+```
+
+Pour interrompre la fin de tour, rendre sur la sortie standard, code 0 :
+
+```json
+{ "decision": "block", "reason": "<texte réinjecté au modèle>" }
+```
+
+**Vérifié :** le motif est réinjecté *et exploitable*. Un motif demandant au modèle d'écrire un mot précis a produit ce mot, mot pour mot. La convocation de D4 est donc possible.
+
+Deux conséquences que la conception n'avait pas anticipées :
+
+- **`stop_hook_active` est un garde-fou de boucle fourni par le harnais.** À `true` au second passage, il permet au hook de laisser terminer. D5 inventait un garde-fou par marqueur ; celui-ci est gratuit et plus fiable. Les deux se cumulent — le premier empêche la boucle immédiate, le second empêche de reconvoquer la même voix d'un tour à l'autre.
+- **Le hook ne reçoit aucune liste de fichiers modifiés.** Il reçoit `cwd`. La sentinelle doit donc calculer le diff elle-même, ce qui rend D1 nécessaire et non plus seulement préférable.
 
 ## Goals / Non-Goals
 

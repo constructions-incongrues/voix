@@ -1,9 +1,9 @@
 ## 1. Vérifier le mécanisme avant d'écrire quoi que ce soit
 
-- [ ] 1.1 Écrire un hook `Stop` jetable qui journalise tout ce qu'il reçoit sur l'entrée standard, et le déclarer dans `plugin.json`
-- [ ] 1.2 Établir par observation : que reçoit-il exactement ? le chemin du transcript ? l'identifiant de session ? un moyen de connaître les fichiers modifiés ?
-- [ ] 1.3 Établir ce qu'il faut rendre pour **interrompre la fin de tour**, et si le motif fourni est réinjecté de façon exploitable par le modèle. **Toute la conception de D4 en dépend** — si le motif n'est pas exploitable, la sentinelle ne peut pas convoquer et il faut revenir au design avant de continuer
-- [ ] 1.4 Consigner le contrat observé dans le design, avec la date. C'est un mécanisme externe qui peut changer
+- [x] 1.1 Écrire un hook `Stop` jetable qui journalise tout ce qu'il reçoit sur l'entrée standard, et le déclarer dans `plugin.json`
+- [x] 1.2 Établir par observation : que reçoit-il exactement ? le chemin du transcript ? l'identifiant de session ? un moyen de connaître les fichiers modifiés ?
+- [x] 1.3 Établir ce qu'il faut rendre pour **interrompre la fin de tour**, et si le motif fourni est réinjecté de façon exploitable par le modèle. **Toute la conception de D4 en dépend** — si le motif n'est pas exploitable, la sentinelle ne peut pas convoquer et il faut revenir au design avant de continuer
+- [x] 1.4 Consigner le contrat observé dans le design, avec la date. C'est un mécanisme externe qui peut changer
 
 ## 2. Préfiltre seul, en observation
 
