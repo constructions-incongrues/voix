@@ -94,7 +94,12 @@ Il corrige en revanche **l'instrument que ce déclencheur désigne**. Sous écra
 
 ### D6 — La règle de nommage cite ses exemptions au lieu de s'élargir
 
-`<contributeur>/<slug>` décrit exactement les cinq branches que le dépôt a nommées jusqu'ici ; aucune n'est à renommer. La branche que release-please se nomme est exemptée **nommément**, l'outil étant cité.
+`<contributeur>/<slug>` décrit les quatre branches de travail que le dépôt a nommées jusqu'ici ; aucune n'est à renommer. **La règle a été confrontée aux branches réelles avant d'être écrite, et l'a d'abord été à tort** : dans une première rédaction, `main` y était soumise et échouait, et deux branches sur quatre échouaient sur leur suffixe numérique.
+
+Deux précisions en découlent, l'une et l'autre nées de la confrontation :
+
+- **`main` est exclue.** Ce n'est pas une branche de travail ; l'exigence qui en fait la seule branche de publication la nomme déjà et lui donne son statut. Sans cette exclusion, la spec exigeait de `main` une forme que son propre nom interdit.
+- **Le slug admet les chiffres** — `^[a-z0-9]+/[a-z0-9]+(-[a-z0-9]+)*$`. L'outillage suffixe les noms qu'il génère (`-c03202`, `-934146`), et une règle démentie par quatre branches sur cinq dès le premier jour ne serait pas une règle. C'est une concession à l'outillage, et elle est écrite comme telle plutôt que découverte au premier refus. La branche que release-please se nomme est exemptée **nommément**, l'outil étant cité.
 
 Le motif est de lisibilité, pas de pureté : une règle assouplie pour accueillir `release-please--branches--main--components--incongru-voix` est une règle dont plus personne, six semaines plus tard, ne peut dire quelle part vient d'une décision et quelle part vient d'une dépendance. L'exemption citée garde cette frontière visible. Coût : une ligne.
 
