@@ -21,23 +21,23 @@ Trois branches portées par des demandes déjà fusionnées subsistent sur le di
 
 Rend mécanique le déclencheur d'`adr/0003` D4 : sans elle, « on armera la protection au second contributeur » est une règle qui tient par la mémoire, et qui sera oubliée le jour précis où elle compte.
 
-- [ ] 3.1 Ajouter au workflow `release-please.yml` une étape comptant les auteurs de `main` **hors robots** — les noms se terminant par `[bot]` sont exclus, sans quoi la sentinelle se déclenche à la première publication et à contre-emploi
-- [ ] 3.2 Faire échouer l'étape quand le compte dépasse 1 et qu'aucune protection n'est active sur `main`
-- [ ] 3.3 Rédiger le message d'échec de sorte qu'il nomme la règle, cite `adr/0003` D4, et indique qui peut armer la protection — exigence de la spec, à satisfaire dès la première version et non par un ajustement ultérieur
-- [ ] 3.4 Laisser le déclencheur sur `on: push: branches: [main]` — déplacé sur `pull_request`, il sanctionnerait un contributeur qui n'a aucun moyen d'obéir
-- [ ] 3.5 Vérifier l'étape sur un compte simulé à deux auteurs sans protection : elle échoue, et son message est lisible par quelqu'un qui découvre le dépôt
+- [x] 3.1 Ajouter au workflow `release-please.yml` une étape comptant les auteurs de `main` **hors robots** — les noms se terminant par `[bot]` sont exclus, sans quoi la sentinelle se déclenche à la première publication et à contre-emploi
+- [x] 3.2 Faire échouer l'étape quand le compte dépasse 1 et qu'aucune protection n'est active sur `main`
+- [x] 3.3 Rédiger le message d'échec de sorte qu'il nomme la règle, cite `adr/0003` D4, et indique qui peut armer la protection — exigence de la spec, à satisfaire dès la première version et non par un ajustement ultérieur
+- [x] 3.4 Laisser le déclencheur sur `on: push: branches: [main]` — déplacé sur `pull_request`, il sanctionnerait un contributeur qui n'a aucun moyen d'obéir
+- [x] 3.5 Vérifier l'étape sur un compte simulé à deux auteurs sans protection : elle échoue, et son message est lisible par quelqu'un qui découvre le dépôt
 
 ## 4. Écrire la politique au README
 
-- [ ] 4.1 Ajouter une section sur le chemin qu'un changement emprunte jusqu'à `main` : branche courte, écrasement pour rejoindre, rebasage pour mettre à jour, suppression après fusion
-- [ ] 4.2 Y consigner les cinq réglages de forge avec leur motif — la forge n'en conserve aucun, et c'est un troisième point de dérive silencieuse après la table de correspondance et `REGISTRE.md`
-- [ ] 4.3 Écrire la règle de nommage `<contributeur>/<slug>`, et l'exemption des branches qu'un outil se nomme — release-please cité nommément, la règle générale non élargie
-- [ ] 4.4 Écrire que le titre de la demande est le message qui fait autorité, et qu'il porte le type le plus élevé quand la branche mélange les types
-- [ ] 4.5 Écrire l'asymétrie de dérogation à la protection de `main` avec son motif : elle est légitime, et non écrite elle se lit comme un oubli
+- [x] 4.1 Ajouter une section sur le chemin qu'un changement emprunte jusqu'à `main` : branche courte, écrasement pour rejoindre, rebasage pour mettre à jour, suppression après fusion
+- [x] 4.2 Y consigner les cinq réglages de forge avec leur motif — la forge n'en conserve aucun, et c'est un troisième point de dérive silencieuse après la table de correspondance et `REGISTRE.md`
+- [x] 4.3 Écrire la règle de nommage `<contributeur>/<slug>`, et l'exemption des branches qu'un outil se nomme — release-please cité nommément, la règle générale non élargie
+- [x] 4.4 Écrire que le titre de la demande est le message qui fait autorité, et qu'il porte le type le plus élevé quand la branche mélange les types
+- [x] 4.5 Écrire l'asymétrie de dérogation à la protection de `main` avec son motif : elle est légitime, et non écrite elle se lit comme un oubli
 
 ## 5. Mettre à jour `REGISTRE.md`
 
-- [ ] 5.1 Reprendre la ligne 100 : le motif de retrait d'`openspec-git-discipline` invoque une politique non tranchée. Elle l'est. La skill reste retirée, pour un motif qui devient « ce dépôt a tranché autrement », et la ligne doit le dire en citant `adr/0003`
+- [x] 5.1 Reprendre la ligne 100 : le motif de retrait d'`openspec-git-discipline` invoque une politique non tranchée. Elle l'est. La skill reste retirée, pour un motif qui devient « ce dépôt a tranché autrement », et la ligne doit le dire en citant `adr/0003`
 
 ## 6. Contrôles de l'ADR
 
@@ -53,7 +53,7 @@ Les critères de confirmation d'`adr/0003`, rejoués une fois l'ensemble posé.
 
 Ces lignes ne sont pas des tâches en attente : ce sont des décisions de ne pas agir, consignées pour qu'on ne les prenne pas pour des oublis.
 
-- [ ] 7.1 **Ne pas construire le contrôle de titre en CI.** D5 est en force et son déclencheur — trois messages non conformes sur `main` — n'est pas tiré. `adr/0003` en corrige l'instrument sans avancer la date
-- [ ] 7.2 **Ne pas protéger `main`.** Le calcul la chiffre à ≈ 46 % du temps du dépôt pour un temps rendu nul. La sentinelle de la section 3 est ce qui remplace la mémoire
-- [ ] 7.3 **Ne pas réécrire l'historique.** Les 40 commits directs sont antérieurs, pas invalides
-- [ ] 7.4 **Ne pas contrôler la table des réglages de forge.** Question ouverte du design, prématurée tant que la seule personne pouvant les modifier est celle qui les a posées
+- [x] 7.1 **Ne pas construire le contrôle de titre en CI.** D5 est en force et son déclencheur — trois messages non conformes sur `main` — n'est pas tiré. `adr/0003` en corrige l'instrument sans avancer la date
+- [x] 7.2 **Ne pas protéger `main`.** Le calcul la chiffre à ≈ 46 % du temps du dépôt pour un temps rendu nul. La sentinelle de la section 3 est ce qui remplace la mémoire
+- [x] 7.3 **Ne pas réécrire l'historique.** Les 40 commits directs sont antérieurs, pas invalides
+- [x] 7.4 **Ne pas contrôler la table des réglages de forge.** Question ouverte du design, prématurée tant que la seule personne pouvant les modifier est celle qui les a posées

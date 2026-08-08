@@ -97,7 +97,7 @@ Mais l'outillage n'a pas droit à un passe-droit, et c'est la raison d'être de 
 | Skill | Statut | Motif |
 |---|---|---|
 | `architectural-decision-records` | gardée | Fournit des gabarits d'ADR pour l'artefact `adr` du schéma. Elle apporte une capacité et ne prescrit rien sur la manière de travailler. |
-| `openspec-git-discipline` | **retirée** | Prescrit un flux de travail — *« tout changement d'état doit passer par `main` avant que la phase suivante n'en dépende »*. Ce dépôt n'a jamais tranché sa politique de branches ; il a poussé quarante commits en direct sur `main`. Adopter ce flux est une décision à prendre, pas un défaut à hériter en installant un schéma. |
+| `openspec-git-discipline` | **retirée** | Prescrit un flux de travail — *« tout changement d'état doit passer par `main` avant que la phase suivante n'en dépende »*. Elle est arrivée par effet de bord, déclarée par le `skills.txt` d'un schéma, sans que personne ne l'ait choisie. Le motif du retrait a changé de nature sans changer de conclusion : le dépôt **a depuis tranché sa politique de branches**, par [`adr/0003`](adr/0003-politique-de-branche.md), et il l'a tranchée autrement — `main` n'est pas protégée tant que le relecteur est l'auteur, et rien n'oblige un état à passer par `main` avant le suivant. La skill reste retirée parce qu'elle prescrit le contraire de ce qui a été décidé, et non plus parce que rien n'avait été décidé. |
 
 Le second cas est le plus instructif : la skill était déclarée par `skills.txt` du schéma, donc installée par le guide sans que personne ne l'ait choisie. C'est ainsi qu'une pratique arrive sans argument.
 
