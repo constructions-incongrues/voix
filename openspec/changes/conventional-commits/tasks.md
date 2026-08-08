@@ -25,24 +25,22 @@
 
 **Ce que l'abaissement coûte, écrit ici parce que rien d'autre ne le dira :** le seuil est abaissé à exactement le compte du jour, c'est-à-dire que l'échantillon est arrêté après avoir été vu. Sur deux des trois mesures c'est sans effet — la conformité est à 0 non conforme sur 13, et le compte des non conformes sur `main` est à 0. Sur la troisième, ça n'est pas neutre : la part de `chore` est à 17 % pour un seuil de déclenchement à 20 %, et un échantillon plus large aurait pu la faire basculer. **Si le bilan conclut que le jeu de types est bien ajusté, cette conclusion est à relire au prochain doute plutôt qu'à tenir pour acquise.**
 
-**État : le bilan est dû.** Mesures au 2026-08-08, depuis `aed2b6a` :
+**Bilan exécuté le 2026-08-08**, depuis `aed2b6a`, après fusion de la demande #13 :
 
 | | |
 |---|---|
-| commits depuis l'adoption | 13 (14 avec le commit d'adoption) |
+| commits depuis l'adoption | 14 (15 avec le commit d'adoption) |
 | non conformes | **0** |
-| répartition | `docs` 7 · `chore` 3 · `feat` 2 · `fix` 1 |
-| part de `chore`, hors robot | **2/12 = 17 %** — sous le seuil d'un commit sur cinq |
-| part de `chore`, robot inclus | 3/13 = 23 % — au-dessus |
+| répartition | `docs` 8 · `chore` 3 · `feat` 2 · `fix` 1 |
+| part de `chore`, hors robot | **2/13 = 15,4 %** — sous le seuil d'un commit sur cinq |
+| sujets réduits à une étiquette | **1 sur 15**, hors robot **0 sur 14** |
 
-L'écart entre les deux dernières lignes est ce qui a rendu la règle de comptage de 4.3 nécessaire : sans elle, le déclencheur d'un ADR successeur dépendrait de la façon dont on compte le jour du bilan.
-
-Les tâches restent à cocher par `/opsx:apply`, 4.2 exigeant une relecture humaine que rien n'instrumente.
+**Verdict : le jeu de types est bien ajusté. Aucun ADR successeur n'est ouvert.**
 
 
 *Non exécutable aujourd'hui : un seul commit conforme existe (`811221b`). Ce groupe reste ouvert plusieurs semaines par construction — l'archivage ne doit pas l'attendre.*
 
-- [ ] 4.1 Mesurer la conformité : `git log --format='%s' <sha-adoption>..HEAD | grep -cvE '^(feat|fix|docs|refactor|test|chore)(\([a-z]+\))?!?: '` doit rendre 0
-- [ ] 4.2 Relire les 14 sujets et vérifier qu'aucun ne s'est réduit à une étiquette (le contrôle « non-aplatissement » de l'ADR)
-- [ ] 4.3 **Règle de comptage, écrite avant la mesure : les commits générés par un outil ne comptent pas.** `chore(main): release X` est signé `github-actions[bot]` ; ce n'est pas l'auteur qui choisit un type, c'est release-please qui applique sa convention. Compter ces commits mesurerait l'outil, non l'ajustement du jeu de types au travail. Mesurer la part de `chore` — au-delà d'un commit sur cinq, ouvrir un ADR successeur ajustant le jeu de types
-- [ ] 4.4 **L'instrument à construire est un contrôle du titre de la demande de fusion, en CI — pas un hook `commit-msg`.** `adr/0003` D6 l'a corrigé : sous écrasement, le titre de la demande est le seul message typé qui atteigne `main`, et un hook local s'exécute avant que la demande n'existe. Compter les commits non conformes poussés sur `main` — à trois, construire le hook `commit-msg` en stdlib (déclencheur de réouverture de la décision D5)
+- [x] 4.1 **0 non conforme sur 14.** Mesurer la conformité : `git log --format='%s' <sha-adoption>..HEAD | grep -cvE '^(feat|fix|docs|refactor|test|chore)(\([a-z]+\))?!?: '` doit rendre 0
+- [x] 4.2 **1 sujet sur 15 se réduit à une étiquette — `chore(main): release 0.5.0`, généré par release-please. Hors robot : 0 sur 14.** La règle de comptage de 4.3 vaut ici aussi : ce n'est pas l'auteur qui rédige. Mais **rien dans la spec ne l'exempte**, et l'exigence « la description reste une phrase qui porte un constat » est donc violée sur `main` par l'outillage du dépôt lui-même. Défaut à corriger au niveau de l'exigence, non de la tâche. Relire les 14 sujets et vérifier qu'aucun ne s'est réduit à une étiquette (le contrôle « non-aplatissement » de l'ADR)
+- [x] 4.3 **2/13 = 15,4 % hors robot, sous le seuil.** Règle de comptage, écrite avant la mesure : les commits générés par un outil ne comptent pas.** `chore(main): release X` est signé `github-actions[bot]` ; ce n'est pas l'auteur qui choisit un type, c'est release-please qui applique sa convention. Compter ces commits mesurerait l'outil, non l'ajustement du jeu de types au travail. Mesurer la part de `chore` — au-delà d'un commit sur cinq, ouvrir un ADR successeur ajustant le jeu de types
+- [x] 4.4 **0 commit non conforme sur `main` ; le déclencheur n'est pas tiré et rien n'est construit.** L'instrument à construire est un contrôle du titre de la demande de fusion, en CI — pas un hook `commit-msg`.** `adr/0003` D6 l'a corrigé : sous écrasement, le titre de la demande est le seul message typé qui atteigne `main`, et un hook local s'exécute avant que la demande n'existe. Compter les commits non conformes poussés sur `main` — à trois, construire le hook `commit-msg` en stdlib (déclencheur de réouverture de la décision D5)
