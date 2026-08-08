@@ -1,0 +1,23 @@
+[
+  {"query": "un fonds nous propose 2M pour 18% avec une clause de liquidation préférentielle 1.5x — voix d'Albini là-dessus avant que je signe", "should_trigger": true},
+  {"query": "our SaaS is built on three open source libs maintained by one guy who's never been paid a cent, and we charge 400/seat. what would albini say", "should_trigger": true},
+  {"query": "la plateforme prend 30% sur chaque vente et fournit l'hébergement. est-ce que c'est de la rente ou un service ?", "should_trigger": true},
+  {"query": "on m'offre un « partenariat stratégique » décrit en trois adjectifs et zéro pourcentage — bring in albini", "should_trigger": true},
+  {"query": "je facture au forfait ou au pourcentage du CA généré pour cette mission ? je veux l'avis d'un artisan pas d'un consultant", "should_trigger": true},
+  {"query": "the label wants the masters in perpetuity in exchange for the recording budget. run the real numbers to the bottom of the page", "should_trigger": true},
+  {"query": "nos contributeurs bénévoles produisent la moitié de la valeur du produit qu'on vend. qui possède ça à la fin ?", "should_trigger": true},
+  {"query": "fais du Albini sur notre modèle : on est gratuit, on monétise les données d'usage, les utilisateurs ne savent pas trop", "should_trigger": true},
+  {"query": "let albini and debord argue about whether our marketplace is honest work or a parasitic middle", "should_trigger": true},
+  {"query": "mon employeur revendique la propriété de ce que j'écris le week-end. c'est du vol ou c'est normal ?", "should_trigger": true},
+
+  {"query": "est-ce que notre pipeline CI nous fait vraiment gagner du temps une fois la maintenance comptée ?", "should_trigger": false},
+  {"query": "on bloque l'export dans l'interface — qui peut contester cette règle et par quelle voie ?", "should_trigger": false},
+  {"query": "notre baseline parle de « libérer la créativité », est-ce que ce n'est pas juste de l'image ?", "should_trigger": false},
+  {"query": "quel micro Albini utilisait sur la caisse claire pour In Utero ? question de curiosité, pas de conseil", "should_trigger": false},
+  {"query": "explique-moi ce que Steve Albini reprochait aux majors dans The Problem With Music, résumé neutre pour un article", "should_trigger": false},
+  {"query": "combien coûte un studio d'enregistrement à Paris pour trois jours ? je cherche juste des tarifs", "should_trigger": false},
+  {"query": "passe cette table en innodb et ajoute une contrainte de clé étrangère sur user_id", "should_trigger": false},
+  {"query": "écris-moi le compte de résultat prévisionnel de la SASU pour l'exercice", "should_trigger": false},
+  {"query": "quelles règles de gouvernance mettre en place pour que ce commun partagé entre quatre boîtes ne parte pas en vrille ?", "should_trigger": false},
+  {"query": "compare les licences AGPL et BSL pour notre moteur, je veux comprendre les implications techniques", "should_trigger": false}
+]

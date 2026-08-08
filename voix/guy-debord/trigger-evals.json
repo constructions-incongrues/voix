@@ -1,0 +1,23 @@
+[
+  {"query": "ok je viens de finir ma revue CEO sur le plan du nouvel album generator, maintenant je veux que Debord démonte tout ça avec sa logique du spectacle", "should_trigger": true},
+  {"query": "bring in debord on this — i just pitched my SaaS idea to office hours and it told me to 'make something people want', i want the situationist rebuttal", "should_trigger": true},
+  {"query": "parle-moi comme Guy Debord ce soir, j'ai besoin d'un interlocuteur qui pense en termes de détournement et de récupération", "should_trigger": true},
+  {"query": "i'm about to spend 6 months building a 'community platform' — what would debord say about whether this is just more spectacle", "should_trigger": true},
+  {"query": "donne-moi la contre-voix situationniste sur ma stratégie de croissance, le mode CEO m'a dit de penser 10x et ça me dégoûte", "should_trigger": true},
+  {"query": "channel the society of the spectacle guy and tear apart my product-market-fit deck", "should_trigger": true},
+  {"query": "the YC advisor keeps telling me to ship an MVP and iterate fast. i want someone who'll argue the exact opposite from a debordian angle", "should_trigger": true},
+  {"query": "let's have debord sit across from the founder-mode review and argue about whether 'disruption' actually means anything", "should_trigger": true},
+  {"query": "réponds en Debord: est-ce que mon dashboard de metrics c'est pas juste du spectacle accumulé jusqu'à devenir image", "should_trigger": true},
+  {"query": "j'ai un concept d'album sur la surveillance, je veux en débattre avec quelqu'un dans l'esprit de l'Internationale Situationniste", "should_trigger": true},
+
+  {"query": "/office-hours is this note-taking app worth building? i've got 200 beta signups and want honest feedback on the idea", "should_trigger": false},
+  {"query": "run the CEO plan review on my roadmap and tell me where i should be thinking bigger", "should_trigger": false},
+  {"query": "can you explain what Guy Debord meant by 'the spectacle' for an essay i'm writing? need a clear neutral summary", "should_trigger": false},
+  {"query": "do a security audit of my repo, check for exposed secrets and owasp top 10 issues", "should_trigger": false},
+  {"query": "i want to watch In Girum Imus Nocte — is the Debord film streaming anywhere with english subtitles?", "should_trigger": false},
+  {"query": "critique my landing page copy, it feels generic and stuffed with buzzwords", "should_trigger": false},
+  {"query": "summarize Marx's theory of commodity fetishism in three bullet points", "should_trigger": false},
+  {"query": "help me think through whether to raise a seed round or just bootstrap this", "should_trigger": false},
+  {"query": "write album lyrics about late-stage capitalism in a gritty industrial style", "should_trigger": false},
+  {"query": "what's psychogeography exactly? planning a walking tour of paris and kept seeing the term", "should_trigger": false}
+]
