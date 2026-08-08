@@ -74,6 +74,12 @@ Les deux premiers ont d'abord échoué. Correction appliquée : les descriptions
 
 **Toute voix admise doit porter une clause de situation.** Une voix qui n'existe que sur invitation ne sera jamais convoquée par une sentinelle.
 
+### Rejeu du volet routage après le renommage `voix/` → `skills/`
+
+Même exécution, mêmes quatre requêtes, plus un cas ordinaire : `guy-debord`, `illich`, `steve-albini`, `lessig`, puis silence sur un ajout d'index SQL. Le renommage ne touche aucune `description` — c'est la vérification qui l'établit, pas le raisonnement.
+
+Ces sondes tournent sans `--plugin-dir` : elles passent donc par les liens d'`install.sh`, ce qui vaut aussi contrôle du chemin d'installation sans plugin.
+
 ### Collision anticipée, non encore testée
 
 **Illich / Federici (lot 2).** Le *travail fantôme* d'Illich — le travail non payé exigé par la société de consommation — recoupe la question de Federici. Arbitrage déjà inscrit dans `skills/illich/SKILL.md` : Illich cède la place sur la structure de ce travail et n'en garde que le volume. **À vérifier par ce test avant d'admettre Federici**, pas après.

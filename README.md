@@ -65,14 +65,16 @@ Le coût, et qui le porte. C'est ce champ qui distingue la critique de la décor
 
 ## Installation
 
-Deux chemins. **Choisissez-en un seul** : ils posent les mêmes voix à deux endroits différents, et les cumuler peut en charger deux exemplaires.
+Deux chemins. **Choisissez-en un seul**, et la raison n'est pas celle qu'on croit : ils ne se cumulent pas en double, ils s'éclipsent. Un lien posé dans `~/.claude/skills/` masque la voix du même nom fournie par le plugin — sans erreur, sans avertissement. Vous croyez employer l'un, vous employez l'autre.
 
 **Comme plugin Claude Code** — le dépôt est sa propre place de marché.
 
 ```
 /plugin marketplace add constructions-incongrues/voix
-/plugin install skillotheque
+/plugin install constructions-incongrues-voix
 ```
+
+Les voix apparaissent alors sous l'espace de noms du plugin : `skillotheque:guy-debord`, `skillotheque:illich`, et ainsi de suite.
 
 **Par clone et liens symboliques** — pour tout autre agent qui charge des skills, ou si vous préférez voir ce qui est posé chez vous.
 

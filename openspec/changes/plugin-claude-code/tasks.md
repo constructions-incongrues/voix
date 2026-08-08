@@ -26,12 +26,12 @@
 
 ## 5. Vérification
 
-- [ ] 5.1 Charger le dépôt comme plugin et constater que les quatre voix apparaissent
-- [ ] 5.2 **Question ouverte du design à trancher ici** : vérifier si l'installation par plugin et celle par `install.sh` chargent deux copies de la même voix. Si oui, le README doit l'interdire explicitement plutôt que le déconseiller
-- [ ] 5.3 Rejouer le test de routage sur les quatre voix : le renommage ne touche aucune `description`, mais c'est la vérification qui le prouve, pas le raisonnement
-- [ ] 5.4 Vérifier qu'`install.sh` fonctionne toujours sur une machine sans support des plugins
+- [x] 5.1 Charger le dépôt comme plugin et constater que les quatre voix apparaissent
+- [x] 5.2 **Question ouverte du design à trancher ici** : vérifier si l'installation par plugin et celle par `install.sh` chargent deux copies de la même voix. Si oui, le README doit l'interdire explicitement plutôt que le déconseiller
+- [x] 5.3 Rejouer le test de routage sur les quatre voix : le renommage ne touche aucune `description`, mais c'est la vérification qui le prouve, pas le raisonnement
+- [x] 5.4 Vérifier qu'`install.sh` fonctionne toujours sur une machine sans support des plugins
 
 ## 6. Specs et publication
 
-- [ ] 6.1 Synchroniser les deltas dans `openspec/specs/` : `paquet-plugin`, et les deux exigences ajoutées à `publication-depot`
-- [ ] 6.2 Pousser. Le dépôt est public : le renommage est une rupture pour qui a déjà cloné, et le message de commit doit le dire
+- [x] 6.1 Synchroniser les deltas dans `openspec/specs/` : `paquet-plugin`, et les deux exigences ajoutées à `publication-depot`
+- [x] 6.2 Pousser. Le dépôt est public : le renommage est une rupture pour qui a déjà cloné, et le message de commit doit le dire

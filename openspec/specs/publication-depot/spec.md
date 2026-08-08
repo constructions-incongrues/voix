@@ -65,3 +65,23 @@ La création du dépôt distant et le premier envoi MUST être précédés d'un 
 #### Scenario: Accord non encore donné
 - **QUAND** toutes les étapes préparatoires sont terminées
 - **ALORS** aucune commande de création ou d'envoi n'est exécutée et l'accord est demandé
+
+### Requirement: Les deux chemins d'installation documentés, et leur exclusivité
+
+Le `README.md` MUST documenter les deux chemins d'installation — plugin, et clone avec liens symboliques — et MUST indiquer d'en choisir un seul. Mesuré : les deux ne se cumulent pas en double, **ils s'éclipsent**. Un lien posé dans `~/.claude/skills/` masque la voix du même nom fournie par le plugin, sans erreur ni avertissement. L'utilisateur croit employer l'un et emploie l'autre — panne plus difficile à diagnostiquer qu'un doublon, puisque rien n'en signale l'existence.
+
+#### Scenario: Lecteur choisissant son installation
+- **QUAND** quelqu'un veut installer les voix
+- **ALORS** le README lui donne les deux chemins, dit lequel convient à son agent, et l'avertit qu'installer les deux fait silencieusement gagner le clone
+
+#### Scenario: Les deux chemins actifs
+- **QUAND** un lien de `~/.claude/skills/` et une voix de plugin portent le même nom
+- **ALORS** c'est le lien qui est employé, et le README a prévenu que l'éclipse ne produit aucun signal
+
+### Requirement: Chemins périmés des archives signalés
+
+Le `README.md` MUST signaler que les documents archivés dans `openspec/changes/archive/` citent des chemins qui ne sont plus ceux du dépôt. Ces documents décrivent un état passé : les corriger falsifierait un compte rendu, alors que le dépôt publie son historique complet, erreurs comprises, précisément parce qu'il soutient l'inverse.
+
+#### Scenario: Lecteur suivant un chemin cité dans une archive
+- **QUAND** un document archivé désigne un fichier à un emplacement qui n'existe plus
+- **ALORS** le README a prévenu que les archives ne sont pas mises à jour, et pourquoi
