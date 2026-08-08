@@ -121,7 +121,9 @@ La version est dans `.claude-plugin/plugin.json`, et elle compte quelque chose :
 
 La conformité à une norme externe compte comme **mineure** : elle ne change rien à ce que les voix disent, et tout à qui peut les charger. Un changement dans ce que le dépôt *fait* — la sentinelle — compte de même : aucune voix n'a changé, c'est le dispositif qui a changé.
 
-**Ce tableau fait foi, pas la colonne de droite.** Les types servent à dériver le niveau ; ils ne le décident pas. Si un commit `fix` relève de la règle « mineure », c'est la règle qui l'emporte et la colonne qui est corrigée.
+**Ce tableau décrit une configuration, il ne fait plus foi.** Depuis [`adr/0002`](adr/0002-release-please.md), ce sont les **types qui décident** : release-please calcule le niveau depuis l'historique, et `release-please-config.json` est la règle exécutée. Les deux colonnes de gauche disent pourquoi la configuration est celle-là ; elles ne l'emportent plus sur elle. Si l'une des deux change, l'autre doit être corrigée dans le même commit.
+
+`adr/0001` posait l'inverse — le tableau souverain, les types indicatifs — et n'a pas été modifié : il reste au dépôt comme trace, superséde par `0002`.
 
 `0.4.0` : la sentinelle existe et convoque sur du travail ordinaire — ce pour quoi le dépôt a été commencé. Pas encore `1.0` pour autant : quatre voix sur sept, et Albini exclu du routage faute d'apport établi. Annoncer une version 1.0 sur un registre à moitié écrit serait exactement le genre d'annonce dont ce dépôt se méfie.
 
@@ -149,7 +151,11 @@ Les deux jeux sont **fermés**, et tirés des objets réels du dépôt :
 
 Un septième type ou scope entre par un commit qui modifie la spécification `convention-commits`, jamais par un usage de fait. C'est la mécanique du registre appliquée à la convention elle-même : un jeu ouvert dérive, et la dérive ne se remarque pas.
 
-La correspondance avec les trois niveaux de version est dans le tableau du § Versions, qui fait foi.
+La correspondance avec les trois niveaux de version est dans le tableau du § Versions, qui décrit la configuration de release-please.
+
+**Si le numéro calculé paraît faux, on corrige le commit — jamais le numéro.** La demande de publication est éditable ; y retoucher la version rétablirait l'autorité humaine par la porte de service, et viderait [`adr/0002`](adr/0002-release-please.md) de son sens un mois après l'avoir écrit. Un type mal posé se répare là où il a été posé.
+
+**Et ce que ça coûte, écrit ici parce que rien ne le rattrape.** Un `feat(registre):` là où il fallait `feat!(registre):` fait passer l'entrée d'une voix au registre en version mineure. L'outil ne lit pas `REGISTRE.md` ; il ne voit que le type. Aucun contrôle ne détecte l'erreur. C'était le rôle du tableau tant qu'il faisait foi ; il ne le fait plus.
 
 **Les commits antérieurs au 2026-08-08 ne sont pas réécrits.** Le motif est celui des archives, plus bas : ce sont des comptes rendus d'un état passé. Un sujet sans type est donc *antérieur*, et non *invalide* — tout outil qui parcourt l'historique doit l'ignorer plutôt que le signaler.
 

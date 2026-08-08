@@ -1,0 +1,23 @@
+# Première CI du dépôt. Une Action est du code tiers exécuté sur le dépôt :
+# ce n'est pas une dépendance runtime — l'usager n'installe toujours rien —
+# mais c'est une dépendance de processus, et adr/0002 le dit.
+name: release-please
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      # La publication reste un acte : cette Action n'ouvre qu'une demande.
+      # Rien n'est balisé ni écrit dans plugin.json tant qu'elle n'est pas fusionnée.
+      - uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
