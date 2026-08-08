@@ -2,7 +2,7 @@
 
 Une skillothèque : des voix qui contestent le cadre par défaut des assistants de code, et de la plupart des skills qu'on leur installe.
 
-Quatre voix sont écrites et éprouvées. Le registre en prévoit sept, et pas une de plus.
+Sept voix sont inscrites, **quatre écrites, trois routables**. Le registre plafonne à dix inscrites et sept routables — et une inscrite n'est pas une voix disponible.
 
 ---
 
@@ -29,13 +29,13 @@ Une question par voix, et aucune ne recouvre celle d'une autre. C'est la règle 
 
 | Voix | La question qu'elle seule pose | État |
 |---|---|---|
-| **Debord** | Qu'est-ce qui est vendu ici comme vie et n'en est que l'image ? | écrite |
-| **Albini** | Qui a fait le travail, qui est payé, qui possède à la fin ? | écrite |
-| **Illich** | À partir de quel seuil cet outil produit-il l'inverse de son but — et reste-t-il réparable par celui qui s'en sert ? | écrite |
-| **Lessig** | Cette contrainte est-elle dans la loi, la norme, le prix ou l'architecture — et qui peut faire appel ? | écrite |
-| **Federici** | Quel travail ce plan suppose-t-il sans le compter ni le payer ? | prévue |
-| **Ostrom** | Cette ressource est-elle un commun, et quelles règles la gouvernent ? | prévue |
-| **Polanyi** | Qu'est-ce qui vient d'être transformé en marché alors que ce n'en était pas un ? | prévue |
+| **Debord** | Qu'est-ce qui est vendu ici comme vie et n'en est que l'image ? | écrite, routable |
+| **Albini** | Qui a fait le travail, qui est payé, qui possède à la fin ? | écrite, non routable |
+| **Illich** | À partir de quel seuil cet outil produit-il l'inverse de son but — et reste-t-il réparable par celui qui s'en sert ? | écrite, routable |
+| **Lessig** | Cette contrainte est-elle dans la loi, la norme, le prix ou l'architecture — et qui peut faire appel ? | écrite, routable |
+| **Federici** | Quel travail ce plan suppose-t-il sans le compter ni le payer ? | inscrite, **non disponible** |
+| **Ostrom** | Cette ressource est-elle un commun, et quelles règles la gouvernent ? | inscrite, **non disponible** |
+| **Polanyi** | Qu'est-ce qui vient d'être transformé en marché alors que ce n'en était pas un ? | inscrite, **non disponible** |
 
 Chacune sait *faire* quelque chose, pas seulement penser quelque chose. Illich applique le calcul de vitesse généralisée d'*Énergie et équité* — celui qui établit qu'une automobile roule à 6 km/h une fois compté le temps de travail nécessaire à la payer — à n'importe quel outil qui promet du temps. Lessig remplit les quatre modalités de régulation et la ligne de recours. Albini suit l'argent jusqu'au bas de la page. Debord retourne un lexique contre son origine.
 
@@ -51,7 +51,7 @@ Et une quatrième condition, écrite en dernier alors qu'elle aurait dû être l
 
 Refusés à ce jour, avec leur motif : Gorz, Ellul, Mumford et Castoriadis pour doublon avec Illich ; Graeber pour doublon partiel avec Illich et Albini ; Lordon avec Debord ; Kropotkine avec Ostrom ; Simone Weil pour absence de trace — sa question est parfaitement disjointe, elle ne produit aucun résultat structuré. Ces refus portent sur la disjonction, jamais sur la valeur du penseur. Le registre complet est dans [`REGISTRE.md`](REGISTRE.md).
 
-Sept est un plafond, pas un objectif. Au-delà, plus rien ne se route et le coût d'entretien dépasse ce qui est tenable.
+Dix inscrites et sept routables sont des plafonds, pas des objectifs. Le second porte le motif : *au-delà, le routage se dilue et le coût d'entretien — un jeu d'evals de déclenchement par voix — dépasse ce qui est tenable.* Le premier ne borne que ce que le registre déclare. Trois inscrites n'ont pas de skill écrite et sont signalées comme indisponibles ; voir [`adr/0005`](adr/0005-plafond-du-registre.md).
 
 ## La trace, et le silence
 
@@ -125,11 +125,11 @@ La conformité à une norme externe compte comme **mineure** : elle ne change ri
 
 `adr/0001` posait l'inverse — le tableau souverain, les types indicatifs — et n'a pas été modifié : il reste au dépôt comme trace, supersédé par `0002`.
 
-**Sous `1.0.0`, une rupture donne un mineur.** L'option `bump-minor-pre-major` est active : un `feat!` porte le dépôt de `0.4.x` à `0.5.0`, pas à `1.0.0`. Le passage à la 1.0 reste un acte délibéré, et la raison est plus haut dans ce fichier — quatre voix sur sept, Albini exclu du routage. Une version majeure atteinte par accumulation mécanique serait exactement l'annonce dont ce dépôt se méfie.
+**Sous `1.0.0`, une rupture donne un mineur.** L'option `bump-minor-pre-major` est active : un `feat!` porte le dépôt de `0.4.x` à `0.5.0`, pas à `1.0.0`. Le passage à la 1.0 reste un acte délibéré, et son critère ne se compte plus contre un plafond : **aucune inscrite sans skill écrite, et le statut de routage de chacune tranché** — celui d'Albini ne l'est pas. Un critère rapporté à une borne ferait du plafond un objectif, ce que le registre récuse. Une version majeure atteinte par accumulation mécanique serait exactement l'annonce dont ce dépôt se méfie.
 
 Effet de bord utile : avant `1.0.0`, `feat` et `feat!` produisent le même niveau. La confusion entre les deux — le coût que `adr/0002` accepte sans mitigation — est donc **sans conséquence tant que le dépôt reste sous la 1.0**. Elle redevient réelle le jour où il la franchit.
 
-`0.4.0` : la sentinelle existe et convoque sur du travail ordinaire — ce pour quoi le dépôt a été commencé. Pas encore `1.0` pour autant : quatre voix sur sept, et Albini exclu du routage faute d'apport établi. Annoncer une version 1.0 sur un registre à moitié écrit serait exactement le genre d'annonce dont ce dépôt se méfie.
+`0.4.0` : la sentinelle existe et convoque sur du travail ordinaire — ce pour quoi le dépôt a été commencé. Pas encore `1.0` pour autant : trois inscrites n'ont pas de skill écrite, et le statut d'Albini n'a jamais été tranché par une décision. Annoncer une version 1.0 sur un registre à moitié écrit serait exactement le genre d'annonce dont ce dépôt se méfie.
 
 ## Convention de commit
 

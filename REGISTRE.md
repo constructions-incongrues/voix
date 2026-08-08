@@ -2,7 +2,13 @@
 
 Source de routage de la skillothèque. Une convocation se décide ici : la question porteuse se lit dans ce fichier, sans ouvrir aucun `SKILL.md`.
 
-**Plafond : sept voix.** C'est un plafond, pas un objectif. Une huitième candidate exige le retrait explicite d'une inscrite.
+**Deux plafonds : dix voix inscrites, sept routables.** Ce sont des plafonds, pas des objectifs, et ils protègent deux choses différentes.
+
+Le plafond d'**inscription** borne ce que le registre déclare — une question, un motif, une place tenue. Une onzième candidate exige le retrait explicite d'une inscrite.
+
+Le plafond de **routage** borne ce qui se convoque seul, et il porte le motif d'origine : *au-delà, le routage se dilue et le coût d'entretien — un jeu d'evals de déclenchement par voix — dépasse ce qui est tenable.* Une huitième voix routable exige qu'une routable en sorte ; l'inscription reste possible sans routage.
+
+**Une inscrite n'est pas une voix disponible.** L'état de chacune est donné ci-dessous : écrite ou non, routable ou non. Aujourd'hui, **7 inscrites, 4 écrites, 3 routables**. Voir [`adr/0005`](adr/0005-plafond-du-registre.md).
 
 **Admission :** trois conditions cumulatives — une question disjointe de toutes les autres, une compétence exécutable, une trace vérifiable dans l'artefact. Vérifiées par le test de disjonction croisée : même artefact soumis à toutes les voix, deux traces identiques = une voix sort.
 
@@ -49,6 +55,7 @@ Source de routage de la skillothèque. Une convocation se décide ici : la quest
 ### Federici
 - **Question** — Quel travail ce plan suppose-t-il sans le compter ni le payer ?
 - **Signaux** — du self-service (du travail déplacé sur l'usager, pas supprimé) ; de la modération, du support communautaire, des contributions open source non rémunérées ; de l'onboarding rejeté sur le client ; le care invisible dans une équipe.
+- **Routage automatique** — **non** — aucune `SKILL.md` écrite : inscrite, non disponible.
 - **Compétence** — rendre visible le travail reproductif et le travail transféré.
 - **Trace** — la liste du travail non compté, avec son porteur.
 - **État** — lot 2, bloqué jusqu'à validation du format sur le lot 1. **Tranché le 2026-08-08 : la personne**, et non le courant *Wages for Housework* — une voix nommée tient une position sous la contradiction, un courant ne le fait pas. Personne vivante : contrainte « œuvre publiée » comme pour Lessig. Collision à vérifier avant admission : le *travail fantôme* d'Illich (voir `DISJONCTION.md`).
@@ -56,6 +63,7 @@ Source de routage de la skillothèque. Une convocation se décide ici : la quest
 ### Ostrom
 - **Question** — Cette ressource est-elle un commun, et quelles règles la gouvernent ?
 - **Signaux** — une ressource partagée, un projet open source, une infrastructure mutualisée, une copropriété, un jeu de données ; une décision collective prise sans règle explicite.
+- **Routage automatique** — **non** — aucune `SKILL.md` écrite : inscrite, non disponible.
 - **Compétence** — les huit principes de gouvernance des communs, empiriques et vérifiés sur des cas réels.
 - **Trace** — des règles : qui décide, comment, qui est exclu, comment on arbitre.
 - **État** — lot 2. Seule voix qui décrit une alternative au lieu de critiquer.
@@ -63,9 +71,26 @@ Source de routage de la skillothèque. Une convocation se décide ici : la quest
 ### Polanyi
 - **Question** — Qu'est-ce qui vient d'être transformé en marché alors que ce n'en était pas un ?
 - **Signaux** — la création d'un marché là où il y avait un don, une relation de voisinage, un service public ; l'intermédiation tarifée d'une pratique gratuite ; la mise en prix d'un lien social.
+- **Routage automatique** — **non** — aucune `SKILL.md` écrite : inscrite, non disponible.
 - **Compétence** — repérer la marchandise fictive et la désencastration.
 - **Trace** — « ceci était X ; ceci est devenu un marché ».
 - **État** — lot 2.
+
+---
+
+## État des inscrites
+
+Ce que le registre déclare, et ce qui répond. La source de routage doit dire vrai sur elle-même.
+
+| Voix | Skill écrite | Routage | |
+|---|---|---|---|
+| Debord | oui | **oui** | |
+| Illich | oui | **oui** | |
+| Lessig | oui | **oui** | |
+| Albini | oui | non | apport « modeste » sur un artefact unique ; statut jamais tranché par une décision — voir `adr/0005`, questions ouvertes |
+| Federici | **non** | non | **non disponible** — inscrite, aucun `SKILL.md` |
+| Ostrom | **non** | non | **non disponible** — inscrite, aucun `SKILL.md` |
+| Polanyi | **non** | non | **non disponible** — inscrite, aucun `SKILL.md` |
 
 ---
 
