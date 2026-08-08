@@ -72,29 +72,38 @@ Et la matière n'est pas la conversation mais **le diff du tour**. Dans un dép�
 
 *Alternative écartée :* lire le transcript pour comprendre le contexte. Plus riche, plus cher, et ça ramène la sentinelle vers la requête — le lieu où l'on sait déjà que les voix se déclenchent toutes seules.
 
-### D2 — Préfiltre textuel d'abord, modèle ensuite
+### D2 — Le hook ne classe pas. Il pose la question au modèle qui tourne déjà.
+
+**Révisé le 2026-08-08 sur mesure.** La version initiale prévoyait un appel de modèle depuis le hook sur correspondance du préfiltre. Mesuré : **9 à 13 secondes** d'aller-retour, en latence bloquante, à chaque tour porteur — c'est-à-dire précisément aux moments où l'utilisateur attend une réponse. Un dispositif qui ajoute dix secondes d'attente aux tours intéressants sera éteint, ce que ce même design désigne comme le risque numéro un.
 
 ```
 diff du tour
    │
-   ├─ aucun signal du registre trouvé ──────────► fin. Coût : zéro.
-   │                                              (le cas de la grande majorité des tours)
-   └─ un ou plusieurs signaux ──► appel de modèle
-                                   « laquelle de ces questions est porteuse,
-                                     et sa réponse changerait-elle la décision ? »
-                                   │
-                                   ├─ aucune ──► fin, silence
-                                   └─ une ────► blocage du Stop, voix nommée
+   ├─ aucun signal du registre ────────────► fin. Coût zéro, latence zéro.
+   │                                          (la grande majorité des tours)
+   │
+   └─ un ou plusieurs signaux ─────────────► blocage, dont le MOTIF pose la question
+                                              au modèle en cours :
+                                              « la question de <voix> est X.
+                                                Est-elle porteuse ici, et sa réponse
+                                                changerait-elle la décision ?
+                                                Si oui convoque, sinon termine. »
+                                              Coût : zéro appel de plus, zéro latence.
+                                              Le modèle a déjà le diff en contexte.
 ```
 
 Les `Signaux` de `REGISTRE.md` sont déjà écrits pour ça. Le préfiltre leur donne une seconde fonction : **une formulation approximative dans le registre devient un défaut de fonctionnement**, plus seulement de documentation.
 
-C'est aussi ce qui rend le seuil tenable. Sans préfiltre, un appel de modèle par tour, indéfiniment, pour un déclenchement attendu sur moins d'un tour sur cinq.
+**Le risque propre à cette variante**, et il est réel : un modèle qui s'interroge lui-même peut se répondre « non, pas porteur » à chaque fois, par la même pente serviable que les voix existent pour contrer. C'est le test central du groupe 3, et il se mesure — sur des cas où la réponse doit être oui et des cas où elle doit être non.
 
-### D3 — La question posée au modèle est celle de `SILENCE.md`, mot pour mot
+*Alternative écartée :* garder l'appel séparé et porter le délai du hook à 20 s. Techniquement possible, et ça fait payer la latence à l'utilisateur au pire moment.
+
+### D3 — La question posée est celle de `SILENCE.md`, mot pour mot
 
 > Jamais « est-ce que c'est capitaliste ? » — indécidable, et sa réponse est toujours oui, ce qui produit le dogme.
 > Toujours : **« laquelle de ces N questions est porteuse ici, et est-ce que sa réponse changerait la décision ? »**
+
+Elle est adressée au modèle en cours, par le motif du blocage (D2), et non à un modèle appelé pour l'occasion. L'adressataire change ; la question, non.
 
 La seconde clause est celle qu'on oubliera en implémentant. *Porteuse* ne suffit pas : Illich a presque toujours quelque chose à dire sur un outil, Lessig sur un défaut. Il faut que la réponse **change quelque chose**. Sans ce filtre, le seuil d'un tour sur cinq est intenable.
 

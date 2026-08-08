@@ -5,15 +5,20 @@ Regarde ce qui vient d'être écrit, pas ce qui a été demandé : les voix se
 déclenchent déjà seules quand l'utilisateur formule une critique, et jamais
 quand la matière est dans le travail produit.
 
-Phase 2 : préfiltre et journalisation seuls. Aucun blocage.
+Elle ne classe pas et n'appelle aucun modèle — un aller-retour depuis un
+hook coûte 9 à 13 secondes de latence bloquante. Elle pose la question au
+modèle qui tourne déjà, par le motif du blocage.
 """
 import json
 import os
+import re
 import subprocess
 import sys
 import datetime
 
 JOURNAL = os.environ.get("SENTINELLE_JOURNAL", "")
+NOMS = {"Debord": "guy-debord", "Albini": "steve-albini",
+        "Illich": "illich", "Lessig": "lessig"}
 
 
 def note(msg):
@@ -32,52 +37,86 @@ def git(args, cwd):
         return ""
 
 
-def diff_du_tour(cwd):
-    """Ce qui a été écrit : suivi modifié, plus le contenu des fichiers neufs.
+def travail_en_cours(cwd):
+    """Le travail non commité : suivi modifié, plus le contenu des fichiers neufs.
 
-    Un fichier non suivi n'apparaît dans aucun diff — or c'est souvent le
-    plus intéressant, puisqu'il vient d'être créé.
+    Le hook ne reçoit aucune liste de fichiers écrits pendant le tour, et rien
+    ne permet de la reconstituer sans prendre un instantané au début du tour.
+    L'unité retenue est donc le travail non commité — ce qu'on a sur les bras
+    en ce moment — et non « ce que ce tour a écrit ». Un fichier non suivi
+    n'apparaît dans aucun diff, or c'est souvent le plus intéressant.
     """
     if not git(["rev-parse", "--git-dir"], cwd):
-        return None  # hors dépôt git : la sentinelle se tait
-    morceaux = [git(["diff", "HEAD"], cwd)]
+        return None, []
+    morceaux, fichiers = [git(["diff", "HEAD"], cwd)], []
+    fichiers += [f for f in git(["diff", "HEAD", "--name-only"], cwd).split("\n") if f.strip()]
     for nom in git(["ls-files", "--others", "--exclude-standard"], cwd).split("\n"):
         nom = nom.strip()
-        if not nom:
+        if not nom or nom.startswith(".serena/"):
             continue
         chemin = os.path.join(cwd, nom)
         try:
             if os.path.getsize(chemin) < 200_000:
-                with open(chemin, encoding="utf-8", errors="replace") as f:
-                    morceaux.append(f.read())
+                morceaux.append(open(chemin, encoding="utf-8", errors="replace").read())
+                fichiers.append(nom)
         except OSError:
             pass
-    return "\n".join(morceaux)
+    return "\n".join(morceaux), fichiers
 
 
 def registre(racine):
-    """Les termes discriminants, lus dans REGISTRE.md.
+    """Les voix routables, leur question et leurs termes — lus dans REGISTRE.md.
 
-    Le registre est la source de routage depuis le premier jour ; il devient
-    ici exécutable. Une formulation approximative y est désormais un défaut
-    de fonctionnement, pas seulement de documentation.
+    Le registre est la source de routage depuis le premier jour ; il est ici
+    exécutable. Une formulation approximative y est un défaut de
+    fonctionnement, pas seulement de documentation.
     """
     voix, courante = {}, None
-    chemin = os.path.join(racine, "REGISTRE.md")
     try:
-        lignes = open(chemin, encoding="utf-8").read().split("\n")
+        lignes = open(os.path.join(racine, "REGISTRE.md"), encoding="utf-8").read().split("\n")
     except OSError:
         return voix
-    noms = {"Debord": "guy-debord", "Albini": "steve-albini",
-            "Illich": "illich", "Lessig": "lessig"}
     for ligne in lignes:
         if ligne.startswith("### "):
-            courante = noms.get(ligne[4:].strip())
-        elif courante and "**Termes**" in ligne and "`" in ligne:
-            bruts = ligne.split("`")[1]
-            voix[courante] = [t.strip().lower() for t in bruts.split(",") if t.strip()]
-            courante = None
-    return voix
+            courante = NOMS.get(ligne[4:].strip())
+            if courante:
+                voix[courante] = {"termes": [], "question": "", "routable": False}
+        elif not courante:
+            continue
+        elif "**Question**" in ligne:
+            voix[courante]["question"] = ligne.split("—", 1)[-1].strip()
+        elif "**Termes**" in ligne and "`" in ligne:
+            voix[courante]["termes"] = [t.strip().lower()
+                                        for t in ligne.split("`")[1].split(",") if t.strip()]
+        elif "**Routage automatique**" in ligne:
+            voix[courante]["routable"] = re.search(r"—\s*oui\s*$", ligne.strip()) is not None
+    return {v: d for v, d in voix.items() if d["termes"]}
+
+
+def motif(voix, question, termes, fichiers):
+    """La question de SILENCE.md, adressée au modèle en cours.
+
+    Les deux clauses comptent. « Porteuse » ne suffit pas : Illich a presque
+    toujours quelque chose à dire d'un outil. Il faut que la réponse change
+    quelque chose.
+    """
+    ou = ", ".join(fichiers[:4]) or "les fichiers modifiés"
+    return (
+        f"Le travail non commité ({ou}) porte des signaux de la voix "
+        f"`{voix}` ({', '.join(termes[:4])}).\n\n"
+        f"Sa question est : {question}\n\n"
+        f"Deux clauses, et la seconde compte autant que la première :\n"
+        f"1. Cette question est-elle porteuse sur ce qui vient d'être écrit ?\n"
+        f"2. Sa réponse changerait-elle une décision ?\n\n"
+        f"Ne demande jamais si la chose est capitaliste — c'est indécidable et "
+        f"la réponse est toujours oui.\n\n"
+        f"Si les deux réponses sont oui : convoque la skill `{voix}` sur ce "
+        f"travail, et laisse-la poser sa trace dans le fichier. Peu importe "
+        f"que tu aies écrit ces lignes toi-même ou qu'elles étaient déjà là — "
+        f"c'est le contenu qui est en question, pas son auteur.\n"
+        f"Si l'une des deux est non : termine sans rien dire, et sans expliquer "
+        f"que tu as vérifié. Le silence est un résultat."
+    )
 
 
 def main():
@@ -86,38 +125,44 @@ def main():
     except Exception:
         sys.exit(0)
 
-    # Garde-fou de boucle fourni par le harnais : au second passage, on laisse
-    # terminer. Vérifié le 2026-08-08.
+    # Garde-fou fourni par le harnais : au second passage on laisse terminer.
     if entree.get("stop_hook_active"):
-        note("second passage, on laisse terminer")
+        note("second passage — on laisse terminer")
         sys.exit(0)
 
     cwd = entree.get("cwd") or os.getcwd()
-    diff = diff_du_tour(cwd)
+    diff, fichiers = travail_en_cours(cwd)
     if diff is None:
         note(f"hors dépôt git ({cwd}) — silence")
         sys.exit(0)
     if not diff.strip():
-        note("aucune écriture ce tour-ci — silence")
+        note("aucune écriture — silence")
         sys.exit(0)
 
-    racine = os.environ.get("CLAUDE_PLUGIN_ROOT", os.path.dirname(os.path.dirname(
-        os.path.abspath(__file__))))
+    racine = os.environ.get("CLAUDE_PLUGIN_ROOT") or os.path.dirname(
+        os.path.dirname(os.path.abspath(__file__)))
     bas = diff.lower()
-    touchees = {v: [t for t in termes if t in bas]
-                for v, termes in registre(racine).items()}
-    touchees = {v: t for v, t in touchees.items() if t}
+    candidates = []
+    for voix, d in registre(racine).items():
+        if not d["routable"]:
+            continue
+        # Voix déjà tracée dans ce diff : on ne la reconvoque pas.
+        if f"incongru-voix: {voix.replace('guy-', '').replace('steve-', '')}" in bas:
+            continue
+        touches = [t for t in d["termes"] if t in bas]
+        if touches:
+            candidates.append((len(touches), voix, d["question"], touches))
 
-    # Une voix qui a déjà laissé sa trace dans ce diff ne se reconvoque pas.
-    touchees = {v: t for v, t in touchees.items()
-                if f"incongru-voix: {v.replace('guy-', '').replace('steve-', '')}" not in bas}
-
-    if not touchees:
-        note(f"aucun terme ({len(diff)} car. de diff) — silence")
+    if not candidates:
+        note(f"aucun terme routable ({len(diff)} car.) — silence")
         sys.exit(0)
 
-    note("PORTEUR " + " | ".join(f"{v}: {', '.join(t[:4])}" for v, t in touchees.items()))
-    # Phase 2 : on observe, on ne bloque pas encore.
+    # Une seule convocation par tour : la plus saillante.
+    candidates.sort(reverse=True)
+    _, voix, question, touches = candidates[0]
+    note(f"CONVOQUE {voix} ({', '.join(touches[:4])}) sur {', '.join(fichiers[:3])}")
+    print(json.dumps({"decision": "block",
+                      "reason": motif(voix, question, touches, fichiers)}))
     sys.exit(0)
 
 

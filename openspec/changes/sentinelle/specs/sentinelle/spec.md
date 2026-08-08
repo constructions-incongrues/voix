@@ -2,25 +2,31 @@
 
 ### Requirement: Détection sur l'artefact produit, pas sur la requête
 
-La sentinelle MUST examiner ce qui a été écrit pendant le tour — le diff — et NON la requête de l'utilisateur ni le transcript. Mesuré : les voix se déclenchent déjà d'elles-mêmes quand l'utilisateur formule une critique, et jamais quand la matière est dans le travail produit. Regarder la requête reviendrait à surveiller le seul endroit qui n'en a pas besoin.
+La sentinelle MUST examiner le **travail non commité** — le diff plus les fichiers neufs — et NON la requête de l'utilisateur ni le transcript. Mesuré : les voix se déclenchent déjà d'elles-mêmes quand l'utilisateur formule une critique, et jamais quand la matière est dans le travail produit. Regarder la requête reviendrait à surveiller le seul endroit qui n'en a pas besoin.
 
-#### Scenario: Travail ordinaire produisant un artefact critiquable
-- **QUAND** un tour se termine après l'écriture d'un fichier dont le contenu relève de la question d'une voix inscrite
+Le hook ne reçoit aucune liste de fichiers écrits pendant le tour, et rien ne permet de la reconstituer sans instantané préalable. L'unité est donc le travail non commité, et le motif MUST NOT affirmer que le tour a écrit ces lignes : c'est le contenu qui est en question, pas son auteur.
+
+#### Scenario: Travail ordinaire portant un artefact critiquable
+- **QUAND** un tour se termine alors que le travail non commité relève de la question d'une voix inscrite
 - **ALORS** la sentinelle l'examine, alors même que la requête ne contenait aucune critique
 
-#### Scenario: Tour sans écriture
-- **QUAND** un tour se termine sans qu'aucun fichier n'ait été modifié
+#### Scenario: Rien en cours
+- **QUAND** un tour se termine sans aucun travail non commité
 - **ALORS** la sentinelle ne fait rien
 
-### Requirement: Préfiltre textuel avant tout appel de modèle
+### Requirement: Aucun appel de modèle depuis le hook
 
-La sentinelle MUST chercher les `Signaux` du registre dans le diff par correspondance textuelle avant d'engager le moindre appel de modèle. Sans correspondance, elle MUST s'arrêter sans rien coûter.
+La sentinelle MUST chercher les `Signaux` du registre dans le diff par correspondance textuelle, et MUST NOT engager d'appel de modèle depuis le hook. Sans correspondance, elle s'arrête sans rien coûter ; avec correspondance, elle pose la question au modèle en cours par le motif du blocage.
 
-Un appel de modèle à chaque tour, pour un déclenchement attendu sur moins d'un tour sur cinq, rend le dispositif trop cher pour rester allumé.
+Mesuré : un aller-retour de modèle depuis un hook coûte 9 à 13 secondes de latence bloquante, et le hook est synchrone. Cette attente tomberait précisément sur les tours porteurs, c'est-à-dire ceux où l'utilisateur attend une réponse. Un dispositif qui se paie en attente aux moments intéressants sera éteint, et un dispositif éteint ne mesure plus rien.
 
 #### Scenario: Diff sans aucun signal
 - **QUAND** le diff ne contient aucun signal du registre
-- **ALORS** la sentinelle s'arrête, sans appel de modèle
+- **ALORS** la sentinelle s'arrête, sans coût ni latence
+
+#### Scenario: Diff avec signaux
+- **QUAND** le diff contient des signaux
+- **ALORS** la sentinelle interrompt la fin de tour et pose la question au modèle en cours, sans appel de modèle supplémentaire
 
 #### Scenario: Registre approximatif
 - **QUAND** les `Signaux` d'une voix sont formulés trop vaguement pour discriminer

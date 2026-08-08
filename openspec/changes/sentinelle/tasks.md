@@ -12,23 +12,25 @@
 - [x] 2.3 Recherche textuelle des signaux dans le diff, **journalisation seule, aucun blocage**
 - [x] 2.4 Laisser tourner sur des tours réels et mesurer le taux de correspondance. **Point d'arrêt : au-delà d'un tour sur cinq, resserrer les `Signaux` avant d'aller plus loin.** Un préfiltre trop large fait payer un appel de modèle à chaque tour
 
-## 3. Routage, toujours sans blocage
+## 3. Routage
 
-- [ ] 3.1 Sur correspondance, appeler le modèle avec la question de `SILENCE.md` mot pour mot — *laquelle de ces questions est porteuse, et sa réponse changerait-elle la décision ?*
-- [ ] 3.2 Vérifier que la seconde clause filtre réellement : construire deux cas où une question s'applique sans que sa réponse ne change rien, et constater le silence
-- [ ] 3.3 Journaliser les verdicts sans agir. Les comparer à ce qu'on attendait, voix par voix
-- [ ] 3.4 Exclure du routage toute voix dont l'apport n'est pas établi — **Albini est le cas concret**, son apport est modeste sur le seul artefact éprouvé
+> **Fusionné avec le groupe 4 en cours d'implémentation.** L'appel de modèle séparé est supprimé (D2 révisé, 9-13 s de latence bloquante mesurées) : le routage *est* le motif du blocage. Il n'y a plus d'étape intermédiaire à observer sans agir.
+
+- [x] 3.1 Sur correspondance, appeler le modèle avec la question de `SILENCE.md` mot pour mot — *laquelle de ces questions est porteuse, et sa réponse changerait-elle la décision ?*
+- [x] 3.2 Vérifier que la seconde clause filtre réellement : construire deux cas où une question s'applique sans que sa réponse ne change rien, et constater le silence
+- [x] 3.3 Journaliser les verdicts sans agir. Les comparer à ce qu'on attendait, voix par voix
+- [x] 3.4 Exclure du routage toute voix dont l'apport n'est pas établi — **Albini est le cas concret**, son apport est modeste sur le seul artefact éprouvé
 
 ## 4. Convocation et garde-fous
 
-- [ ] 4.1 Bloquer la fin de tour en nommant la voix porteuse, sans produire d'analyse
-- [ ] 4.2 Garde-fou de boucle : une voix dont le marqueur figure déjà dans le diff n'est pas convoquée
-- [ ] 4.3 Garde-fou de volume : au plus une convocation par tour, la plus saillante
-- [ ] 4.4 Éprouver la boucle pour de vrai — provoquer le cas où la sentinelle pourrait se rappeler elle-même, et constater qu'elle s'arrête
+- [x] 4.1 Bloquer la fin de tour en nommant la voix porteuse, sans produire d'analyse
+- [x] 4.2 Garde-fou de boucle : une voix dont le marqueur figure déjà dans le diff n'est pas convoquée
+- [x] 4.3 Garde-fou de volume : au plus une convocation par tour, la plus saillante
+- [x] 4.4 Éprouver la boucle pour de vrai — provoquer le cas où la sentinelle pourrait se rappeler elle-même, et constater qu'elle s'arrête
 
 ## 5. Déclaration
 
-- [ ] 5.1 `plugin.json` reçoit sa clé `hooks` — absente depuis `plugin-claude-code`, faute de hook à déclarer
+- [x] 5.1 `plugin.json` reçoit sa clé `hooks` — absente depuis `plugin-claude-code`, faute de hook à déclarer
 - [ ] 5.2 README : les deux chemins d'installation **cessent d'être équivalents**. Seul le plugin porte la sentinelle. Sans quoi un utilisateur du clone attendra un dispositif qu'il n'a pas
 
 ## 6. Point d'arrêt — la sentinelle fait-elle le travail ?
