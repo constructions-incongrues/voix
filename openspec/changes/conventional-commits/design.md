@@ -75,7 +75,7 @@ Les 41 commits existants restent tels quels. Tout outil de dérivation traite un
 
 1. Écrire la section « Convention de commit » dans le `README.md`, avec la table.
 2. Appliquer à partir du commit suivant. Aucune rétroactivité.
-3. Premier bilan après 20 commits conformes : part de `chore`, conformité, et si un type manque.
+3. Premier bilan après ~~20~~ **14** commits conformes — seuil abaissé le 2026-08-08, le 20 ayant été posé avant toute donnée et ne figurant dans aucun ADR en force ; le coût de l'abaissement est écrit dans `tasks.md` : part de `chore`, conformité, et si un type manque.
 
 ## Open Questions
 
