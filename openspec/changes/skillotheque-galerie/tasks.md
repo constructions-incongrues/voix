@@ -33,6 +33,6 @@
 ## 6. Validation — point d'arrêt du changement
 
 - [x] 6.1 Test de disjonction croisée : soumettre un même artefact aux quatre voix (Debord, Albini, Illich, Lessig) et vérifier que les quatre traces sont distinctes
-- [ ] 6.2 Test de silence : sur un corpus d'une vingtaine de tâches ordinaires (une déclaration de TVA, un segfault, un renommage), vérifier que le taux de déclenchement reste sous une tâche sur cinq
-- [ ] 6.3 Si 6.1 ou 6.2 échoue, resserrer les questions ou retirer une voix — le lot 2 (Federici, Ostrom, Polanyi) reste bloqué tant que les deux tests ne passent pas
+- [x] 6.2 Test de silence : sur un corpus d'une vingtaine de tâches ordinaires (une déclaration de TVA, un segfault, un renommage), vérifier que le taux de déclenchement reste sous une tâche sur cinq
+- [x] 6.3 Si 6.1 ou 6.2 échoue, resserrer les questions ou retirer une voix — le lot 2 (Federici, Ostrom, Polanyi) reste bloqué tant que les deux tests ne passent pas
 - [x] 6.4 Trancher la question ouverte du design : Federici en personne ou *Wages for Housework* en courant
