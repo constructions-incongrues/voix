@@ -138,4 +138,8 @@ Seuil du registre respecté, et de loin.
 //   RECOURS       aucun
 ```
 
-**Un confondant de méthode, à connaître.** Les mesures « 0 déclenchement sur 4 » ont été faites sans le plugin chargé ; les mesures de la sentinelle le chargent, ce qui rend chaque voix visible deux fois. Ce n'est pas neutre pour le déclenchement spontané. Les deux séries ne se comparent pas directement.
+**Un confondant de méthode, et il est pire que décrit d'abord.** Les mesures « 0 déclenchement sur 4 » ont été faites sans le plugin chargé ; celles de la sentinelle le chargent. Ce n'est pas seulement que chaque voix devient visible deux fois — vérifié après coup, **le plugin installé était resté en `0.1.0`**, c'est-à-dire avec les anciennes descriptions de 1702 à 2411 caractères, dont trois ne sont pas du YAML valide.
+
+Les mesures de la sentinelle ont donc tourné avec, en concurrence : la copie brève posée par `install.sh`, la copie bourrée servie par le plugin périmé, et la copie brève chargée par `--plugin-dir`. Le journal du hook n'existe que dans la dernière, donc les convocations observées sont bien attribuables au code courant. Le **taux de déclenchement spontané**, lui, n'est pas interprétable dans cet environnement.
+
+À rejouer sur une installation propre — plugin à jour, aucun lien symbolique concurrent — avant d'en tirer quoi que ce soit.
