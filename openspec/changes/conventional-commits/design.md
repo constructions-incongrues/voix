@@ -33,7 +33,9 @@ C'est la décision qui protège ce que l'adoption menace. Conventional Commits c
 
 *Alternative écartée :* laisser la description libre, sans exigence. C'est ce qui produit en pratique la dérive vers `fix: divers` — et ici la perte serait exactement les six commits de correction de croyance, c'est-à-dire les plus utiles du dépôt.
 
-### D3 — Table de correspondance, README souverain
+### D3 — ~~Table de correspondance, README souverain~~ → renversé par `adr/0002`
+
+> **Renversé.** Cette décision posait le README comme source d'autorité et les types comme indicatifs. `adr/0002` a remplacé ce garde-fou : les types font autorité, la table devient la description de la configuration de release-please. Le raisonnement ci-dessous est conservé tel qu'il a été écrit — c'est ce que le changement croyait, et le dépôt tient que ça se lise.
 
 La table relie les types aux trois niveaux du README. En cas de conflit, **le README l'emporte** et la table est corrigée.
 
@@ -73,7 +75,7 @@ Les 41 commits existants restent tels quels. Tout outil de dérivation traite un
 
 1. Écrire la section « Convention de commit » dans le `README.md`, avec la table.
 2. Appliquer à partir du commit suivant. Aucune rétroactivité.
-3. Premier bilan après 20 commits conformes : part de `chore`, conformité, et si un type manque.
+3. Premier bilan après ~~20~~ **14** commits conformes — seuil abaissé le 2026-08-08, le 20 ayant été posé avant toute donnée et ne figurant dans aucun ADR en force ; le coût de l'abaissement est écrit dans `tasks.md` : part de `chore`, conformité, et si un type manque.
 
 ## Open Questions
 
