@@ -43,6 +43,20 @@ Les trois tâches techniques n'ont pas été rejouées après correction : le co
 
 **0 déclenchement de voix sur 8 tâches ordinaires ou expositives. 3/3 sur les contrôles positifs.** Seuil respecté.
 
+## Rejeu du 2026-08-08, après la réécriture de portabilité
+
+Les quatre `description` ayant été étendues, les deux tests ont été rejoués. La méthode est la même : `claude -p --output-format stream-json`, lecture du premier appel `Skill`.
+
+| Catégorie | Cas | Résultat |
+|---|---|---|
+| expositif | 4 (Lessig, Illich, Albini, Debord) | 4 silences |
+| ordinaire | 3 (segfault, renommage, index SQL) | 3 silences |
+| contrôles positifs | 4, un par voix | 2 succès, **2 échecs** |
+
+**Aucune régression** : les deux échecs sont antérieurs à la réécriture. Vérifié en rejouant le cas d'Albini contre sa version d'avant portabilité — silence déjà. C'est la première fois que les quatre voix étaient éprouvées en positif, et le test l'a trouvé pour cette raison.
+
+Le défaut et sa correction sont décrits dans [`DISJONCTION.md`](DISJONCTION.md) : les descriptions de Debord et d'Albini étaient de forme *invitation* et non de forme *situation*. Après correction, les quatre contrôles positifs passent et les sept cas de silence tiennent.
+
 ## Le défaut trouvé, et sa correction
 
 Nommer un penseur est ambigu : *« sois Lessig »* et *« parle-moi de Lessig »* partagent le même mot. Les quatre `description` déclenchaient sur le mot-clé seul, et convoquaient donc la persona sur une demande de fiche de révision.

@@ -21,10 +21,10 @@
 
 ## 4. Non-régression — point d'arrêt
 
-- [ ] 4.1 Rejouer le test de disjonction sur les quatre voix réécrites ; dater la nouvelle exécution dans `DISJONCTION.md`
-- [ ] 4.2 Rejouer le test de silence : les quatre cas expositifs et au moins trois tâches ordinaires, par `claude -p --output-format stream-json` et lecture du premier appel `Skill` — pas par le harnais `skill-creator`
-- [ ] 4.3 Rejouer les contrôles positifs des quatre voix : chacune doit encore déclencher sur un cas réel de son domaine
-- [ ] 4.4 Dater les résultats dans `SILENCE.md`. **Une régression bloque la publication** : corriger et rejouer avant d'aller plus loin
+- [x] 4.1 Rejouer le test de disjonction sur les quatre voix réécrites ; dater la nouvelle exécution dans `DISJONCTION.md`
+- [x] 4.2 Rejouer le test de silence : les quatre cas expositifs et au moins trois tâches ordinaires, par `claude -p --output-format stream-json` et lecture du premier appel `Skill` — pas par le harnais `skill-creator`
+- [x] 4.3 Rejouer les contrôles positifs des quatre voix : chacune doit encore déclencher sur un cas réel de son domaine
+- [x] 4.4 Dater les résultats dans `SILENCE.md`. **Une régression bloque la publication** : corriger et rejouer avant d'aller plus loin
 
 ## 5. Specs
 

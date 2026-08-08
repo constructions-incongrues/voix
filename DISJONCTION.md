@@ -46,6 +46,34 @@ Critère d'admission opérationnel du registre : **un même artefact soumis à t
 
 **Paire la plus serrée : Albini / Lessig**, tous deux déclenchés par le verrouillage de l'export. Ils ne convergent pas : Albini répond *à qui appartient la chose*, Lessig répond *qui peut contester la règle*. Propriété contre recours. À surveiller à la prochaine candidate ; c'est ici que la disjonction cédera en premier si elle cède.
 
+## Faille de méthode découverte le 2026-08-08
+
+**Ce test mesure la disjonction des traces, pas celle du routage.** Deux voix peuvent produire des traces parfaitement distinctes et se disputer quand même la même requête — c'est la voix convoquée qui décide, et elle est choisie avant que la moindre trace n'existe.
+
+La faille s'est manifestée : sur *« notre landing page promet une expérience qui vous rend plus vivant, et le tableau de bord compte les sessions actives »* — un tableau de bord qui tient lieu de la chose qu'il mesure, littéralement dans les `Signaux` de Debord — **c'est Illich qui a été convoqué**. Non parce que sa question convenait mieux, mais parce que sa description était de forme *situation* (« à convoquer chaque fois qu'un outil promet… ») quand celle de Debord était de forme *invitation* (« quand l'utilisateur veut parler avec Debord »). Illich gagnait par défaut.
+
+Un test de disjonction complet comporte donc **deux volets** :
+
+| Volet | Ce qu'il vérifie | Comment |
+|---|---|---|
+| traces | deux voix ne produisent pas le même objet | même artefact soumis à toutes les voix |
+| **routage** | **la bonne voix est convoquée sur sa propre situation** | **une requête par voix, décrivant sa situation sans la nommer** |
+
+Le second est celui dont dépendra la sentinelle : elle route sur la situation, jamais sur un nom.
+
+### Volet routage — exécution du 2026-08-08
+
+| Requête (aucune voix nommée) | Attendu | Obtenu |
+|---|---|---|
+| landing page promettant « une expérience qui vous rend plus vivant », tableau de bord de sessions | debord | `guy-debord` |
+| pipeline CI censé faire gagner du temps, rafistolé tous les matins | illich | `illich` |
+| fonds proposant 2M pour 18 % avec liquidation préférentielle 1,5× | albini | `steve-albini` |
+| blocage à 100 req/min sans notification ni voie de contestation | lessig | `lessig` |
+
+Les deux premiers ont d'abord échoué. Correction appliquée : les descriptions de **Debord** et **Albini** ouvrent désormais sur une clause de situation — *« à convoquer chaque fois que le travail porte sur… même quand X n'est pas nommé »* — calquée sur leur propre section `Signaux`. Illich et Lessig l'avaient dès l'écriture ; les deux voix héritées d'un usage opt-in ne l'avaient jamais eue.
+
+**Toute voix admise doit porter une clause de situation.** Une voix qui n'existe que sur invitation ne sera jamais convoquée par une sentinelle.
+
 ### Collision anticipée, non encore testée
 
 **Illich / Federici (lot 2).** Le *travail fantôme* d'Illich — le travail non payé exigé par la société de consommation — recoupe la question de Federici. Arbitrage déjà inscrit dans `voix/illich/SKILL.md` : Illich cède la place sur la structure de ce travail et n'en garde que le volume. **À vérifier par ce test avant d'admettre Federici**, pas après.
