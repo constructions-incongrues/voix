@@ -1,7 +1,7 @@
 ## 1. Audit préalable
 
-- [ ] 1.1 Inspecter l'arbre et les 8 commits d'historique : jetons, clés, chemins personnels exploitables. Consigner le résultat, y compris s'il est vide
-- [ ] 1.2 Vérifier que `~/.claude/skills-avant-skillotheque/` et le scratchpad ne sont pas suivis par git
+- [x] 1.1 Inspecter l'arbre et les 8 commits d'historique : jetons, clés, chemins personnels exploitables. Consigner le résultat, y compris s'il est vide
+- [x] 1.2 Vérifier que `~/.claude/skills-avant-skillotheque/` et le scratchpad ne sont pas suivis par git
 
 ## 2. Portabilité des quatre voix
 

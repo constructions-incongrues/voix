@@ -1,1 +1,7 @@
 .DS_Store
+
+# Outillage régénérable, non couvert par la licence du dépôt
+# .claude/  : généré par `openspec init --tools claude` (fichiers MIT dOpenSpec)
+# .serena/  : configuration machine locale
+.claude/
+.serena/
