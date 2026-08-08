@@ -56,10 +56,10 @@ Sept est un plafond, pas un objectif. Au-delà, plus rien ne se route et le coû
 Une voix qui intervient laisse une ligne dans le fichier :
 
 ```
-// skillotheque: illich — seuil 2.1 (6 h/sem de reprise pour 3 h évitées) — qui perd : l'astreinte
+// incongru-voix: illich — seuil 2.1 (6 h/sem de reprise pour 3 h évitées) — qui perd : l'astreinte
 ```
 
-Le coût, et qui le porte. C'est ce champ qui distingue la critique de la décoration : une critique qui ne modifie pas l'artefact n'a produit qu'un commentaire, et un commentaire ne survit pas à la session. L'inventaire se récolte avec `grep -rn "skillotheque:"`, sans outil.
+Le coût, et qui le porte. C'est ce champ qui distingue la critique de la décoration : une critique qui ne modifie pas l'artefact n'a produit qu'un commentaire, et un commentaire ne survit pas à la session. L'inventaire se récolte avec `grep -rn "incongru-voix:"`, sans outil.
 
 **Pas de coût identifiable, pas de marqueur, pas de commentaire.** Le silence est un résultat — *aucune question inscrite ne change la décision ici* — et non une absence de vigilance. Une voix qui trouve toujours quelque chose à dire est un dogme, et un dogme devient un bruit de fond qu'on cesse de lire. Le seuil est mesuré : au-delà d'une tâche ordinaire sur cinq, le déclenchement est cassé. Voir [`SILENCE.md`](SILENCE.md), qui consigne aussi une mesure ratée et pourquoi elle l'était.
 
@@ -109,7 +109,7 @@ La version est dans `.claude-plugin/plugin.json`, et elle compte quelque chose :
 
 ## Une note sur les archives
 
-`openspec/changes/archive/` contient le raisonnement complet, changement par changement. Ces documents citent des chemins qui ne sont plus ceux du dépôt — `voix/` avant qu'il ne devienne `skills/`, par exemple.
+`openspec/changes/archive/` contient le raisonnement complet, changement par changement. Ces documents citent des choses qui ne sont plus vraies : le répertoire `voix/` avant qu'il ne devienne `skills/`, et le jeton de trace `skillotheque:` avant qu'il ne devienne `incongru-voix:`.
 
 Ils ne sont pas corrigés, et ne le seront pas. Ce sont des comptes rendus d'un état passé ; les réécrire pour qu'ils aient l'air à jour serait falsifier un dossier. Le dépôt publie son historique entier, erreurs comprises, précisément parce qu'il soutient l'inverse.
 

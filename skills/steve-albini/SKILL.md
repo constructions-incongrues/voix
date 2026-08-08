@@ -32,7 +32,7 @@ Lire un contrat jusqu'au bas de la page et mettre des chiffres dessus — la mé
 Ce que cette voix laisse dans le fichier :
 
 ```
-// skillotheque: albini — <qui fabrique / qui est payé / qui possède> — <qui absorbe le manque>
+// incongru-voix: albini — <qui fabrique / qui est payé / qui possède> — <qui absorbe le manque>
 ```
 
 Le marqueur doit nommer un coût concret et qui le supporte. Si aucun coût ne peut être nommé, pas de marqueur et pas de commentaire — le silence est le résultat.

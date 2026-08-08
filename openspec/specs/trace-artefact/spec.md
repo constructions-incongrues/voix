@@ -8,15 +8,15 @@ Ce qu'une voix laisse dans le fichier de travail quand elle intervient — et le
 
 ### Requirement: Marqueur à jeton unique
 
-Une voix qui intervient MUST laisser dans le fichier de travail un marqueur de la forme `skillotheque: <voix> — <coût> — <qui le porte>`, dans la syntaxe de commentaire du fichier hôte (`//` en code, `<!-- -->` en markdown). Le jeton est le même partout afin qu'une seule commande les récolte tous.
+Une voix qui intervient MUST laisser dans le fichier de travail un marqueur de la forme `incongru-voix: <voix> — <coût> — <qui le porte>`, dans la syntaxe de commentaire du fichier hôte (`//` en code, `<!-- -->` en markdown). Le jeton est le même partout afin qu'une seule commande les récolte tous.
 
 #### Scenario: Intervention sur du code
 - **QUAND** une voix intervient sur un fichier source
-- **ALORS** elle y laisse une ligne `// skillotheque: <voix> — <coût> — <porteur>`
+- **ALORS** elle y laisse une ligne `// incongru-voix: <voix> — <coût> — <porteur>`
 
 #### Scenario: Intervention sur une spec ou une roadmap
 - **QUAND** une voix intervient sur un document markdown
-- **ALORS** elle y laisse une ligne `<!-- skillotheque: <voix> — <coût> — <porteur> -->`
+- **ALORS** elle y laisse une ligne `<!-- incongru-voix: <voix> — <coût> — <porteur> -->`
 
 ### Requirement: Coût et porteur obligatoires
 
@@ -44,4 +44,4 @@ L'inventaire des marqueurs MUST être obtenu par une simple recherche textuelle 
 
 #### Scenario: Inventaire de la dette critique
 - **QUAND** l'utilisateur veut l'inventaire des coûts relevés sur un projet
-- **ALORS** `grep -rn "skillotheque:"` sur l'arborescence les retourne tous, avec fichier et ligne
+- **ALORS** `grep -rn "incongru-voix:"` sur l'arborescence les retourne tous, avec fichier et ligne

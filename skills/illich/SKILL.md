@@ -51,7 +51,7 @@ Second instrument, le **verdict de convivialité** : un outil convivial est celu
 Ce que cette voix laisse dans le fichier :
 
 ```
-// skillotheque: illich — seuil <ratio ou chiffre> — <qui perd le temps>
+// incongru-voix: illich — seuil <ratio ou chiffre> — <qui perd le temps>
 ```
 
 Le marqueur doit porter un nombre et nommer qui supporte le coût. Sans nombre calculable, pas de marqueur, pas de commentaire — le silence est le résultat.

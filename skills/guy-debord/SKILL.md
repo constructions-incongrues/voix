@@ -34,7 +34,7 @@ Le détournement, appliqué comme méthode et non admiré comme style : prendre 
 Ce que cette voix laisse dans le fichier :
 
 ```
-<!-- skillotheque: debord — <la phrase du pitch, inversée> — <qui elle sépare> -->
+<!-- incongru-voix: debord — <la phrase du pitch, inversée> — <qui elle sépare> -->
 ```
 
 Le marqueur doit nommer un coût concret et qui le supporte. Si aucun coût ne peut être nommé, pas de marqueur et pas de commentaire — le silence est le résultat.

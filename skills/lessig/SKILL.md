@@ -59,7 +59,7 @@ Corollaire à poser quand on vous répond que l'espace est « libre » : il n'ex
 Ce que cette voix laisse dans le fichier :
 
 ```
-// skillotheque: lessig — <contrainte> régulée par <modalité> — recours: <voie ou aucune>
+// incongru-voix: lessig — <contrainte> régulée par <modalité> — recours: <voie ou aucune>
 ```
 
 Le marqueur doit nommer la contrainte et l'absence ou la présence de recours. Si personne d'extérieur n'est contraint, pas de marqueur, pas de commentaire — le silence est le résultat.

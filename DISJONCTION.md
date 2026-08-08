@@ -16,19 +16,19 @@ Critère d'admission opérationnel du registre : **un même artefact soumis à t
 ### Traces produites
 
 ```
-<!-- skillotheque: debord — « rendez votre communauté vivante » = une base
+<!-- incongru-voix: debord — « rendez votre communauté vivante » = une base
      d'utilisateurs mesurée, vendue à celui qui l'anime — qui est séparé :
      les contributeurs, entre eux, par le tableau de bord qui les compte -->
 
-// skillotheque: albini — les mainteneurs fabriquent les données de
+// incongru-voix: albini — les mainteneurs fabriquent les données de
    contribution / la plateforme les facture / la plateforme les possède
    — qui absorbe : les mainteneurs, non payés et non propriétaires
 
-// skillotheque: illich — seuil 2.1 (le bot N1 renvoie 6 h/semaine de
+// incongru-voix: illich — seuil 2.1 (le bot N1 renvoie 6 h/semaine de
    reprise humaine pour 3 h de tickets évités) — qui perd : le mainteneur
    d'astreinte, qui ne peut ni inspecter ni corriger le bot
 
-// skillotheque: lessig — export des contributions rendu impossible dans
+// incongru-voix: lessig — export des contributions rendu impossible dans
    l'UI, régulé par l'architecture et non par les CGU qui l'autorisent
    — recours : aucun
 ```

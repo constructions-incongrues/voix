@@ -83,10 +83,10 @@ Ces débats sont instruits. Ils ne se rouvrent que sur un argument neuf portant 
 Toute voix qui intervient laisse dans le fichier de travail :
 
 ```
-// skillotheque: <voix> — <coût> — <qui le porte>          en code
-<!-- skillotheque: <voix> — <coût> — <qui le porte> -->    en markdown
+// incongru-voix: <voix> — <coût> — <qui le porte>          en code
+<!-- incongru-voix: <voix> — <coût> — <qui le porte> -->    en markdown
 ```
 
-Récolte : `grep -rn "skillotheque:"`.
+Récolte : `grep -rn "incongru-voix:"`.
 
 **Pas de coût identifiable, pas de marqueur, pas de commentaire.** Le silence est un résultat — *aucune question inscrite ne change la décision ici* — et non une absence de vigilance. Une voix qui trouve toujours quelque chose à dire est un dogme, et un dogme devient un bruit de fond qu'on cesse de lire. Seuil : au-delà d'une tâche sur cinq, le déclenchement est cassé.
