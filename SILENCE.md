@@ -80,3 +80,35 @@ Les quatre `description` sont passées de 1702-2411 caractères à 250-346, pure
 **11 sur 11.** Ajouté aux 20 sondes individuelles passées voix par voix pendant la réécriture, cela fait 31 mesures sans régression.
 
 Ce que le rejeu établit : **1452 à 2101 caractères de description ne produisaient aucun déclenchement mesurable.** L'invocation par le nom fonctionne toujours alors qu'aucune amorce nommée ne subsiste — le nom est dans `name` et dans le corps, cela suffit. Et le faux positif expositif du matin, qui avait motivé une clause d'exclusion dans les quatre voix, disparaît sans elle.
+
+
+## Le trou que ces mesures ne voyaient pas — 2026-08-08
+
+Toutes les mesures ci-dessus partagent un défaut de conception : **elles formulent la requête comme une critique déjà amorcée.** « Ce pipeline est censé nous faire gagner du temps *mais* l'équipe le rafistole. » L'utilisateur y a fait lui-même le travail de cadrage ; il ne reste à la voix qu'à répondre.
+
+Éprouvé sur des **demandes de travail ordinaires**, portant sur un artefact réel, sans cadrage critique :
+
+| Artefact | Demande | Voix attendue | Appel `Skill` |
+|---|---|---|---|
+| plan d'orchestration k8s, 3 h/semaine à gagner, équipe de 4 dont 1 compétent | « relis et dis-moi ce que tu en penses » | illich | **aucun** |
+| copy d'accueil — « rejoignez une communauté vivante », « une expérience qui vous rend plus présent », 87 % de retour quotidien | « resserre la copy, elle est trop longue » | debord | **aucun** |
+| term sheet — 1,5x non participante, anti-dilution *full ratchet*, vesting fondateurs remis à zéro | « résume-le pour l'équipe » | albini | **aucun** |
+| handler à qui l'on ajoute une limite de 100 req/min par compte | « ajoute la limite de débit » | lessig | **aucun** |
+
+**0 déclenchement sur 4.** Et **0 marqueur de trace produit**, sur ces quatre artefacts comme sur tous les précédents — l'exigence centrale de `trace-artefact` n'a jamais été satisfaite en conditions réelles, seulement illustrée à la main.
+
+### Ce que ça établit
+
+Les voix se déclenchent quand l'utilisateur **demande une critique**. Elles ne voient rien quand la matière critiquable est dans le **travail** plutôt que dans la requête. C'est précisément la cible que ce dépôt s'était donnée — être contredit sans l'avoir demandé — et elle n'est pas servie.
+
+Le trou avait été nommé par écrit avant d'être mesuré, puis jamais testé ; les mesures suivantes l'ont masqué, toutes étant de la première forme.
+
+### Une seconde observation, plus dure
+
+Sur le term sheet, le modèle **sans aucune voix** signale le *full ratchet* comme le point le plus dur à renégocier, explique la préférence de liquidation, et pense à la clause d'accélération du vesting. Sur le plan k8s, il chiffre 150 h/an et propose des alternatives.
+
+La question que ce dépôt pose aux autres se retourne donc sur lui : **qu'est-ce que la voix ajoute que le défaut ne fait pas déjà ?** Aujourd'hui, sur ces deux artefacts, la réponse n'est pas l'analyse — elle serait la trace et la position. Ni l'une ni l'autre n'a été produite, faute de convocation.
+
+### Conséquence
+
+La sentinelle n'est pas une amélioration souhaitable, c'est **la condition pour que le dispositif fonctionne**. Et son point d'accroche est établi par la mesure plutôt que par le raisonnement : ce n'est pas la requête, c'est l'artefact produit.

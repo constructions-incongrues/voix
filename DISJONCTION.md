@@ -61,6 +61,8 @@ Un test de disjonction complet comporte donc **deux volets** :
 
 Le second est celui dont dépendra la sentinelle : elle route sur la situation, jamais sur un nom.
 
+> **Troisième volet manquant, découvert le 2026-08-08.** Les deux volets ci-dessus interrogent la voix par une requête *décrivant une situation*. Aucun ne vérifie qu'une voix se déclenche quand la situation est dans le **travail** et non dans la demande. Mesuré : 0 déclenchement sur 4 voix, sur des demandes de travail ordinaires. Voir [`SILENCE.md`](SILENCE.md).
+
 ### Volet routage — exécution du 2026-08-08
 
 | Requête (aucune voix nommée) | Attendu | Obtenu |
