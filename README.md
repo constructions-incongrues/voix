@@ -47,6 +47,8 @@ Une voix entre si elle satisfait **trois conditions**, pas deux : une question d
 
 La disjonction n'est pas une déclaration d'intention, c'est un test : le même artefact est soumis à toutes les voix, et **si deux produisent la même trace, l'une des deux sort**. Voir [`DISJONCTION.md`](DISJONCTION.md).
 
+Et une quatrième condition, écrite en dernier alors qu'elle aurait dû être la première : **une voix doit produire ce que le modèle sans elle ne produit pas.** Mesuré sur un artefact réel, deux bras, même consigne. Voir [`BASELINE.md`](BASELINE.md) — devant une page d'accueil dont les métriques avouent une boucle de dépendance, le modèle sans voix propose d'ajouter un bouton d'inscription.
+
 Refusés à ce jour, avec leur motif : Gorz, Ellul, Mumford et Castoriadis pour doublon avec Illich ; Graeber pour doublon partiel avec Illich et Albini ; Lordon avec Debord ; Kropotkine avec Ostrom ; Simone Weil pour absence de trace — sa question est parfaitement disjointe, elle ne produit aucun résultat structuré. Ces refus portent sur la disjonction, jamais sur la valeur du penseur. Le registre complet est dans [`REGISTRE.md`](REGISTRE.md).
 
 Sept est un plafond, pas un objectif. Au-delà, plus rien ne se route et le coût d'entretien dépasse ce qui est tenable.
