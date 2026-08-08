@@ -39,38 +39,35 @@ Contrainte héritée qui domine : la `description` est ce que deux changes succe
 
 ## Decisions
 
-### D1 — Ordre de priorité de la description, et ce qu'on coupe en premier
+### D1 — On ne coupe pas, on réécrit court. Mesuré.
 
-Couper 1191 caractères sans règle revient à couper au hasard. L'ordre suit ce que le dépôt a mesuré, du plus au moins établi :
+La décision initiale — un ordre de priorité pour rogner 1191 caractères — est abandonnée. Elle reposait sur l'hypothèse que la longueur portait du déclenchement. L'expérience la réfute.
 
-```
-  1. CLAUSE DE SITUATION        intouchable
-     « à convoquer chaque fois que le travail porte sur… même
-       quand X n'est pas nommé »
-     → c'est elle qui rend la voix convocable sans son nom. Sans elle,
-       une autre voix remporte ses requêtes par défaut (mesuré le 08-08).
-       Toute la sentinelle en dépend.
+**Illich, 1702 → 250 caractères**, description purement descriptive : ni amorces nommées, ni clause d'exclusion, ni mention de contre-voix. Cinq sondes :
 
-  2. CLAUSE D'EXCLUSION         intouchable, compressible
-     « ne pas déclencher sur un exposé, un résumé neutre… »
-     → seul faux positif jamais observé en conditions réelles.
-       Le fond reste ; l'énumération des cas peut se réduire.
+| Sonde | Résultat |
+|---|---|
+| pipeline CI rafistolé, sans le nommer | `illich` |
+| « que dirait Illich de notre stack ? » | `illich` |
+| convivialité, pour un exposé | silence |
+| *Une société sans école*, résumé pour un groupe de lecture | silence |
+| index SQL | silence |
 
-  3. AMORCES NOMMÉES            garder 3 à 4, dont une en anglais
-     → « que dirait X », « voix de X », « bring in X »
-       Les listes de dix variantes coûtent cher et se recouvrent.
+**1452 caractères ne faisaient rien de mesurable.** L'invocation par le nom fonctionne toujours, alors qu'aucune amorce nommée ne subsiste : le nom est dans `name:` et dans le corps, cela suffit.
 
-  4. CONTRE-VOIX CONSEIL STARTUP  réduire à une phrase
-     → le fond appartient au corps du fichier, pas au déclencheur.
+La cible n'est donc pas « juste sous 1024 » mais **l'échelle de l'exemple de référence de la spécification, qui fait 182 caractères** : ce que fait la skill, et quand l'employer. Le reste appartient au corps du fichier, qui n'a pas de limite.
 
-  5. EXEMPLES D'OUTILLAGE TIERS   couper entièrement
-     → « (chez certains : les skills gstack office-hours, …) »
-       Ce sont des exemples, jamais des dépendances — `portabilite-voix`
-       l'exige déjà. Ils coûtent 150 à 250 caractères par voix pour
-       zéro déclenchement propre.
-```
+*Alternative écartée :* garder la forme longue en la rognant. On aurait conservé, au prix d'un arbitrage difficile, un texte dont l'expérience montre qu'il ne servait pas.
 
-*Alternative écartée :* couper au plus court en gardant la forme actuelle et en supprimant des phrases entières au jugé. Rapide, et impossible à défendre quand un déclenchement tombe.
+### D1bis — La clause d'exclusion était iatrogène
+
+Le mot est d'Illich, et il est exact : *le mal produit par le soin lui-même*.
+
+Ce matin, `lessig` s'est déclenché sur « explique-moi code is law, pour un cours ». J'en ai conclu qu'il fallait une clause « ne pas déclencher sur un exposé », je l'ai écrite dans les quatre voix et inscrite comme exigence dans `format-voix`.
+
+La cause réelle n'était pas une ambiguïté de fond entre *« sois X »* et *« parle-moi de X »*. C'était le bourrage : une description répétant « que dirait Illich », « voix d'Illich », « convivialité » rend le nom saillant hors de tout contexte. Description brève, le faux positif disparaît **sans aucune clause**, sur deux cas expositifs distincts.
+
+Conséquence sur l'exigence : elle ne disparaît pas, elle **se rattache à sa cause**. La clause d'exclusion devient obligatoire *lorsque la description porte des amorces nommées*, et inutile sinon. Une exigence qui prescrit le remède sans nommer la maladie fait dépenser des caractères contre un problème qu'on ne reproduit plus — exactement ce que ce dépôt reproche aux règles des autres.
 
 ### D2 — La règle « additive uniquement » devient « additive par défaut »
 
@@ -106,26 +103,26 @@ Le README affirme que les voix fonctionnent avec tout agent qui charge des skill
 
 | Risque | Atténuation |
 |---|---|
-| Une coupe de 58 % détruit un déclenchement réglé sur 4 itérations | D1 : ordre de priorité motivé, le plus mesuré coupé en dernier. D5 : rejeu obligatoire, point d'arrêt. |
-| La clause de situation est sacrifiée au budget | D1 : intouchable, rang 1. C'est la condition d'existence de la sentinelle. |
+| Le résultat d'Illich ne vaut que pour Illich | Sa question est lexicalement distinctive (*outil*, *temps*, *productivité*). Debord (*ce qui est vendu comme de la vie*) et Albini (*qui est payé*) se reconnaissent moins bien en surface. Les cinq sondes sont rejouées voix par voix, et un échec sur l'une n'autorise pas à conclure pour les autres. |
+| Une voix devient trop maigre pour se déclencher hors de son nom | Le volet routage le détecte : il interroge la situation **sans** nommer la voix. C'est la sonde qui compte, les quatre autres ne font que borner. |
+| La description brève ne porte plus la contre-voix « conseil startup » | Ce contenu vit dans le corps du fichier, chargé dès l'activation. La question est de savoir s'il faut encore être *convoqué* dessus — à mesurer, pas à supposer. |
 | Assouplir « additive uniquement » ouvre la porte aux coupes non mesurées | D2 : l'autorisation est conditionnelle à la preuve, pas générale. Sans mesure, la suppression reste interdite. |
-| Une voix devient trop maigre pour se déclencher hors de son nom | Le test de routage le détecte : il interroge précisément la situation sans nommer la voix. |
+| Retirer la clause d'exclusion réintroduit le faux positif | D1bis : elle n'est pas retirée, elle devient conditionnelle à sa cause. Une description qui porte des amorces nommées la garde. |
 | La spécification évolue et le dépôt redevient non conforme | `skills-ref` est une dépendance de développement ; la validation se rejoue à chaque voix admise. |
-| 1024 caractères est peut-être infranchissable pour Albini (2411) | Si la coupe casse le déclenchement après deux tentatives, **arrêter et rapporter** plutôt que dégrader en silence. Une voix non conforme et fonctionnelle vaut mieux qu'une voix conforme et muette — mais la décision revient à l'auteur, pas à l'implémentation. |
 
 ## Migration Plan
 
 1. Installer `skills-ref` et établir la mesure de départ des quatre voix.
-2. Modifier `portabilite-voix` **avant** toute coupe — sinon les tâches suivantes violent une exigence en vigueur.
-3. Couper les quatre `description` selon D1, dans l'ordre croissant de difficulté : Illich (−678), Lessig (−804), Debord (−1191), Albini (−1387).
+2. Modifier `portabilite-voix` et `format-voix` **avant** toute réécriture — sinon les tâches suivantes violent des exigences en vigueur.
+3. Réécrire les trois descriptions restantes en bref, **une voix à la fois, cinq sondes après chacune**. Illich est déjà fait et mesuré. Ordre : Lessig, Debord, Albini — du plus au moins lexicalement distinctif, pour que l'échec, s'il vient, vienne sur le cas où l'on sait déjà quoi en conclure.
 4. Ajouter `license` aux quatre.
 5. Valider avec `skills-ref`.
-6. **Point d'arrêt** : rejeu routage + silence. Une régression bloque.
+6. **Point d'arrêt** : rejeu complet routage + silence sur les quatre ensemble — une voix peut passer seule et perdre son arbitrage face aux trois autres.
 7. Specs, README, publication.
 
 **Rollback** : `git revert`. Les descriptions d'avant sont dans l'historique, et l'historique n'est pas réécrit.
 
 ## Open Questions
 
-- **Que faire si Albini est irréductible ?** 2411 caractères pour un plafond de 1024, avec deux clauses obligatoires à préserver. Le risque est traité en D5/tableau, mais l'arbitrage — conformité contre déclenchement — appartient à l'auteur si le cas se présente.
-- **Les quatre sections normalisées coûtent-elles au corps ce que le budget coûte à la description ?** La spécification recommande d'externaliser les longs corps en `references/`. Hors périmètre ici, à rouvrir si un chargeur tiers s'en plaint.
+- **La clause de situation reste-t-elle nécessaire ?** Illich passe le volet routage avec une description qui ne la porte pas sous sa forme canonique — elle y est dissoute dans le « à employer quand… ». Si les trois autres font de même, l'exigence `format-voix / Clause de situation` doit être reformulée : ce qui compte n'est pas la formule, c'est que la situation soit décrite. À trancher après mesure, pas avant.
+- **Les quatre sections normalisées coûtent-elles au corps ce que la brièveté gagne à la description ?** La spécification recommande d'externaliser les longs corps en `references/`. Hors périmètre ici, à rouvrir si un chargeur tiers s'en plaint.

@@ -8,13 +8,15 @@
 - [ ] 2.1 Appliquer le delta `portabilite-voix` dans `openspec/specs/` : « additive uniquement » devient « additive par défaut, suppression permise si mesurée ». **À faire avant toute coupe** — sinon les tâches du groupe 3 violent une exigence en vigueur
 - [ ] 2.2 Appliquer le delta `format-voix` : le budget de description et son ordre de priorité
 
-## 3. Coupe des descriptions, du plus facile au plus dur
+## 3. Réécriture brève, une voix à la fois, mesurée à chaque fois
 
-- [ ] 3.1 **Illich** (1702 → ≤1024, −678) : couper les exemples gstack, réduire les amorces à trois ou quatre, resserrer l'énumération de l'exclusion. Clause de situation intacte
-- [ ] 3.2 **Lessig** (1828 → ≤1024, −804) : idem, plus la suppression des exclusions d'axes coupés (licence open source, financement politique) — le corps du fichier les porte déjà
-- [ ] 3.3 **Debord** (2215 → ≤1024, −1191) : idem. Sa liste d'amorces est la plus longue du dépôt et la plus redondante
-- [ ] 3.4 **Albini** (2411 → ≤1024, −1387) : le cas le plus dur. **Si deux tentatives ne passent pas sans casser le déclenchement, arrêter et rapporter** plutôt que dégrader en silence — l'arbitrage conformité contre déclenchement appartient à l'auteur
-- [ ] 3.5 Vérifier après chaque coupe que la clause de situation et le fond de la clause d'exclusion sont toujours présents
+Chaque voix reçoit une description neuve de l'ordre de 200 à 300 caractères — ce que la voix fait, quand l'employer — puis **les cinq sondes avant de passer à la suivante**. Une voix qui échoue est corrigée avant qu'on touche à la prochaine ; on ne réécrit pas quatre fichiers pour découvrir ensuite lequel a cassé.
+
+- [x] 3.1 **Illich** — fait et mesuré : 1702 → 250 caractères, 5 sondes sur 5
+- [ ] 3.2 **Lessig** (1828) — le plus proche d'Illich : sa situation (contrainte imposée à des tiers, recours) est concrète et lexicalement reconnaissable
+- [ ] 3.3 **Debord** (2215) — plus difficile : « ce qui est vendu comme de la vie » ne se reconnaît pas en surface d'une requête. C'est ici que la thèse est réellement éprouvée
+- [ ] 3.4 **Albini** (2411) — le cas où le déclenchement dépend le plus du contexte (un contrat, une levée, un partage). **Si deux tentatives échouent, arrêter et rapporter** plutôt que dégrader en silence
+- [ ] 3.5 Vérifier après chaque réécriture que la situation d'emploi est décrite — sous forme canonique ou dissoute dans le « à employer quand… », le volet routage tranche
 
 ## 4. Licence embarquée
 
