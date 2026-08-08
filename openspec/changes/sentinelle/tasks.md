@@ -7,10 +7,10 @@
 
 ## 2. Préfiltre seul, en observation
 
-- [ ] 2.1 Extraire les `Signaux` de `REGISTRE.md` — le registre devient exécutable, ce qui n'était jusqu'ici qu'une intention
-- [ ] 2.2 Obtenir le diff du tour. Dans un dépôt git, `git diff` ; hors git, trancher la question ouverte du design — se taire est une réponse acceptable pour une première version
-- [ ] 2.3 Recherche textuelle des signaux dans le diff, **journalisation seule, aucun blocage**
-- [ ] 2.4 Laisser tourner sur des tours réels et mesurer le taux de correspondance. **Point d'arrêt : au-delà d'un tour sur cinq, resserrer les `Signaux` avant d'aller plus loin.** Un préfiltre trop large fait payer un appel de modèle à chaque tour
+- [x] 2.1 Extraire les `Signaux` de `REGISTRE.md` — le registre devient exécutable, ce qui n'était jusqu'ici qu'une intention
+- [x] 2.2 Obtenir le diff du tour. Dans un dépôt git, `git diff` ; hors git, trancher la question ouverte du design — se taire est une réponse acceptable pour une première version
+- [x] 2.3 Recherche textuelle des signaux dans le diff, **journalisation seule, aucun blocage**
+- [x] 2.4 Laisser tourner sur des tours réels et mesurer le taux de correspondance. **Point d'arrêt : au-delà d'un tour sur cinq, resserrer les `Signaux` avant d'aller plus loin.** Un préfiltre trop large fait payer un appel de modèle à chaque tour
 
 ## 3. Routage, toujours sans blocage
 

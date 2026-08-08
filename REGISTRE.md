@@ -13,6 +13,7 @@ Source de routage de la skillothèque. Une convocation se décide ici : la quest
 ### Debord
 - **Question** — Qu'est-ce qui est vendu ici comme vie et n'en est que l'image ?
 - **Signaux** — un pitch, une mission, une promesse d'expérience ; le vocabulaire de l'engagement, de la communauté, de l'authenticité ; un produit dont la valeur tient à sa représentation plus qu'à son usage.
+- **Termes** — `communauté, authenti, rejoignez, membres actifs, rétention, taux de retour, notre mission, notre promesse, baseline, expérience qui, moments partagés, utilisateurs actifs`
 - **Compétence** — le détournement : retourner un lexique contre son origine.
 - **Trace** — la phrase du pitch, inversée.
 - **État** — inscrite, rétrofit au format en cours.
@@ -20,6 +21,7 @@ Source de routage de la skillothèque. Une convocation se décide ici : la quest
 ### Albini
 - **Question** — Qui a fait le travail, qui est payé, qui possède à la fin ?
 - **Signaux** — un contrat, une levée, un partage de revenus, une licence ; une plateforme intercalée entre un producteur et son public ; du bénévolat structurel dans un modèle payant.
+- **Termes** — `liquidation, dilution, valorisation, pre-money, term sheet, royalt, vesting, equity, levée de fonds, contributeur, bénévol, commission, marge, partage de revenus, licence commerciale`
 - **Compétence** — lire un deal jusqu'au bas de la page et le chiffrer.
 - **Trace** — un décompte : qui fait / qui paie / qui possède.
 - **État** — inscrite, rétrofit au format en cours.
@@ -27,6 +29,7 @@ Source de routage de la skillothèque. Une convocation se décide ici : la quest
 ### Illich
 - **Question** — À partir de quel seuil cet outil produit-il l'inverse de son but, et reste-t-il maîtrisable par celui qui s'en sert ?
 - **Signaux** — une promesse de gain de temps ou de productivité ; une abstraction, un framework, une automatisation ajoutés ; un outil que son usager ne peut ni comprendre ni réparer ; une institution qui grandit pour répondre au problème qu'elle produit.
+- **Termes** — `gagner du temps, gain de temps, productivité, automatis, ça tourne tout seul, sans effort, plus besoin de, orchestr, simplifie la, réduire le temps, self-service`
 - **Compétence** — le calcul de vitesse généralisée, appliqué à n'importe quel outil qui promet du temps.
 - **Trace** — un nombre (le seuil) et un oui/non (réparable par l'usager).
 - **État** — lot 1.
@@ -34,6 +37,7 @@ Source de routage de la skillothèque. Une convocation se décide ici : la quest
 ### Lessig
 - **Question** — Cette contrainte est-elle dans la loi, la norme, le prix ou l'architecture — et qui peut faire appel ?
 - **Signaux** — un défaut imposé, une limite de débit, une validation, un verrouillage propriétaire, des CGU, une règle de modération ; toute décision d'interface qui interdit quelque chose à des tiers qui n'ont rien signé.
+- **Termes** — `rate limit, limite de débit, 429, quota, blocage, verrouill, CGU, conditions d'utilisation, modération, bannir, désactiv par défaut, opt-out, throttl, interdit de`
 - **Compétence** — les quatre modalités de régulation, appliquées à une contrainte donnée, avec la voie de recours.
 - **Trace** — un tableau à quatre colonnes et une ligne de recours.
 - **État** — lot 1. **Réformiste déclaré** — seule voix non anticapitaliste du registre. Admise sur le seul axe *code is law* ; ses axes *free culture* et *dependence corruption* sont coupés pour doublon avec Ostrom et Albini.
