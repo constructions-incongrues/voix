@@ -3,6 +3,8 @@
 # Outillage régénérable, non couvert par la licence du dépôt
 # .claude/  : généré par `openspec init --tools claude` (fichiers MIT dOpenSpec)
 # .serena/  : configuration machine locale
+# .nanopm/  : état d'un outil de méthode produit, non admis au dépôt (adr/0004)
 .claude/
 .serena/
+.nanopm/
 __pycache__/

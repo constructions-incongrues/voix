@@ -56,6 +56,10 @@ def travail_en_cours(cwd):
     L'unité retenue est donc le travail non commité — ce qu'on a sur les bras
     en ce moment — et non « ce que ce tour a écrit ». Un fichier non suivi
     n'apparaît dans aucun diff, or c'est souvent le plus intéressant.
+
+    Ce qui est exclu de l'examen se déclare au `.gitignore`, jamais ici :
+    `--exclude-standard` l'applique déjà. Une liste en dur serait une décision
+    de routage invisible là où les décisions se lisent (adr/0004).
     """
     if not git(["rev-parse", "--git-dir"], cwd):
         return None, []
@@ -63,7 +67,7 @@ def travail_en_cours(cwd):
     fichiers += [f for f in git(["diff", "HEAD", "--name-only"], cwd).split("\n") if f.strip()]
     for nom in git(["ls-files", "--others", "--exclude-standard"], cwd).split("\n"):
         nom = nom.strip()
-        if not nom or nom.startswith(".serena/"):
+        if not nom:
             continue
         chemin = os.path.join(cwd, nom)
         try:
