@@ -163,7 +163,35 @@ La correspondance avec les trois niveaux de version est dans le tableau du § Ve
 
 **Les commits antérieurs au 2026-08-08 ne sont pas réécrits.** Le motif est celui des archives, plus bas : ce sont des comptes rendus d'un état passé. Un sujet sans type est donc *antérieur*, et non *invalide* — tout outil qui parcourt l'historique doit l'ignorer plutôt que le signaler.
 
-Aucun outil ne vérifie la convention. Elle tient sur la discipline, et le jour où trois commits non conformes passent sur `main`, c'est le signal de construire le hook `commit-msg` qui manque.
+Aucun outil ne vérifie la convention. Elle tient sur la discipline, et le jour où trois messages non conformes passent sur `main`, c'est le signal de construire le contrôle qui manque. **Ce contrôle porte sur le titre de la demande de fusion, en CI — pas sur un hook `commit-msg`.** Depuis que les branches rejoignent `main` par écrasement, le titre est le seul message typé qui atteigne la branche par défaut ; un hook local s'exécute avant que la demande n'existe et ne le voit jamais. [`adr/0003`](adr/0003-politique-de-branche.md) corrige l'instrument sans avancer le déclencheur.
+
+## Le chemin jusqu'à `main`
+
+`main` est la seule branche de publication. Rien d'autre n'est balisé, et aucune autre branche ne porte d'état publié.
+
+Le travail passe par une branche de courte durée, supprimée une fois fusionnée. Elle **rejoint `main` par écrasement**, et **se met à jour depuis `main` par rebasage** — jamais l'inverse, jamais un commit de fusion. L'historique du dépôt est linéaire depuis son premier commit ; c'est désormais une propriété voulue et non un accident.
+
+**Les branches se nomment `<contributeur>/<slug>`** — `^[a-z0-9]+/[a-z0-9]+(-[a-z0-9]+)*$`. Les chiffres sont admis parce que l'outillage suffixe les noms qu'il génère. `main` n'y est pas soumise : elle n'est pas une branche de travail.
+
+Une branche qu'un **outil** se nomme lui-même est exemptée, et l'exemption cite l'outil. Un seul à ce jour : **release-please**, qui nomme la sienne `release-please--branches--main--components--incongru-voix`. La règle générale n'est pas élargie pour l'accueillir — sans quoi, six semaines plus tard, plus personne ne pourrait dire quelle part de la règle vient d'une décision et quelle part vient d'une dépendance.
+
+**Le titre de la demande est le message qui fait autorité.** Sous écrasement, c'est lui qui atteint `main`, donc lui dont release-please dérive le niveau de version. Il satisfait la convention ci-dessus en entier, et **quand une branche mélange les types, il porte le plus élevé** : une branche qui contient un `fix` et un `feat` s'intitule `feat`. Un `feat` écrasé sous un titre `fix` produit une version basse, et rien ne le signale.
+
+Cinq réglages de la forge portent cette politique. Ils vivent hors du dépôt, qui n'en conserve aucun motif — d'où ce tableau :
+
+| Réglage | Valeur | Motif |
+|---|---|---|
+| `allow_squash_merge` | `true` | la seule méthode offerte, donc la seule employée |
+| `allow_merge_commit` | `false` | un commit de fusion casserait la linéarité |
+| `allow_rebase_merge` | `false` | ne concerne que le bouton de la forge — `git rebase main` en local reste la méthode prescrite |
+| `delete_branch_on_merge` | `true` | la suppression cesse d'être un geste dont il faut se souvenir |
+| `squash_merge_commit_title` | `PR_TITLE` | sinon le sujet vient du commit quand la branche n'en a qu'un, et du titre sinon : la source dépendrait du nombre de commits |
+
+`squash_merge_commit_message` reste à `COMMIT_MESSAGES` : le corps du commit d'écrasement conserve les messages de la branche, ce qui rend à `git log` la granularité que le journal de publication perd.
+
+**`main` n'est pas protégée, et c'est une décision datée.** Tant que le dépôt n'a qu'un contributeur, le relecteur d'une demande est son auteur : la cérémonie coûte sans rien rattraper — le calcul est dans [`adr/0003`](adr/0003-politique-de-branche.md). La protection est armée **avant la première fusion d'un second contributeur**, et un job de la CI le rappelle tout seul le jour venu, parce qu'une règle qu'on applique tant qu'on s'en souvient est une règle qu'on oublie.
+
+Une fois armée, elle sera **asymétrique** : un administrateur peut y déroger, un contributeur non. C'est légitime pour un dépôt qui a un propriétaire, et c'est écrit ici plutôt que découvert en s'y heurtant — une asymétrie non écrite se lit comme un oubli.
 
 ## Une note sur les archives
 

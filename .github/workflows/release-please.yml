@@ -21,3 +21,54 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+
+  # adr/0003 D4 décide de ne pas protéger `main` tant que le relecteur est
+  # l'auteur, et d'armer la protection au second contributeur. « On s'en
+  # souviendra le moment venu » est la forme de règle qu'adr/0002 a rejetée :
+  # elle serait oubliée le jour précis où elle compte. Cette tâche rend le
+  # déclencheur mécanique.
+  #
+  # Elle est un job distinct, et non une étape du précédent : une question de
+  # gouvernance n'a pas à empêcher une publication.
+  sentinelle-contributeurs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compter les contributeurs hors robots
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPOT: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          # Les robots sont exclus : sans ce filtre, github-actions[bot] fait
+          # passer le compte à 2 dès la première publication, et la sentinelle
+          # se déclenche à contre-emploi.
+          humains=$(gh api "repos/$DEPOT/contributors" --jq '[.[] | select(.type != "Bot")] | length')
+          protegee=$(gh api "repos/$DEPOT/branches/main" --jq '.protected')
+          echo "contributeurs hors robots : $humains — main protégée : $protegee"
+
+          if [ "$humains" -le 1 ] || [ "$protegee" = "true" ]; then
+            exit 0
+          fi
+
+          # Le message nomme la règle, l'endroit où elle est écrite, et qui peut
+          # s'y conformer — exigence de la spec `politique-de-branche`, à
+          # satisfaire dès la première version d'un contrôle qui bloque.
+          cat >&2 <<MESSAGE
+          Ce dépôt compte désormais $humains contributeurs hors robots, et \`main\`
+          n'est pas protégée.
+
+          RÈGLE     La protection de \`main\` est armée avant la première fusion
+                    d'un second contributeur. Écrite dans adr/0003 D4, et dans la
+                    capacité \`politique-de-branche\` (« Le poussé direct sur
+                    \`main\` est autorisé tant que le relecteur serait l'auteur »).
+
+          MOTIF     Tant que le relecteur est l'auteur, la demande de fusion ne
+                    rattrape rien. À deux, le dénominateur cesse d'être nul.
+
+          QUI AGIT  Un administrateur du dépôt : activer la protection de \`main\`
+                    dans les réglages, ou par l'API des règles de branche.
+
+          CONTESTER Cette règle se modifie par un ADR successeur, jamais par une
+                    modification d'adr/0003, qui est immuable.
+          MESSAGE
+          exit 1
