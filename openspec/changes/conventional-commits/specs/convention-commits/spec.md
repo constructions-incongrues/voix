@@ -70,6 +70,27 @@ Les types admis MUST être : `feat`, `fix`, `docs`, `refactor`, `test`, `chore`.
 - **WHEN** un septième scope devient nécessaire
 - **THEN** il entre par un commit modifiant cette exigence, avant tout usage
 
+### Requirement: Les messages entièrement composés par un outil sont hors du champ
+
+Les messages **entièrement composés par l'outil de publication**, reconnaissables à leur auteur — un robot —, MUST être hors du champ de l'exigence « La description reste une phrase qui porte un constat » et de celle des jeux fermés de types et de scopes. Ce n'est pas une personne qui choisit, et une exigence de rédaction ne s'adresse qu'à qui rédige.
+
+L'exemption MUST NOT s'étendre à un message rédigé par une personne et seulement relayé par un outil. Sous écrasement, le titre de la demande de fusion est l'œuvre de son auteur : la forge le recopie, elle ne l'écrit pas, et il reste pleinement soumis.
+
+Un scope employé par un outil exempté MUST NOT entrer au jeu fermé pour régulariser son usage : ce serait faire entrer la forme de l'outil dans le registre du dépôt.
+
+#### Scenario: Message de publication généré
+- **QUAND** release-please pousse `chore(main): release 0.5.0`, signé `github-actions[bot]`
+- **ALORS** il est conforme — ni la description ni le scope `main` ne lui sont opposables
+- **ET** `main` n'entre pas pour autant au jeu des scopes
+
+#### Scenario: Titre de demande relayé par la forge
+- **QUAND** un écrasement pose sur `main` le titre de la demande, rédigé par l'auteur
+- **ALORS** l'exemption ne s'applique pas — la description et les jeux fermés lui sont opposables
+
+#### Scenario: Contrôle de conformité
+- **QUAND** on mesure la conformité de l'historique
+- **ALORS** les commits d'auteur robot sont écartés du compte avant la mesure, et le nombre écarté est dit
+
 ### Requirement: L'historique antérieur n'est pas réécrit
 
 Les commits antérieurs à l'adoption MUST NOT être réécrits pour se conformer. Le dépôt tient la même règle pour ses archives : *« les réécrire pour qu'ils aient l'air à jour serait falsifier un dossier »*. Tout outil de dérivation MUST donc traiter un sujet sans type comme *antérieur*, non comme *invalide*.
