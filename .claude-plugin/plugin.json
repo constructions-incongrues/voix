@@ -1,6 +1,6 @@
 {
   "name": "incongru-voix",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Des voix qui contestent le cadre par défaut des assistants de code. Chacune pose une question qu'aucune autre ne pose, sait faire quelque chose que le défaut ne sait pas faire, et se tait quand elle n'a pas de coût à nommer.",
   "author": {
     "name": "Tristan Rivoallan",
