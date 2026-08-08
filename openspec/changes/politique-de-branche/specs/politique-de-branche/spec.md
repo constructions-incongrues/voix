@@ -36,15 +36,25 @@ Une branche de travail MUST être supprimée une fois fusionnée, sur le dépôt
 
 ### Requirement: Nommage des branches, et exemption nommée des branches d'outil
 
-Une branche que **le dépôt nomme** MUST porter la forme `<contributeur>/<slug>`, où `<contributeur>` est l'identifiant du contributeur et `<slug>` une suite de mots en minuscules séparés par des tirets.
+Une **branche de travail** que le dépôt nomme MUST porter la forme `<contributeur>/<slug>`, où `<contributeur>` est l'identifiant du contributeur et `<slug>` une suite de segments en minuscules séparés par des tirets, chaque segment étant fait de lettres, de chiffres, ou des deux — soit `^[a-z0-9]+/[a-z0-9]+(-[a-z0-9]+)*$`. Les chiffres sont admis parce que l'outillage de travail suffixe les noms qu'il génère, et qu'une règle démentie par quatre branches sur cinq dès le premier jour ne serait pas une règle.
+
+`main` MUST être exclue de cette forme. Elle n'est pas une branche de travail : l'exigence « `main` est la seule branche de publication » la nomme et lui donne son statut.
 
 Une branche qu'**un outil se nomme lui-même** MUST être exemptée de cette forme, et l'exemption MUST citer l'outil concerné. La règle générale MUST NOT être élargie pour accueillir la forme d'un outil : l'exemption s'écrit comme une exemption, afin qu'un lecteur puisse dire quelle partie de la règle vient d'une décision et quelle partie vient d'une dépendance.
 
 Outils exemptés à ce jour : **release-please**, qui nomme sa branche `release-please--branches--<base>--components--<composant>`.
 
-#### Scenario: Branche nommée par le dépôt
+#### Scenario: Branche de travail nommée par le dépôt
 - **WHEN** l'auteur ouvre une branche pour la politique de branche
 - **THEN** elle s'appelle `tritri/politique-de-branche`
+
+#### Scenario: Suffixe généré par l'outillage
+- **WHEN** l'outillage nomme `tritri/nouvelle-politique-branche-c03202`
+- **THEN** elle est conforme — le segment `c03202` est admis
+
+#### Scenario: `main`
+- **WHEN** on confronte `main` à la forme `<contributeur>/<slug>`
+- **THEN** elle n'y est pas soumise, étant exclue nommément
 
 #### Scenario: Branche nommée par release-please
 - **WHEN** release-please pousse `release-please--branches--main--components--incongru-voix`
