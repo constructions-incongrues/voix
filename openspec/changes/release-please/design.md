@@ -19,7 +19,7 @@ Autres contraintes : aucune dépendance runtime (release-please est de la CI, la
 **Non-Goals :**
 - Vérifier la conformité des messages. C'est la décision D5 de `adr/0001`, inchangée : pas d'outil tant que trois commits non conformes n'ont pas atteint `main`.
 - Publier sur un index tiers. Le refus tient, et il est indépendant.
-- Trancher la politique de branches. Elle devient un préalable pratique, mais reste une décision distincte.
+- Trancher la politique de branches. Elle devient un préalable pratique, mais reste une décision distincte — prise depuis, par `adr/0003`.
 - Remplacer `openspec/changes/archive/` par un `CHANGELOG.md`.
 
 ## Decisions
@@ -66,16 +66,16 @@ Aucune mitigation n'est proposée : le contrôle qui la rattraperait devrait con
 - **La publication devient un effet de bord de la fusion** → Mitigation : D3, la demande de publication est un acte séparé. Risque résiduel : l'habitude de fusionner sans lire.
 - **Premier `.github/` du dépôt** → Une Action est du code exécuté par un tiers sur le dépôt, ce qu'il n'avait jamais accepté. Ce n'est pas une dépendance runtime, mais c'est une dépendance de processus, et il faut le dire.
 - **Le tableau du README change de statut sans changer de forme** → Il devient la description d'une configuration alors qu'il ressemble toujours à une règle. Mitigation : une ligne explicite au README, dans les tâches.
-- **La politique de branches non tranchée** → release-please suppose une branche par défaut et des PR. Le dépôt pousse en direct. Non bloquant tant que l'auteur est seul, mais la première contribution externe le rendra bloquant.
+- **La politique de branches non tranchée** → release-please suppose une branche par défaut et des PR. Le dépôt pousse en direct. Non bloquant tant que l'auteur est seul, mais la première contribution externe le rendra bloquant. **Risque levé depuis** par `adr/0003`, qui exempte nommément la branche que release-please se nomme et laisse `main` non protégée tant que le relecteur est l'auteur.
 
 ## Migration Plan
 
 1. Écrire `adr/0002`, superséder `0001`, reprendre les trois garde-fous maintenus.
 2. Ajouter la configuration release-please et le workflow GitHub.
 3. Amender le README : le tableau devient descriptif, et la section « Convention de commit » gagne la règle « on corrige le commit, pas le numéro ».
-4. Première publication : elle ramassera les commits déjà sur `main` depuis `0.4.1` — deux `docs`, donc `0.4.2`.
+4. Première publication : elle ramassera les commits déjà sur `main` depuis `0.4.1` — deux `docs`, donc `0.4.2`. *Constaté :* la demande a bien proposé `0.4.2`, puis recalculé `0.5.0` quand `feat(sentinelle)` a atterri avant sa fusion. Publiée le 2026-08-08 en `v0.5.0`.
 
 ## Open Questions
 
-- La politique de branches reste non tranchée et devient un préalable pratique. Elle relève d'un ADR distinct, à ouvrir avant toute contribution externe.
-- La première publication portera `0.4.2`. Reste à décider si le correctif du journal de la sentinelle, fusionné avant l'adoption avec un sujet sans type, doit y figurer — l'outil ne le verra pas.
+- ~~La politique de branches reste non tranchée.~~ **Close** par `adr/0003`, accepté le 2026-08-08 sans superséder `adr/0002`.
+- ~~La première publication portera `0.4.2`.~~ Elle a porté **`0.5.0`**. Reste ouverte la seule question de fond : le correctif du journal de la sentinelle, fusionné avant l'adoption avec un sujet sans type, est **absent du `CHANGELOG` généré** — décider s'il y est ajouté à la main.

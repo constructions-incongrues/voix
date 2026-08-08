@@ -28,4 +28,4 @@ Preuve immédiate : les deux commits qui ont introduit la convention sont sur `m
 - `README.md` § Versions — le tableau change de statut : de règle souveraine à description de configuration.
 - `adr/0002-release-please.md` — nouvel ADR, supersède `adr/0001`.
 - **Aucune dépendance runtime.** release-please est une Action de CI ; la contrainte du dépôt (stdlib seulement, rien à installer pour l'usager) tient.
-- La politique de branches, toujours non tranchée, devient un préalable : release-please travaille par PR de release sur une branche par défaut, alors que le dépôt a poussé 40 commits en direct sur `main`.
+- La politique de branches, non tranchée au moment d'écrire, devenait un préalable : release-please travaille par PR de release sur une branche par défaut, alors que le dépôt avait poussé 40 commits en direct sur `main`. **Préalable levé** par `adr/0003`, qui tranche la question et exempte nommément la branche que release-please se nomme.
