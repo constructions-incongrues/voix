@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/constructions-incongrues/voix/compare/v0.6.0...v0.7.0) (2026-08-08)
+
+
+### Le registre et le dispositif
+
+* **registre:** deux plafonds, et le registre cesse d'annoncer des voix qui ne répondent pas ([#16](https://github.com/constructions-incongrues/voix/issues/16)) ([ff5058a](https://github.com/constructions-incongrues/voix/commit/ff5058a32e60daea55cb661e5825a4dddc7a5d90))
+
 ## [0.6.0](https://github.com/constructions-incongrues/voix/compare/v0.5.0...v0.6.0) (2026-08-08)
 
 
