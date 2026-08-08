@@ -5,3 +5,4 @@
 # .serena/  : configuration machine locale
 .claude/
 .serena/
+__pycache__/

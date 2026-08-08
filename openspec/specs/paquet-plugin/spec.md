@@ -18,9 +18,17 @@ Les voix MUST se trouver dans `skills/<nom>/SKILL.md` à la racine du dépôt. C
 - **QUAND** on cherche le fichier d'une voix
 - **ALORS** il existe à un seul emplacement dans le dépôt
 
-### Requirement: Manifeste sans hook déclaré tant qu'aucun hook n'existe
+### Requirement: Le manifeste ne déclare jamais `hooks/hooks.json`
 
-`plugin.json` MUST NOT déclarer de clé `hooks` tant que le fichier de hooks correspondant n'existe pas : une référence vers un fichier absent empêche le chargement du plugin entier.
+`plugin.json` MUST NOT déclarer de clé `hooks` pointant vers `./hooks/hooks.json`. Ce fichier est **chargé automatiquement** par convention ; le déclarer produit un doublon qui fait échouer le chargement de **tous** les hooks du plugin, avec le message *« Duplicate hooks file detected »*.
+
+La clé `hooks` ne sert qu'à référencer des fichiers de hooks **supplémentaires**, portant un autre nom. Un plugin tiers qui la déclare le fait avec un nom non standard ; recopier son manifeste en gardant le nom standard produit exactement cette collision.
+
+Elle MUST NOT non plus référencer un fichier absent : une référence morte empêche le chargement du plugin entier.
+
+#### Scenario: Hook au nom standard
+- **QUAND** le dépôt porte ses hooks dans `hooks/hooks.json`
+- **ALORS** `plugin.json` ne comporte aucune clé `hooks`, et le fichier est chargé
 
 #### Scenario: Manifeste sans hook
 - **QUAND** le dépôt ne contient aucun hook
