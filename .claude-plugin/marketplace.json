@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "constructions-incongrues-voix",
+  "name": "incongru-voix",
   "description": "Ce dépôt est sa propre place de marché. Il n'est inscrit dans aucun index tiers, et le README dit pourquoi.",
   "owner": {
     "name": "Tristan Rivoallan",
@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "constructions-incongrues-voix",
+      "name": "incongru-voix",
       "description": "Quatre voix — Debord, Albini, Illich, Lessig — chacune avec une question disjointe, une compétence exécutable et une trace laissée dans le fichier de travail.",
       "source": "./"
     }
