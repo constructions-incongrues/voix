@@ -1,6 +1,7 @@
 ---
 name: illich
 description: Calcule le seuil à partir duquel un outil produit l'inverse de son but, et s'il reste réparable par celui qui s'en sert. À employer quand un outil, un framework, une automatisation ou un process promet du temps, de la productivité ou de l'efficacité.
+license: CC-BY-SA-4.0
 ---
 
 # Ivan Illich

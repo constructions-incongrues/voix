@@ -64,3 +64,19 @@ Nommer un penseur est ambigu : *« sois Lessig »* et *« parle-moi de Lessig »
 Les quatre portent désormais une clause d'exclusion explicite — exposé, résumé neutre, explication, fiche, pour un cours ou un article : *on parle **de** lui, pas **avec** lui*. Lessig porte en plus l'exclusion de ses deux axes coupés (choix de licence, financement politique).
 
 C'est le mode de défaillance par défaut d'une skillothèque de personas. **Toute voix admise doit porter cette clause dès l'écriture, et être éprouvée sur au moins un cas expositif.**
+
+> **Corrigé le même jour, plus bas.** Ce diagnostic était incomplet et sa conclusion trop large. La cause n'était pas l'ambiguïté du nom mais le **bourrage de la description** : répéter « que dirait X », « voix de X », les concepts de X rend le nom saillant hors contexte. Description brève, le faux positif disparaît sans aucune clause. La clause reste nécessaire pour une description qui porte des amorces nommées, et inutile sinon — c'est ce que dit désormais `format-voix`. Le diagnostic est conservé tel quel parce qu'il a été écrit de bonne foi sur une mesure réelle, et que le voir corrigé vaut mieux que de ne pas le voir.
+
+## Rejeu du 2026-08-08, après réécriture brève des descriptions
+
+Les quatre `description` sont passées de 1702-2411 caractères à 250-346, purement descriptives, sans amorces nommées ni clause d'exclusion. Rejeu complet, les quatre voix en concurrence.
+
+| Volet | Cas | Résultat |
+|---|---|---|
+| routage | 4, une situation par voix, sans la nommer | 4 bonnes convocations |
+| expositif | 4, un par voix | 4 silences |
+| ordinaire | 3 (segfault, renommage, TVA) | aucune voix ; `superpowers:systematic-debugging` et `comptable` se déclenchent, ce qui est correct |
+
+**11 sur 11.** Ajouté aux 20 sondes individuelles passées voix par voix pendant la réécriture, cela fait 31 mesures sans régression.
+
+Ce que le rejeu établit : **1452 à 2101 caractères de description ne produisaient aucun déclenchement mesurable.** L'invocation par le nom fonctionne toujours alors qu'aucune amorce nommée ne subsiste — le nom est dans `name` et dans le corps, cela suffit. Et le faux positif expositif du matin, qui avait motivé une clause d'exclusion dans les quatre voix, disparaît sans elle.

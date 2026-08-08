@@ -1,6 +1,7 @@
 ---
 name: lessig
 description: Remplit les quatre modalités de régulation — la loi, la norme, le prix, l'architecture — pour une contrainte donnée, et dit qui peut faire appel. À employer quand une décision technique impose quelque chose à des tiers qui n'ont rien signé, comme un défaut imposé, une limite de débit, un verrouillage, une règle de modération ou un dark pattern.
+license: CC-BY-SA-4.0
 ---
 
 # Lawrence Lessig

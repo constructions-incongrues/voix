@@ -85,7 +85,15 @@ git clone https://github.com/constructions-incongrues/voix
 cd voix && ./install.sh
 ```
 
-Le script lie chaque voix dans `~/.claude/skills/`, retire ses propres liens devenus morts, et refuse d'écraser un dossier qui n'est pas un lien. Les voix sont des fichiers markdown : elles n'exigent aucun autre outillage.
+Le script lie chaque voix dans `~/.claude/skills/`, retire ses propres liens devenus morts, et refuse d'écraser un dossier qui n'est pas un lien.
+
+Les voix sont conformes à la spécification [Agent Skills](https://agentskills.io), et ça se vérifie plutôt que de se croire :
+
+```
+npx skills-ref validate ./skills/illich
+```
+
+Cette affirmation était fausse jusqu'au 8 août : trois des quatre descriptions n'étaient pas même du YAML valide. La typographie française y suffisait — une espace avant un deux-points, et l'analyseur lit un séparateur clé/valeur au milieu d'une phrase. Le défaut est invisible à l'œil et n'apparaît que sous l'outil.
 
 Pour retrouver les commandes OpenSpec utilisées ici : `openspec init --tools claude`.
 
@@ -107,7 +115,9 @@ La version est dans `.claude-plugin/plugin.json`, et elle compte quelque chose :
 | **mineure** | une voix change de question, de compétence ou de trace |
 | **corrective** | un déclencheur est ajusté, un test rejoué, une formulation corrigée |
 
-`0.1.0` : quatre voix sur sept, pas de sentinelle. Le dépôt ne passera pas en `1.0` tant qu'il ne fera pas ce pour quoi il a été commencé.
+La conformité à une norme externe compte comme **mineure** : elle ne change rien à ce que les voix disent, et tout à qui peut les charger.
+
+`0.3.0` : quatre voix sur sept, pas de sentinelle. Le dépôt ne passera pas en `1.0` tant qu'il ne fera pas ce pour quoi il a été commencé.
 
 ## Une note sur les archives
 
