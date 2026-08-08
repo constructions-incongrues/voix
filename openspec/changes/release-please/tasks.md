@@ -3,6 +3,7 @@
 - [x] 1.1 Créer `release-please-config.json` : `release-type: simple`, et `extra-files` pointant `.claude-plugin/plugin.json` sur le champ `version` (décision D5)
 - [x] 1.2 Y déclarer `changelog-sections` de sorte que `docs`, `refactor`, `test` et `chore` soient visibles et déclenchent un correctif — contre le défaut de l'outil, qui ne publie que sur `feat`, `fix` et `BREAKING` (décision D2, exigence « Les types correctifs du dépôt déclenchent une publication »)
 - [x] 1.3 Créer `.release-please-manifest.json` initialisé à la version courante, `0.4.1`
+- [x] 1.5 Activer `bump-minor-pre-major` — sous `1.0.0`, une rupture produit un mineur. Empêche qu'une 1.0 soit atteinte par accumulation mécanique, ce que le README récuse explicitement. Ne supersède pas `adr/0002`, qui n'affirme aucune correspondance normative : c'est un raffinement de sa configuration
 - [x] 1.4 Créer `.github/workflows/release-please.yml` — premier `.github/` du dépôt, à déclarer comme tel dans le message de commit
 
 ## 2. Écrire ce que la dérivation ne voit pas
@@ -16,7 +17,7 @@
 
 *Non exécutable localement : exige que le workflow tourne sur GitHub. À reprendre après publication de la branche.*
 
-- [ ] 3.1 Vérifier que la demande de publication ouverte propose `0.4.2` — deux commits `docs` sur `main` depuis `0.4.1`
+- [ ] 3.1 Vérifier que la demande de publication ouverte propose `0.4.2` — et **non `1.0.0`** : c'est aussi le contrôle de `bump-minor-pre-major` — deux commits `docs` sur `main` depuis `0.4.1`
 - [ ] 3.2 Vérifier qu'aucune balise n'est posée et que `plugin.json` n'est pas modifié sur `main` tant que la demande n'est pas fusionnée (exigence « La publication reste soumise à une décision humaine »)
 - [ ] 3.3 Fusionner, puis vérifier que `plugin.json` porte `0.4.2` et que la balise existe
 - [ ] 3.4 Décider si le correctif du journal de la sentinelle — fusionné avant l'adoption, sujet sans type, donc invisible à l'outil — doit être mentionné à la main dans les notes de cette première publication

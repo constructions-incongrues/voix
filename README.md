@@ -115,7 +115,7 @@ La version est dans `.claude-plugin/plugin.json`, et elle compte quelque chose :
 
 | | | Type de commit |
 |---|---|---|
-| **majeure** | une voix entre au registre, ou en sort | `feat!` ou pied de page `BREAKING CHANGE:` |
+| **majeure** | une voix entre au registre, ou en sort | `feat!` ou pied de page `BREAKING CHANGE:` — *voir ci-dessous avant `1.0.0`* |
 | **mineure** | une voix change de question, de compétence ou de trace | `feat` |
 | **corrective** | un déclencheur est ajusté, un test rejoué, une formulation corrigée | `fix` `docs` `test` `refactor` `chore` |
 
@@ -123,7 +123,11 @@ La conformité à une norme externe compte comme **mineure** : elle ne change ri
 
 **Ce tableau décrit une configuration, il ne fait plus foi.** Depuis [`adr/0002`](adr/0002-release-please.md), ce sont les **types qui décident** : release-please calcule le niveau depuis l'historique, et `release-please-config.json` est la règle exécutée. Les deux colonnes de gauche disent pourquoi la configuration est celle-là ; elles ne l'emportent plus sur elle. Si l'une des deux change, l'autre doit être corrigée dans le même commit.
 
-`adr/0001` posait l'inverse — le tableau souverain, les types indicatifs — et n'a pas été modifié : il reste au dépôt comme trace, superséde par `0002`.
+`adr/0001` posait l'inverse — le tableau souverain, les types indicatifs — et n'a pas été modifié : il reste au dépôt comme trace, supersédé par `0002`.
+
+**Sous `1.0.0`, une rupture donne un mineur.** L'option `bump-minor-pre-major` est active : un `feat!` porte le dépôt de `0.4.x` à `0.5.0`, pas à `1.0.0`. Le passage à la 1.0 reste un acte délibéré, et la raison est plus haut dans ce fichier — quatre voix sur sept, Albini exclu du routage. Une version majeure atteinte par accumulation mécanique serait exactement l'annonce dont ce dépôt se méfie.
+
+Effet de bord utile : avant `1.0.0`, `feat` et `feat!` produisent le même niveau. La confusion entre les deux — le coût que `adr/0002` accepte sans mitigation — est donc **sans conséquence tant que le dépôt reste sous la 1.0**. Elle redevient réelle le jour où il la franchit.
 
 `0.4.0` : la sentinelle existe et convoque sur du travail ordinaire — ce pour quoi le dépôt a été commencé. Pas encore `1.0` pour autant : quatre voix sur sept, et Albini exclu du routage faute d'apport établi. Annoncer une version 1.0 sur un registre à moitié écrit serait exactement le genre d'annonce dont ce dépôt se méfie.
 
