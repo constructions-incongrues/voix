@@ -31,7 +31,9 @@ La `description` MUST rester une phrase française énonçant ce que le commit �
 
 ### Requirement: Correspondance avec les niveaux de version
 
-Le niveau de version d'une publication MUST être dérivable des types des commits qu'elle contient, selon la table ci-dessous. Le § Versions du `README.md` reste la **source d'autorité** : en cas de désaccord entre la table et la règle écrite, la règle écrite l'emporte et la table MUST être corrigée.
+Le niveau de version d'une publication MUST être dérivé des types des commits qu'elle contient, selon la table ci-dessous. **Les types font autorité** : la table décrit la configuration de l'outil de publication, et le § Versions du `README.md` en donne le motif sans l'emporter sur elle.
+
+Cette exigence a d'abord posé l'inverse — le README souverain, les types indicatifs. `adr/0002` a remplacé ce garde-fou en rendant les types décisifs, parce qu'une règle écrite et un outil qui disent deux choses différentes finissent par diverger sans que rien ne le signale. En cas de désaccord entre la table et la configuration exécutée, **c'est la configuration qui fait foi** et la table MUST être corrigée dans le même commit.
 
 | Niveau | Règle du dépôt | Type |
 |---|---|---|
@@ -48,9 +50,13 @@ Le niveau de version d'une publication MUST être dérivable des types des commi
 - **WHEN** la sentinelle gagne une mise en sourdine, sans qu'aucune voix ne change
 - **THEN** le commit porte `feat(sentinelle):` et la publication est mineure
 
-#### Scenario: Désaccord entre la table et le README
-- **WHEN** la table classe un commit en corrective alors que le § Versions le rend mineur
-- **THEN** le README fait foi, et la table est corrigée par un commit `docs(registre):`
+#### Scenario: Désaccord entre la table et la configuration
+- **WHEN** la table du README classe un type en corrective alors que `release-please-config.json` le rend mineur
+- **THEN** la configuration fait foi, et la table est corrigée par un commit `docs(registre):`
+
+#### Scenario: Numéro calculé jugé faux
+- **WHEN** le numéro proposé par l'outil paraît contredire la règle du § Versions
+- **THEN** le commit fautif est corrigé, jamais le numéro dans la demande de publication
 
 ### Requirement: Jeux fermés de types et de scopes
 
