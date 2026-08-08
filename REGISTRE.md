@@ -92,12 +92,15 @@ Ces débats sont instruits. Ils ne se rouvrent que sur un argument neuf portant 
 
 Mais l'outillage n'a pas droit à un passe-droit, et c'est la raison d'être de cette section. Ce dépôt existe parce qu'une skill installée apporte un cadre que rien ne conteste. Une skill posée là « parce que c'est de l'outillage » est exactement le geste qu'il reproche aux autres.
 
-**Règle : une skill n'entre dans `.agents/skills/` que par décision, jamais par effet de bord d'une installation.** Ce qu'elle prescrit sur la façon de travailler doit être voulu.
+**Règle : un outil n'entre au dépôt que par décision, jamais par effet de bord d'une installation.** Ce qu'il prescrit sur la façon de travailler doit être voulu.
+
+Ce qui déclenche la règle est **ce que l'outil prescrit, non l'endroit où il se pose**. Une première rédaction nommait `.agents/skills/` ; elle a laissé passer un outil installé à la racine, et le périmètre a été corrigé par [`adr/0004`](adr/0004-outillage-nanopm.md). Les conditions, la distinction entre capacité apportée et méthode prescrite, et ce que la trace doit contenir sont spécifiées par la capacité `admission-outillage`.
 
 | Skill | Statut | Motif |
 |---|---|---|
 | `architectural-decision-records` | gardée | Fournit des gabarits d'ADR pour l'artefact `adr` du schéma. Elle apporte une capacité et ne prescrit rien sur la manière de travailler. |
 | `openspec-git-discipline` | **retirée** | Prescrit un flux de travail — *« tout changement d'état doit passer par `main` avant que la phase suivante n'en dépende »*. Elle est arrivée par effet de bord, déclarée par le `skills.txt` d'un schéma, sans que personne ne l'ait choisie. Le motif du retrait a changé de nature sans changer de conclusion : le dépôt **a depuis tranché sa politique de branches**, par [`adr/0003`](adr/0003-politique-de-branche.md), et il l'a tranchée autrement — `main` n'est pas protégée tant que le relecteur est l'auteur, et rien n'oblige un état à passer par `main` avant le suivant. La skill reste retirée parce qu'elle prescrit le contraire de ce qui a été décidé, et non plus parce que rien n'avait été décidé. |
+| `nanopm` | **non admis** | Prescrit une méthode produit entière — trois couches, des sections calquées sur des phases, des types de page, des arêtes typées, une provenance obligatoire et un journal append-only : 15 533 octets de schéma pour zéro page. Arrivé dans l'arbre de travail parce qu'une commande a été tapée, à la racine et non dans `.agents/skills/`, ce qui l'avait soustrait à la première rédaction de la règle. Classé méthode prescrite par [`adr/0004`](adr/0004-outillage-nanopm.md) ; ses artefacts rejoignent le `.gitignore` sous la catégorie *outillage régénérable*. **Ce n'est pas une interdiction d'usage** — le dépôt décide de ce qu'il versionne, pas de ce que l'auteur exécute. **Réouverture** : la chaîne Define exécutée pour de bon, produisant des pages lues au moins une fois dans un travail réel. Le refus porte sur un appareil vide ; il ne survivrait pas à un contenu utilisé. |
 
 Le second cas est le plus instructif : la skill était déclarée par `skills.txt` du schéma, donc installée par le guide sans que personne ne l'ait choisie. C'est ainsi qu'une pratique arrive sans argument.
 
