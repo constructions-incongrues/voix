@@ -68,15 +68,17 @@ La création du dépôt distant et le premier envoi MUST être précédés d'un 
 
 ### Requirement: Les deux chemins d'installation documentés, et leur exclusivité
 
-Le `README.md` MUST documenter les deux chemins d'installation — plugin, et clone avec liens symboliques — et MUST indiquer d'en choisir un seul. Mesuré : les deux ne se cumulent pas en double, **ils s'éclipsent**. Un lien posé dans `~/.claude/skills/` masque la voix du même nom fournie par le plugin, sans erreur ni avertissement. L'utilisateur croit employer l'un et emploie l'autre — panne plus difficile à diagnostiquer qu'un doublon, puisque rien n'en signale l'existence.
+Le `README.md` MUST documenter les deux chemins d'installation — plugin, et clone avec liens symboliques — MUST indiquer d'en choisir un seul, et MUST dire comment défaire celui qu'on ne garde pas.
+
+Mesuré par convocation réelle : les deux chemins **se cumulent**. Chaque voix existe alors en double sous deux noms distincts — `<voix>` pour le clone, `<plugin>:<voix>` pour le plugin — les deux sont visibles simultanément, et **rien ne détermine laquelle répond**. Aucune erreur n'est émise.
 
 #### Scenario: Lecteur choisissant son installation
 - **QUAND** quelqu'un veut installer les voix
-- **ALORS** le README lui donne les deux chemins, dit lequel convient à son agent, et l'avertit qu'installer les deux fait silencieusement gagner le clone
+- **ALORS** le README lui donne les deux chemins, dit lequel convient à son agent, l'avertit du doublon, et indique comment retirer l'un des deux
 
 #### Scenario: Les deux chemins actifs
-- **QUAND** un lien de `~/.claude/skills/` et une voix de plugin portent le même nom
-- **ALORS** c'est le lien qui est employé, et le README a prévenu que l'éclipse ne produit aucun signal
+- **QUAND** un lien de `~/.claude/skills/` et une voix de plugin portent la même voix
+- **ALORS** les deux sont convocables sous des noms différents, et laquelle répond n'est pas déterminé
 
 ### Requirement: Chemins périmés des archives signalés
 

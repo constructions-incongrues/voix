@@ -1,12 +1,12 @@
 ## 1. Outil de mesure
 
-- [ ] 1.1 Installer `skills-ref` (npm, v0.1.5) et l'exécuter sur les quatre voix — établir la mesure de départ, verdict par voix, avant toute modification
-- [ ] 1.2 Vérifier que l'outil signale bien le dépassement de `description` : s'il ne le détecte pas, ce n'est pas le bon critère et il faut le dire avant de s'appuyer dessus
+- [x] 1.1 Installer `skills-ref` (npm, v0.1.5) et l'exécuter sur les quatre voix — établir la mesure de départ, verdict par voix, avant toute modification
+- [x] 1.2 Vérifier que l'outil signale bien le dépassement de `description` : s'il ne le détecte pas, ce n'est pas le bon critère et il faut le dire avant de s'appuyer dessus
 
 ## 2. Modifier la règle avant de la transgresser
 
-- [ ] 2.1 Appliquer le delta `portabilite-voix` dans `openspec/specs/` : « additive uniquement » devient « additive par défaut, suppression permise si mesurée ». **À faire avant toute coupe** — sinon les tâches du groupe 3 violent une exigence en vigueur
-- [ ] 2.2 Appliquer le delta `format-voix` : le budget de description et son ordre de priorité
+- [x] 2.1 Appliquer le delta `portabilite-voix` dans `openspec/specs/` : « additive uniquement » devient « additive par défaut, suppression permise si mesurée ». **À faire avant toute coupe** — sinon les tâches du groupe 3 violent une exigence en vigueur
+- [x] 2.2 Appliquer le delta `format-voix` : le budget de description et son ordre de priorité
 
 ## 3. Réécriture brève, une voix à la fois, mesurée à chaque fois
 

@@ -65,7 +65,9 @@ Le coût, et qui le porte. C'est ce champ qui distingue la critique de la décor
 
 ## Installation
 
-Deux chemins. **Choisissez-en un seul**, et la raison n'est pas celle qu'on croit : ils ne se cumulent pas en double, ils s'éclipsent. Un lien posé dans `~/.claude/skills/` masque la voix du même nom fournie par le plugin — sans erreur, sans avertissement. Vous croyez employer l'un, vous employez l'autre.
+Deux chemins. **Choisissez-en un seul.** Installés tous les deux, ils ne s'annulent pas : chaque voix existe alors en double, sous deux noms — `lessig` pour le clone, `incongru-voix:lessig` pour le plugin. Les deux sont visibles, les deux peuvent répondre, et rien ne détermine laquelle le fera. Aucune erreur n'est émise.
+
+Si vous avez déjà installé les deux, retirez-en un : `rm ~/.claude/skills/<voix>` pour le clone, ou désinstallez le plugin.
 
 **Comme plugin Claude Code** — le dépôt est sa propre place de marché.
 

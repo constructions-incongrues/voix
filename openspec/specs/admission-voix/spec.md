@@ -74,6 +74,16 @@ Le taux de déclenchement d'une voix MUST être mesuré par observation directe 
 - **QUAND** un harnais rapporte un taux de déclenchement nul sur des requêtes positives évidentes
 - **ALORS** le résultat est traité comme invalide et la mesure est refaite après décrochage des voix installées, ou par observation directe
 
+### Requirement: La convocation réelle fait foi, pas l'introspection
+
+Une observation sur le comportement des voix MUST reposer sur une **convocation réelle** — l'appel d'outil effectivement émis — et NON sur une réponse du modèle décrivant ce qu'il croit avoir à disposition. Interroger le modèle sur ses propres skills disponibles produit une réponse plausible et incomplète : il sous-déclare, sans le signaler.
+
+C'est le second mode de mesure trompeur rencontré, après le harnais d'évaluation externe. Les deux partagent la même faiblesse : ils rapportent quelque chose qui ressemble à une mesure. Une conclusion tirée d'une seule introspection a été publiée puis démentie par une convocation unique.
+
+#### Scenario: Question sur ce qui est chargé
+- **QUAND** il faut établir quelles voix sont disponibles ou laquelle répond
+- **ALORS** la constatation se fait sur l'appel d'outil observé, et une réponse déclarative du modèle ne suffit pas à conclure
+
 ## Notes
 
 Le seuil de silence et la trace laissée dans l'artefact relèvent de `trace-artefact`. Le contrat de forme d'un fichier de voix relève de `format-voix`.

@@ -12,6 +12,20 @@ La `description` de toute voix MUST tenir en 1024 caractères ou moins. Au-delà
 - **QUAND** une voix existante dépasse la limite
 - **ALORS** elle est réduite selon l'ordre de priorité du budget, puis re-mesurée avant d'être considérée conforme
 
+### Requirement: Frontmatter analysable en YAML strict
+
+Le frontmatter de toute voix MUST être du YAML valide pour un analyseur strict. Un scalaire non quoté MUST NOT contenir la séquence deux-points suivie d'une espace : l'analyseur y lit un séparateur clé/valeur et rejette le fichier entier.
+
+Le piège est proprement francophone. La typographie française impose une espace insécable avant le deux-points — *« les tiers qui n'ont rien signé : un défaut imposé »* — et produit donc mécaniquement la séquence interdite. Le défaut est invisible à la lecture, indépendant de la longueur du champ, et il rend la voix illisible pour tout chargeur conforme même si tout le reste est correct.
+
+#### Scenario: Deux-points à la française dans une description
+- **QUAND** une `description` non quotée contient un deux-points précédé d'une espace
+- **ALORS** la validation échoue, et la description est reformulée ou mise entre guillemets
+
+#### Scenario: Voix écrite en français
+- **QUAND** une voix est rédigée en français
+- **ALORS** sa conformité est établie par l'outil de référence et non par la lecture, la ponctuation courante de la langue produisant un défaut invisible à l'œil
+
 ### Requirement: Nom conforme et aligné sur le répertoire
 
 Le champ `name` de toute voix MUST être composé de minuscules, de chiffres et de tirets, sans tiret initial, final ni double, faire au plus 64 caractères, et MUST être identique au nom de son répertoire parent.
