@@ -5,12 +5,12 @@
 
 ## 2. Portabilité des quatre voix
 
-- [ ] 2.1 Debord — généraliser la section de sparring : viser « le conseil startup qui dit *fais quelque chose que les gens veulent* » plutôt que `office-hours` et `plan-ceo-review` nommées, en conservant les sept inversions mot pour mot
-- [ ] 2.2 Albini — idem sur ses cinq inversions ; conserver le passage sur la friction avec Debord, qui ne dépend d'aucun outillage
-- [ ] 2.3 Illich — idem ; sa section cite `office-hours`, `plan-ceo-review` et `plan-eng-review`
-- [ ] 2.4 Lessig — idem ; sa section cite en plus `cso`
-- [ ] 2.5 Étendre les quatre `description` avec des formulations génériques (« le conseil startup », « une revue de plan produit »), **sans retirer aucune amorce existante** — vérifier par diff qu'aucune ligne n'a disparu
-- [ ] 2.6 Vérifier qu'il ne reste aucune référence à un outil tiers formulée comme une dépendance : `grep -c 'office-hours\|plan-ceo-review\|plan-eng-review\|gstack\|cso' voix/*/SKILL.md` ne doit plus retourner que des occurrences en position d'exemple
+- [x] 2.1 Debord — généraliser la section de sparring : viser « le conseil startup qui dit *fais quelque chose que les gens veulent* » plutôt que `office-hours` et `plan-ceo-review` nommées, en conservant les sept inversions mot pour mot
+- [x] 2.2 Albini — idem sur ses cinq inversions ; conserver le passage sur la friction avec Debord, qui ne dépend d'aucun outillage
+- [x] 2.3 Illich — idem ; sa section cite `office-hours`, `plan-ceo-review` et `plan-eng-review`
+- [x] 2.4 Lessig — idem ; sa section cite en plus `cso`
+- [x] 2.5 Étendre les quatre `description` avec des formulations génériques (« le conseil startup », « une revue de plan produit »), **sans retirer aucune amorce existante** — vérifier par diff qu'aucune ligne n'a disparu
+- [x] 2.6 Vérifier qu'il ne reste aucune référence à un outil tiers formulée comme une dépendance : `grep -c 'office-hours\|plan-ceo-review\|plan-eng-review\|gstack\|cso' voix/*/SKILL.md` ne doit plus retourner que des occurrences en position d'exemple
 
 ## 3. Licence et README
 
