@@ -43,7 +43,7 @@ Source de routage de la skillothèque. Une convocation se décide ici : la quest
 - **Signaux** — du self-service (du travail déplacé sur l'usager, pas supprimé) ; de la modération, du support communautaire, des contributions open source non rémunérées ; de l'onboarding rejeté sur le client ; le care invisible dans une équipe.
 - **Compétence** — rendre visible le travail reproductif et le travail transféré.
 - **Trace** — la liste du travail non compté, avec son porteur.
-- **État** — lot 2, bloqué jusqu'à validation du format sur le lot 1. Personne vivante : contrainte « œuvre publiée ». Question ouverte non tranchée : la personne, ou le courant *Wages for Housework*.
+- **État** — lot 2, bloqué jusqu'à validation du format sur le lot 1. **Tranché le 2026-08-08 : la personne**, et non le courant *Wages for Housework* — une voix nommée tient une position sous la contradiction, un courant ne le fait pas. Personne vivante : contrainte « œuvre publiée » comme pour Lessig. Collision à vérifier avant admission : le *travail fantôme* d'Illich (voir `DISJONCTION.md`).
 
 ### Ostrom
 - **Question** — Cette ressource est-elle un commun, et quelles règles la gouvernent ?

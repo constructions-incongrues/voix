@@ -9,7 +9,7 @@
 - [x] 2.1 Copier `guy-debord` et `steve-albini` depuis `~/.claude/skills/` vers `voix/`, sans modification, et commiter cet état de référence
 - [x] 2.2 Ajouter les quatre sections à `voix/guy-debord/SKILL.md` en extrayant sa table d'inversion (`SKILL.md:47-66`) vers `## Compétence` et `## Signaux` ; formuler `## Question` et `## Trace`
 - [x] 2.3 Idem pour `voix/steve-albini/SKILL.md` depuis sa table (`SKILL.md:49-64`)
-- [ ] 2.4 Vérifier que les deux voix se chargent et se comportent comme avant le rétrofit, puis seulement remplacer les originaux par les liens
+- [x] 2.4 Vérifier que les deux voix se chargent et se comportent comme avant le rétrofit, puis seulement remplacer les originaux par les liens
 
 ## 3. Lot 1 — Illich
 
@@ -32,7 +32,7 @@
 
 ## 6. Validation — point d'arrêt du changement
 
-- [ ] 6.1 Test de disjonction croisée : soumettre un même artefact aux quatre voix (Debord, Albini, Illich, Lessig) et vérifier que les quatre traces sont distinctes
+- [x] 6.1 Test de disjonction croisée : soumettre un même artefact aux quatre voix (Debord, Albini, Illich, Lessig) et vérifier que les quatre traces sont distinctes
 - [ ] 6.2 Test de silence : sur un corpus d'une vingtaine de tâches ordinaires (une déclaration de TVA, un segfault, un renommage), vérifier que le taux de déclenchement reste sous une tâche sur cinq
 - [ ] 6.3 Si 6.1 ou 6.2 échoue, resserrer les questions ou retirer une voix — le lot 2 (Federici, Ostrom, Polanyi) reste bloqué tant que les deux tests ne passent pas
-- [ ] 6.4 Trancher la question ouverte du design : Federici en personne ou *Wages for Housework* en courant
+- [x] 6.4 Trancher la question ouverte du design : Federici en personne ou *Wages for Housework* en courant

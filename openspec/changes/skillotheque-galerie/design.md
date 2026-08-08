@@ -106,6 +106,6 @@ Il est le seul non-anticapitaliste de la liste, admis sur le seul axe *code is l
 
 ## Open Questions
 
-- **Federici : la personne ou le courant ?** *Wages for Housework* (Federici, Dalla Costa, Fortunati) garde la compétence et perd la voix — donc perd ce qui fait tenir une position sous la contradiction. Inclination : la personne, sous la règle D7. À trancher avant le lot 2, pas maintenant.
+- ~~**Federici : la personne ou le courant ?**~~ **Tranché le 2026-08-08 : la personne**, sous la règle D7. *Wages for Housework* (Federici, Dalla Costa, Fortunati) gardait la compétence et perdait la voix — donc ce qui fait tenir une position sous la contradiction.
 - **La distribution.** Différée depuis la proposition, pour la raison qui y est écrite.
 - **La sentinelle lira-t-elle `REGISTRE.md` seul ?** Conçu pour, mais c'est le changement suivant qui le vérifiera.
