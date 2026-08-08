@@ -78,4 +78,4 @@ Aucune mitigation n'est proposée : le contrôle qui la rattraperait devrait con
 ## Open Questions
 
 - ~~La politique de branches reste non tranchée.~~ **Close** par `adr/0003`, accepté le 2026-08-08 sans superséder `adr/0002`.
-- ~~La première publication portera `0.4.2`.~~ Elle a porté **`0.5.0`**. Reste ouverte la seule question de fond : le correctif du journal de la sentinelle, fusionné avant l'adoption avec un sujet sans type, est **absent du `CHANGELOG` généré** — décider s'il y est ajouté à la main.
+- ~~La première publication portera `0.4.2`.~~ Elle a porté **`0.5.0`**. ~~Reste ouverte la seule question de fond : le correctif du journal de la sentinelle est absent du `CHANGELOG` généré — décider s'il y est ajouté à la main.~~ **Tranchée : il n'y est pas ajouté.** Le `CHANGELOG` est un index des publications ; le journal de bord est `openspec/changes/archive/`, où le correctif figure. Corriger à la main un journal dérivé rétablirait l'autorité humaine par la porte de service, ce qu'`adr/0002` refuse pour le numéro de version.
