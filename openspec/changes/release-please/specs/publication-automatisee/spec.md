@@ -6,13 +6,16 @@ Le niveau d'une publication MUST être calculé à partir des types de commit ac
 
 La correspondance MUST être : `feat!` ou pied de page `BREAKING CHANGE:` → majeure · `feat` → mineure · `fix`, `docs`, `refactor`, `test`, `chore` → corrective.
 
+**Tant que la version est inférieure à `1.0.0`**, l'option `bump-minor-pre-major` MUST être active : une rupture produit alors un **mineur** et non un majeur. Le dépôt ne passera pas en `1.0.0` par accumulation mécanique — le README pose qu'annoncer une 1.0 sur un registre à moitié écrit est exactement ce dont il se méfie. Le passage à `1.0.0` MUST rester un acte délibéré.
+
 #### Scenario: Accumulation de correctifs
 - **QUAND** trois commits `docs(specs):` sont fusionnés depuis la dernière publication
 - **ALORS** le niveau calculé est corrective, et la version passe de `0.4.1` à `0.4.2`
 
-#### Scenario: Admission d'une voix au registre
-- **QUAND** un commit `feat!(registre):` fusionne l'entrée de Federici
-- **ALORS** le niveau calculé est majeure
+#### Scenario: Admission d'une voix au registre, avant 1.0.0
+- **QUAND** un commit `feat!(registre):` fusionne l'entrée de Federici, la version courante étant `0.4.x`
+- **ALORS** le niveau calculé est **mineur** — `0.5.0` — parce que `bump-minor-pre-major` est actif
+- **ET** la règle du dépôt qui appelle une majeure n'est pas contredite : elle le sera à partir de `1.0.0`
 
 #### Scenario: Type hors du jeu configuré
 - **QUAND** un commit porte un type qui n'est pas dans le jeu fermé de `convention-commits`
@@ -42,10 +45,15 @@ Aucune version MUST être publiée sans un acte explicite. L'outil ouvre une dem
 
 La dérivation MUST être documentée comme aveugle au registre. Un type mal choisi produit une version fausse sans que rien ne le signale : l'outil lit `feat` là où l'auteur voulait `feat!`, et l'entrée d'une voix passe en mineure. Le dépôt MUST porter cette limite par écrit, faute de contrôle qui la rattrape.
 
-#### Scenario: Type sous-évalué sur une admission
-- **QUAND** une voix entre au registre par un commit `feat(registre):` au lieu de `feat!(registre):`
-- **ALORS** la version calculée est mineure alors que la règle du dépôt appelle une majeure
-- **ET** aucun contrôle ne le détecte — c'est le coût accepté du passage à l'autorité des types
+#### Scenario: Type sous-évalué sur une admission, avant 1.0.0
+- **QUAND** une voix entre au registre par un commit `feat(registre):` au lieu de `feat!(registre):`, la version courante étant `0.4.x`
+- **ALORS** la version calculée est la même dans les deux cas — `bump-minor-pre-major` fait converger `feat` et `feat!` sur un mineur
+- **ET** l'erreur est donc **sans conséquence tant que le dépôt est sous `1.0.0`**
+
+#### Scenario: Type sous-évalué sur une admission, à partir de 1.0.0
+- **QUAND** le même commit est posé alors que la version courante est `1.x`
+- **ALORS** la version calculée est mineure là où la règle du dépôt appelle une majeure
+- **ET** aucun contrôle ne le détecte — c'est le coût accepté du passage à l'autorité des types, seulement différé
 
 ### Requirement: Le journal publié ne remplace pas le dossier de raisonnement
 
